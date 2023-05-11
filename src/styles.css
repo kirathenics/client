@@ -1,0 +1,28 @@
+#but_cont
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.butt
+{   
+    background-color: rgb(33,47,92);
+    color: white;
+    height: 30px;
+    width: 90px;
+    margin: 0 1px;
+}
+
+.butt :hover{
+    background-color:rgb(36, 78, 216);
+}
+
+#left
+{
+    border-radius: 15px 0 0 15px;
+}
+#right
+{
+    border-radius: 0 15px 15px 0;
+}

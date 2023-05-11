@@ -1,0 +1,98 @@
+
+
+.MainDiv{
+    width: 100;
+}
+
+.Graph{
+    position: absolute;
+    width: 100%;
+    height: 700px;
+    z-index: 1000;
+    background-color:aqua;
+    margin: 10px 0 0 0;
+    left:0;
+    right: 0;
+}
+
+.blockIt {
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap:wrap; */
+    /* justify-content: center;*/
+    align-items: center;
+}
+
+@media(max-width: 900px){
+    .blockIt{
+        /* flex-wrap: wrap-reverse; */
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+.divb 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.butt
+{   
+    background-color: rgb(33,47,92);
+    color: white;
+    height: 30px;
+    width: 90px;
+    
+    border: 2px solid rgb(33,47,92);
+}
+
+.Disable{
+    background-color: white;
+    color: whitergb(33,47,92);
+    height: 30px;
+    width: 90px;
+    
+    border: 2px solid rgb(33,47,92);
+}
+
+/* .butt:hover{
+    background-color:rgb(36, 78, 216);
+} */
+
+#left
+{
+    /* background-color: rgb(33,47,92);
+    color: white;
+    height: 30px;
+    width: 90px;
+    margin: 0 1px; */
+    border-radius: 15px 0 0 15px;
+}
+#right
+{
+    /* background-color: rgb(33,47,92);
+    color: white;
+    height: 30px;
+    width: 90px;
+    margin: 0 1px; */
+    border-radius: 0 15px 15px 0;
+}
+
+#right:hover{
+    -webkit-box-shadow: 4px 0px 8px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 0px 8px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 0px 8px 2px rgba(34, 60, 80, 0.2);
+    cursor:pointer;
+}
+
+#left:hover{
+    -webkit-box-shadow: -4px 0px 8px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -4px 0px 8px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: -4px 0px 8px 2px rgba(34, 60, 80, 0.2);
+    cursor:pointer;
+}
+
+
+

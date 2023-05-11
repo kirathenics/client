@@ -1,0 +1,155 @@
+/* .TableWrapper {
+	overflow: auto;
+	position: relative;
+}
+.TableWrapper table {
+	display: inline-block;
+	vertical-align: top;
+	max-width: 100%;
+	overflow-x: auto;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+.TableWrapper:after {
+	content: '';
+	display: block;
+	width: 15px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 500;
+	background: radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: 15px 100%;
+	background-position: 100% 0%;
+}
+.TableWrapper:before {
+	content: '';
+	display: block;
+	width: 15px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 500;
+	background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: 15px 100%;
+} */
+
+.TableWrapper{
+    margin: 10px 10% 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+	/* box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; */
+}
+
+.BigTable {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    /* white-space: nowrap; */
+    background-color: white;
+	/* box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; */
+}
+
+.BigTable td, .BigTable th {
+    text-align: center;
+    padding: 8px;
+}
+
+.BigTable td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.BigTable thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.BigTable thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.BigTable tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .BigTable {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .BigTable thead, .BigTable tbody, .BigTable thead th {
+        display: block;
+    }
+    .BigTable thead th:last-child{
+        border-bottom: none;
+    }
+    .BigTable thead {
+        float: left;
+    }
+    .BigTable tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .BigTable td, .BigTable th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .BigTable thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .BigTable tbody tr {
+        display: table-cell;
+    }
+    .BigTable tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .BigTable tr:nth-child(even) {
+        background: transparent;
+    }
+    .BigTable tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .BigTable tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .BigTable tbody td {
+        display: block;
+        text-align: center;
+    }
+}

@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+
+.FilDiv{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 50px;
+}
+
+.Filter{
+    height: 35px;
+    
+    width: 120px;
+    /* padding: 16px 32px; */
+    border-radius: 20px;
+    /* margin-left: 26%;*/
+    margin-right: 5%; 
+    background-color:rgb(44, 63, 124);
+    color:white;
+}
+
+.FilterP{
+    height: 44px;
+    
+    width: 120px;
+    /* padding: 16px 32px; */
+    /* border-radius: 20px; */
+    /* margin-left: 26%;*/
+    margin-right: 5%; 
+    border-radius:20px 20px 0 0;
+    /* background-color:rgb(44, 63, 124); */
+    background-color:rgb(235,235,235);
+    color:rgb(23, 36, 77);
+    border-width: 2px 2px 0 2px;
+    z-index: 2000;
+    font-weight: bold;
+}
+
+/* .Filter:hover{
+    border-radius:20px 20px 0 0;
+}
+
+.Filter:hover~.DivWithFil{
+    display: flex;
+}
+
+.DivWithFil:hover~.Filter{
+    border-radius:20px 20px 0 0;
+}
+
+.DivWithFil:hover{
+    display:flex;
+} */
+
+.DivWithFil
+{
+    display: flex;
+    z-index: 100;
+    top: 45px;
+    left: 20%;
+    position: absolute;
+    width: 70%;
+    height: 300px;
+    border: 2px solid rgb(23, 36, 77); 
+    background-color: rgb(235,235,235);
+    
+    color:rgb(44, 63, 124);
+    
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:bold;
+    border-radius: 7px;
+    
+}
+
+.Facult{
+    margin-top: 5px;
+    height: 95%;
+    width: 32%;
+    margin-right: 0.5%;
+    /* border: 1px solid black;  */
+    
+}
+
+.Cafed{
+    margin-top: 5px;
+    margin-left: 1%;
+    
+    height: 95%;
+    width: 32%;
+    margin-right: 0.5%;
+
+    /* border: 1px solid black;  */
+}
+
+.FilButs::-webkit-scrollbar{
+    width: 6px;
+    /* border-radius: 5px; */
+    /* margin-left: 20px; */
+}
+.FilButs::-webkit-scrollbar-track{
+    width: 6px;
+    border-radius: 5px;
+    background-color: rgb(186, 186, 201);
+    /* margin-left: 20px; */
+}
+.FilButs::-webkit-scrollbar-thumb{
+    width: 6px;
+    border-radius: 10px;
+    background-color:rgb(124, 124, 124);
+}
+
+.Str{
+    height: 6.6%;
+    text-align: center;
+}
+
+.FilButs{
+    border: 1px solid rgb(163, 163, 163);
+    margin-top: 2px;
+    height: 93.2%;
+    /* overflow-y: scroll; */
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* scroll-margin-left: 10px; */
+
+    border-width: 1px 0 1px 0;
+}
+
+/* .FilButs button{
+    width: 100%;
+    text-align: left;
+    min-height: 30px;
+    border: 1px solid rgb(163, 163, 163);
+    border-width: 0 0 1px 0;
+    background-color: rgb(235,235,235);
+    color:rgb(23, 36, 77);
+    font-weight: bold;
+} */
+
+.Choose{
+    /* background-color:rgb(44, 63, 124); */
+    width: 100%;
+    text-align: left;
+    min-height: 30px;
+    border: 1px solid rgb(163, 163, 163);
+    border-width: 0 0 1px 0;
+    background-color: rgb(235,235,235);
+    color:rgb(23, 36, 77);
+    font-weight: bold;
+    border-left:5px solid rgb(137, 199, 62);
+    -webkit-box-shadow: inset -2.5px 0 6px 0 rgba(34, 60, 80, 0.2);
+-moz-box-shadow: inset -2.5px 0 6px 0 rgba(34, 60, 80, 0.2);
+box-shadow: inset 0px 0 6px 0 rgba(34, 60, 80, 0.5);
+
+}
+
+.Choose:hover {
+    background-color:rgb(217,221,233);
+}
+
+.NotChoose{
+    /* background-color:rgb(44, 63, 124); */
+    width: 100%;
+    text-align: left;
+    min-height: 30px;
+    border: 1px solid rgb(163, 163, 163);
+    border-width: 0 0 1px 0;
+    background-color: rgb(235,235,235);
+    color:rgb(23, 36, 77);
+    font-weight: bold;
+}
+
+.NotChoose:hover {
+    background-color:rgb(217,221,233);
+}
+
+.Spec{
+    margin-top: 5px;
+    height: 95%;
+    width: 32%;
+    /* border: 1px solid black;  */
+}
+
+.Sort{
+    height: 35px;
+    width: 120px;
+    /* padding: 16px 32px; */
+    border-radius: 20px;
+    background-color:rgb(44, 63, 124);
+    color:white;
+}
+
+.SortP{
+    height: 40px;
+    width: 120px;
+    /* padding: 16px 32px; */
+    border-radius:20px 20px 0 0;
+}
+
+.DivWithSort{
+    /* display: flex; */
+    z-index: 100;
+    top: 45px;
+    right: 36.7%;
+    position: absolute;
+    width: 15%;
+    height:fit-content;
+    border: 1px solid black; 
+    background-color: rgb(218, 218, 218);
+}
+
+.DivWithSort button{
+    width: 100%;
+}
