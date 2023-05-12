@@ -28,7 +28,7 @@ export function FilSort(){
     const RefS = useRef(null)
 
     const [isPressedF, setIsPressedF]=useState(false);
-    const [isPressedS, setIsPressedS]=useState(false);1
+    const [isPressedS, setIsPressedS]=useState(false);
     const [data, setData]=useState(MassKaf);
 
     const toggleDropdownF = () => {setIsPressedF(!isPressedF)}
