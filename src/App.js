@@ -27,8 +27,8 @@ function App() {
 
       </div>)}
 
-      <div>
-        <h1>Топ 3</h1>
+      <div className={styles.DivForTop3}>
+        <h3 className={styles.Top3Header}>ТОП 3 СОТРУДНИКА ПО ЦИТИРОВАНИЮ</h3>
         <div className={styles.blockIt}>
         {top3it.length ? (top3it.map(top => <Top3Item key={top.id} top={top} /> ) ) 
         : <p>Отсутствуют данные по цитированию</p> }           
