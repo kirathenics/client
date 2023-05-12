@@ -37,8 +37,9 @@
         justify-content: space-around;
         /* height: 300px; */
     }
-    .blockIt > {
-        height: 200px;
+
+    .blockIt .item{
+        height: 300px;
     }
 }
 
