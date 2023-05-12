@@ -6,6 +6,8 @@ export function FilSort(){
     const MassKaf = [
         //{name:'Кафедра такая-то', id: 1, flag: false},
         {name:'Кафедра такая-то111', id: 2, flag: false},
+        {name:'Кафедра такая-то', id: 1, flag: false},
+        //{name:'Кафедра такая-то111', id: 2, flag: false},
         {name:'аааааа3аааааааа ааааааа', id: 3, flag: false},
         {name:'авмфва', id: 4},
         {name:'мфаввввв', id: 5},
