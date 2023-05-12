@@ -1,5 +1,3 @@
-
-
 .MainDiv{
     width: 100;
 }
@@ -15,6 +13,15 @@
     right: 0;
 }
 
+/* .DivForTop3{
+} */
+
+.Top3Header{
+    color:rgb(33,47,92);
+    
+    text-align: center;
+}
+
 .blockIt {
     display: flex;
     justify-content: space-between;
@@ -28,6 +35,10 @@
         /* flex-wrap: wrap-reverse; */
         flex-direction: column;
         justify-content: space-around;
+        /* height: 300px; */
+    }
+    .blockIt > {
+        height: 200px;
     }
 }
 
