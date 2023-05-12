@@ -36,7 +36,7 @@ function App() {
       </div>
       <FilSort/>
       <NewTopIt/>
-      <Table />
+      <Table/>
     </div>
   );
 }
