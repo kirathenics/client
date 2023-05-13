@@ -7,6 +7,7 @@ const columns = [
     {heading: 'id', value: 'id'},
     {heading: 'ФИО', value: 'FIO'},
     {heading: 'Info', value: 'Info'},
+    {heading: 'Кол-во цитирований', value: 'cited'},  
     {heading: 'h', value: 'h'}
 ]
 
@@ -68,6 +69,7 @@ function TableRow({item}){
             <td>{item.id}</td>
             <td>{item.FIO}</td>
             <td>{item.Info}</td>
+            <td>{item.cited}</td>
             <td>{item.h}</td>
         </tr>
     )

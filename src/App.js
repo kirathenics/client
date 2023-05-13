@@ -6,6 +6,7 @@ import {Top3Item} from './Top3-item/Top3-item';
 import NewTopIt from './Top3-item/NewTopIt';
 import { Table } from './table/Table';
 import { FilSort } from './FilterSort/FilterSort';
+//import styles1 from './Top3-item/Top3-item.module.css'
 
 function App() {
 
@@ -30,12 +31,13 @@ function App() {
       <div className={styles.DivForTop3}>
         <h3 className={styles.Top3Header}>ТОП 3 СОТРУДНИКА ПО ЦИТИРОВАНИЮ</h3>
         <div className={styles.blockIt}>
-        {top3it.length ? (top3it.map(top => <Top3Item key={top.id} top={top} /> ) ) 
+        {top3it.length ? (top3it.map(top => <Top3Item styles={styles} key={top.id} top={top} /> ) ) 
         : <p>Отсутствуют данные по цитированию</p> }           
         </div>
       </div>
-      <FilSort/>
       <NewTopIt/>
+      <FilSort/>
+      
       <Table/>
     </div>
   );
