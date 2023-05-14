@@ -88,6 +88,10 @@
     background: #F8F8F8;
 }
 
+.BigTable img {
+    height: 80px;
+}
+
 /* Responsive */
 
 @media (max-width: 767px) {
