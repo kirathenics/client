@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 // import styles1 from './styles.css'
 import styles from './App.module.css'
 import { top3it } from './Top3.data';
+
 import {Top3Item} from './Top3-item/Top3-item';
 import NewTopIt from './Top3-item/NewTopIt';
 import { Table } from './table/Table';
@@ -38,6 +39,8 @@ function App() {
       <NewTopIt/>
       <FilSort/>
       
+      <Table/>
+      <Table/>
       <Table/>
     </div>
   );

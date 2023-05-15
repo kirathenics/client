@@ -12,13 +12,21 @@ import React from 'react'
 // }
 
 export function Top3Item (props){
+
+    const parts = props.top.FIO.split(' ')
+
+
     return(
         <div key={props.top.id} className={props.styles.item}>
-            <div >
+            <div className={props.styles.topSection}>
                 <img className={props.styles.ProfilePhoto} src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=LclhqW8AAAAJ&citpid=6" alt="Фото Schoolar" />
+                <div className={props.styles.FIO}>
+                    <p className={props.styles.F}>{parts[0]}</p>  
+                    <p className={props.styles.IO}>{parts[1] + ' ' + parts[2]}</p>  
+                </div>
+                
             </div>
-            <h3>{props.top.FIO}</h3>
-            <p>Процитрован(-а) {props.top.cited} раз</p>
+            <p>Количество цитирований: {props.top.cited}</p>
             <button>Узнать больше</button>
         </div>
     )

@@ -1,7 +1,7 @@
 export const top3it = [
     {
         id: 1,
-        FIO: 'Иванов Иван Иванович',
+        FIO: 'Иванов Иmhbfdvjsbhbван Иванович',
         Info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit odit ducimus architecto id? Quis magni odit debitis cupiditate laborum, tenetur assumenda repudiandae veritatis perspiciatis delectus officia? Maiores voluptates a tempora?',
         cited: 100,
         h: 10

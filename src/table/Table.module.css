@@ -61,6 +61,11 @@
 	/* box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box; */
+
+}
+
+.BigTable img{
+    height: 80px;
 }
 
 .BigTable td, .BigTable th {
