@@ -1,7 +1,7 @@
 import React from 'react'
-import { TestData } from '../Top3.data'
+//import { TestData } from '../Top3.data'
 import styles from './Table.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProfiles } from '../redux/slices/profiles'
@@ -29,7 +29,8 @@ export const sample = [
     {
         //id: 1,
         fullName: 'Иванов Иван Иванович',
-        imageLink: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        profileLink: 'https://scholar.google.ru/citations?view_op=search_authors&hl=ru&mauthors=bstu.by&btnG=',
+        imageLink: 'https://scholar.google.com/citations/images/avatar_scholar_128.png',
         faculty: 'Факультет',
         department: 'Кафедра',
         title: 'Должность',
@@ -54,7 +55,7 @@ export function Table() {
 
     const isProfilesLoading = profiles.status === 'loading'
 
-    React.useEffect(() => {
+    useEffect(() => {
         dispatch(fetchProfiles())
     }, [])
 
@@ -63,22 +64,10 @@ export function Table() {
             <table className={styles.BigTable}>
                 <thead>
                     <tr>
-                        {//{columns.map((item)=><TableHeadItem item={item}/>)}
-                        }
                         {tableColumns.map(item => <TableHeadItem item={item}/>)}
                     </tr>
                 </thead>
                 <tbody>
-                    {//{dataTable.map((item)=><TableRow item={item}/>)}
-                    }
-                    {/*{(isProfilesLoading ? [...Array(3)] : profiles.items).map(item => 
-                        isProfilesLoading ? (
-
-                        ) : (
-
-                        )
-
-                    )}*/}
                     {(isProfilesLoading ? sample : profiles.items).map(item => <TableRow item={item}/>)}
                 </tbody>
             </table>
@@ -95,7 +84,7 @@ function TableHeadItem({item}){
 function TableRow({item}){
     return(
         <tr>
-            <td>{item.fullName}</td>
+            <td ><a href = {item.profileLink}>{item.fullName}</a></td>
             <td><img src = {item.imageLink} alt = "" /></td>
             <td>{item.faculty}</td>
             <td>{item.department}</td>
