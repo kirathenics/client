@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from '../../axios'
+import axios from '../axios'
 
 export const fetchProfiles = createAsyncThunk('profiles/fetchProfiles', async () => {
     const { data } = await axios.get('/profiles')
@@ -10,7 +10,7 @@ const initialState = {
     profiles: {
         items: [],
         status: 'loading',
-    }
+    },
 }
 
 const profilesSlice = createSlice({

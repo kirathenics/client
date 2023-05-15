@@ -51,7 +51,7 @@ export function Table() {
     }, [])*/
 
     const dispatch = useDispatch()
-    const { profiles } =useSelector(state => state.profiles)
+    const { profiles } = useSelector(state => state.profiles)
 
     const isProfilesLoading = profiles.status === 'loading'
 
@@ -75,13 +75,13 @@ export function Table() {
     )
 }
 
-function TableHeadItem({item}){
+function TableHeadItem({item}) {
     return(
         <th>{item.heading}</th>
     )
 }
 
-function TableRow({item}){
+function TableRow({item}) {
     return(
         <tr>
             <td ><a href = {item.profileLink}>{item.fullName}</a></td>
