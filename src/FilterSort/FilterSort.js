@@ -20,8 +20,17 @@ export function FilSort(){
         {name:'00000000000000000000000 000000000 00000000', id: 14}
     ]
 
+    const MassSort = [
+        {text:'ФИО возр.', field:'fio', seq:1, flag:true,},
+        {text:'ФИО убыв.', field:'fio', seq:-1, flag:false,},
+        {text:'Цитирование возр.', field:'cited', seq:1, flag:false,},
+        {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false,},
+        {text:'h-индекс возр.', field:'h', seq:1, flag:false,},
+        {text:'h-индекс убыв.', field:'h', seq:-1, flag:false,}
+    ]
+
     const [object, setObject]=useState({arr1:[],arr2:[]})
-    const [sort, setSort] = useState({field:'cited',sequence:1})
+    const [sort, setSort] = useState({text:'ФИО возр.', field:'fio', seq:1, flag:true})
     const RefButF = useRef(null)
     const RefButS = useRef(null)
     const RefF = useRef(null)
@@ -30,6 +39,7 @@ export function FilSort(){
     const [isPressedF, setIsPressedF]=useState(false);
     const [isPressedS, setIsPressedS]=useState(false);
     const [data, setData]=useState(MassKaf);
+    const [dataSort, setDataSort] = useState(MassSort);
 
     const toggleDropdownF = () => {setIsPressedF(!isPressedF)}
     const toggleDropdownS = () => {setIsPressedS(!isPressedS)}
@@ -49,8 +59,11 @@ export function FilSort(){
         }   
     }
 
-    const handleButtonClickS=(field, seq)=>{
-        setSort({field, seq})
+    const handleButtonClickS=(e, index)=>{
+        const newData = dataSort.map((item)=>{return{...item, flag:false};})
+        newData[index].flag = true;
+        setDataSort(newData);
+        setSort(newData[index])
     }
 
     const handleClickOutsideF = (event) => {
@@ -71,6 +84,7 @@ export function FilSort(){
 
     console.log(object)
     console.log(sort)
+    console.log(dataSort)
     console.log(data)
     return(
         <div className={styles.FiltSort}>
@@ -78,7 +92,7 @@ export function FilSort(){
             <div className={styles.FilDiv}>
                 <button ref={RefButF} onClick={toggleDropdownF} className={isPressedF ? styles.FilterP : styles.Filter}>Фильтр</button>
                 {isPressedF&&(<div ref={RefF} className={styles.DivWithFil}>
-
+                    <div className={styles.AllFilters}>
                     <div className={styles.Cafed}>
                     <div className={styles.Str}>Кафедра</div>
                     <div className={styles.FilButs}>{data.map((item, index)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={item.id} onClick={(e, item)=>{handleButtonClick('arr1', e, index)}}>{item.name}</button>))}</div>
@@ -93,18 +107,28 @@ export function FilSort(){
                     <div className={styles.Str}>Звание</div>
                     <div className={styles.FilButs}>{data.map((item)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={item.id} onClick={(e, item)=>{handleButtonClick('arr1', e, item)}}>{item.name}</button>))}</div>
                     </div>
+                    </div>
+                    <div className={styles.ApplyDel}>
+                        <button className={styles.Apply}>Применить</button>
+                        <button className={styles.Del}>Очистить</button> 
+                    </div>
+                    
 
                 </div>)}
 
-                <button ref={RefButS} onClick={toggleDropdownS} className={isPressedS ? styles.SortP : styles.Sort}>Сортировка</button>
+                
+                 <button ref={RefButS} onClick={toggleDropdownS} className={isPressedS ? styles.SortP : styles.Sort}>Сортировка</button>
                     {isPressedS&&(<div ref={RefS} className={styles.DivWithSort}>
-                        <button onClick={()=>handleButtonClickS('fio', 1)}>ФИО возр.</button>
+                        {dataSort.map((item, index)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={index} onClick={(e, item)=>{handleButtonClickS(e, index)}}>{item.text}</button>))}
+                        {/* <button onClick={()=>handleButtonClickS('fio', 1)}>ФИО возр.</button>
                         <button onClick={()=>handleButtonClickS('fio', -1)}>ФИО убыв.</button>
                         <button onClick={()=>handleButtonClickS('cited', 1)}>Цитирование возр</button>
                         <button onClick={()=>handleButtonClickS('cited', -1)}>Цитирование убыв.</button>
                         <button onClick={()=>handleButtonClickS('h', 1)}>Индекс-h возр.</button>
-                        <button onClick={()=>handleButtonClickS('h', -1)}>Индекс-hё убыв.</button>
+                        <button onClick={()=>handleButtonClickS('h', -1)}>Индекс-hё убыв.</button> */}
                     </div>)}
+
+                
             </div>
 
         </div>

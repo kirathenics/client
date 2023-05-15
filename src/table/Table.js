@@ -66,7 +66,7 @@ function TableRow({item}){
             <td>{item[`${item.FIO}`]}</td>
             <td>{item[`${item.Info}`]}</td>
             <td>{item[`${item.h}`]}</td> */}
-            <td>{item.id}</td>
+            <td><a href="https://html5book.ru/hyperlinks-in-html/">{item.id}</a></td>
             <td>{item.FIO}</td>
             <td>{item.Info}</td>
             <td>{item.cited}</td>
