@@ -67,13 +67,13 @@ export function FilSort(){
         {name:'Специалист', id: 3, flag: false},
     ]
 
-    const MassSort = [
-        {text:'ФИО возр.', field:'fio', seq:1, flag:true,},
+    const arrSort = [
+        {text:'h-индекс возр.', field:'h', seq:1, flag:false,},
+        {text:'h-индекс убыв.', field:'h', seq:-1, flag:true,},
+        {text:'ФИО возр.', field:'fio', seq:1, flag:false,},
         {text:'ФИО убыв.', field:'fio', seq:-1, flag:false,},
         {text:'Цитирование возр.', field:'cited', seq:1, flag:false,},
-        {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false,},
-        {text:'h-индекс возр.', field:'h', seq:1, flag:false,},
-        {text:'h-индекс убыв.', field:'h', seq:-1, flag:false,}
+        {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false,}
     ]
 
     const [object, setObject]=useState({arrDepartments:[],arrFaculties:[],arrTitles:[]})
@@ -88,7 +88,7 @@ export function FilSort(){
     const [dataDepartments, setData]=useState(arrDepartments);
     const [dataFaculties, setDataFaculties]=useState(arrFaculties);
     const [dataTitles, setDataTitles]=useState(arrTitles);
-    const [dataSort, setDataSort] = useState(MassSort);
+    const [dataSort, setDataSort] = useState(arrSort);
 
     const toggleDropdownF = () => {setIsPressedF(!isPressedF)}
     const toggleDropdownS = () => {setIsPressedS(!isPressedS)}
