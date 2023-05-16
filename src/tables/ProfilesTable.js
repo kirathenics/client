@@ -91,9 +91,9 @@ export function ProfilesTable() {
         <>
             <div className={styles.DivWithSumInfo}>
                 <div className={styles.SumInfo}>Сотрудников: {countOfPersons}</div>
-                <div className={styles.SumInfo}>Суммарное цитирование: {sumOfCited}</div>
-                <div className={styles.SumInfo}>Суммарный h-индекс: {sumOfH}</div>
-                <div className={styles.SumInfo}>Суммарный i10-индекс: {sumOfI10}</div>
+                <div title='Индекс цитирования Google Scholar – это статистический инструмент для определения рейтинга ученых.' className={styles.SumInfo}>Суммарное цитирование: {sumOfCited}</div>
+                <div title='h-индекс равняется количеству h статей, процитированных как минимум h раз.' className={styles.SumInfo}>Суммарный h-индекс: {sumOfH}</div>
+                <div title='Индекс i-10 указывает на количество академических публикаций, написанных автором, которые цитировались по крайней мере в 10 источниках.' className={styles.SumInfo}>Суммарный i10-индекс: {sumOfI10}</div>
             </div>
             <h3>Таблица по сотрудникам</h3>
             <div className={styles.TableWrapper}>
