@@ -15,7 +15,8 @@ export function Top3Item (props) {
     const parts = props.item.fullName.split(' ')
 
     function handleClick() {
-        window.location.href= props.item.profileLink
+        window.open(props.item.profileLink)
+        // window.location.href = props.item.profileLink
     }
 
     return(
