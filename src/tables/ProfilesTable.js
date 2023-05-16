@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 //import { TestData } from '../Top3.data'
 import styles from './Table.module.css'
-import { useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProfiles } from '../redux/slices/profiles'
@@ -60,8 +59,44 @@ export function ProfilesTable() {
         dispatch(fetchProfiles())
     }, [])
 
+
+    const [countOfPersons, setCountOfPersons]=useState(0)
+    const [sumOfCited, setSumOfCited] = useState(0)
+    const [sumOfH, setSumOfH] = useState(0)
+    const [sumOfI10, setSumOfI10] = useState(0)
+
+    useEffect(()=>{
+        const newCount = profiles.items.length;
+        setCountOfPersons(newCount);
+
+        let newSumCited = 0;
+        profiles.items.forEach((obj) => {
+        newSumCited += obj.cited;});
+        setSumOfCited(newSumCited);
+
+        let newSumH = 0;
+        profiles.items.forEach((obj) => {
+        newSumH += obj.hIndex;});
+        setSumOfH(newSumH);
+
+        let newSumI10 = 0;
+        profiles.items.forEach((obj) => {
+        newSumI10 += obj.i10Index;});
+        setSumOfI10(newSumI10);
+
+    },[profiles])
+
+    console.log(countOfPersons)
     return(
-        <div className={styles.TableWrapper}>
+        <>
+            <div className={styles.DivWithSumInfo}>
+                <div className={styles.SumInfo}>Сотрудников: {countOfPersons}</div>
+                <div className={styles.SumInfo}>Суммарное цитирование: {sumOfCited}</div>
+                <div className={styles.SumInfo}>Суммарный h-индекс: {sumOfH}</div>
+                <div className={styles.SumInfo}>Суммарный i10-индекс: {sumOfI10}</div>
+            </div>
+            <h3>Таблица по сотрудникам</h3>
+            <div className={styles.TableWrapper}>
             <table className={styles.BigTable}>
                 <thead>
                     <tr>
@@ -73,6 +108,8 @@ export function ProfilesTable() {
                 </tbody>
             </table>
         </div>
+        </>
+        
     )
 }
 

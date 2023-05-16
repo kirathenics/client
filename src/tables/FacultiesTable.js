@@ -36,7 +36,9 @@ export function FacultiesTable() {
     }, [])
 
     return(
-        <div className={styles.FacultiesTable}>
+        <>
+            <h3>Таблица по факультетам</h3>
+          <div className={styles.FacultiesTable}>
             <table className={styles.BigTable}>
                 <thead>
                     <tr>
@@ -47,7 +49,9 @@ export function FacultiesTable() {
                     {(isFacultiesLoading ? sample : faculties.items).map((item, index) => <TableRow item={item} id={index}/>)}
                 </tbody>
             </table>
-        </div>
+         </div>  
+        </>
+        
     )
 }
 

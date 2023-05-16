@@ -36,7 +36,9 @@ export function DepartmentsTable() {
     }, [])
 
     return(
-        <div className={styles.TableWrapper}>
+        <>
+            <h3>Таблица по кафедрам</h3>
+          <div className={styles.TableWrapper}>
             <table className={styles.BigTable}>
                 <thead>
                     <tr>
@@ -47,7 +49,9 @@ export function DepartmentsTable() {
                     {(isDepartmentsLoading ? sample : departments.items).map((item, index) => <TableRow item={item} id={index}/>)}
                 </tbody>
             </table>
-        </div>
+        </div>  
+        </>
+        
     )
 }
 

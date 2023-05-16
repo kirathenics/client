@@ -49,8 +49,47 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box; */
 }
+.DivWithSumInfo{
+    margin-top: 35px;
+    height: 45px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    /* margin: 0; */
+    /* margin: 0 2% 0 2%; */
+}
+
+.SumInfo{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 21.5%;
+    background-color: rgb(33,47,92);
+    color: white;
+    text-align: center;
+}
+
+.DivWithSumInfo .SumInfo:first-child{
+    border-radius: 15px 0 0 15px;
+}
+.DivWithSumInfo .SumInfo:nth-child(2){
+    border-width: 0 1px;
+    border: 1px solid white;
+}
+.DivWithSumInfo .SumInfo:nth-child(3){
+    border-right: 1px solid white;
+}
 
 
+.DivWithSumInfo .SumInfo:last-child{
+    border-radius: 0 15px 15px 0;
+}
+
+h3{
+    color:rgb(33,47,92);
+    text-align: center;
+}
 
 .TableWrapper::-webkit-scrollbar{
     width: 8px;
