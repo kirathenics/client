@@ -32,17 +32,17 @@
 
 .blockIt .item:first-child{
     /* margin-left: 9%; */
-    background-image: url(../backgrounForTop/goldbstu.jpg);
+    background-image: url(../backgroundForTop/goldbstu.jpg);
     /* background-color:blue; */
 }
 
 .blockIt .item:nth-child(2){
-    background-image: url(../backgrounForTop/silverbstu.jpg);
+    background-image: url(../backgroundForTop/silverbstu.jpg);
 }
 
 .blockIt .item:last-child{
     /* margin-right: 9%; */
-    background-image: url(../backgrounForTop/bronzebstu.jpg);
+    background-image: url(../backgroundForTop/bronzebstu.jpg);
 }
 
 

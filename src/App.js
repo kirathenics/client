@@ -4,10 +4,12 @@ import styles from './App.module.css'
 //import { top3it } from './Top3.data';
 
 //import {Top3Item} from './Top3/Top3-item';
-import { Top3Profiles } from './Top3/Top3Profiles';
-import NewTopIt from './Top3/NewTopIt';
-import { Table } from './table/Table';
-import { FilSort } from './FilterSort/FilterSort';
+import { Top3Profiles } from './Top3/Top3Profiles'
+import NewTopIt from './Top3/NewTopIt'
+import { ProfilesTable } from './tables/ProfilesTable'
+import { FacultiesTable } from './tables/FacultiesTable'
+import { DepartmentsTable } from './tables/DepartmentsTable'
+import { FilSort } from './FilterSort/FilterSort'
 //import styles1 from './Top3-item/Top3-item.module.css'
 
 function App() {
@@ -39,12 +41,11 @@ function App() {
       <NewTopIt/>
       <FilSort/>
       
-      <Table/>
-      <Table/>
-      <Table/>
+      <ProfilesTable/>
+      <FacultiesTable/>
+      <DepartmentsTable/>
     </div>
   );
 }
-
 
 export default App;

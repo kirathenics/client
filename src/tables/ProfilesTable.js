@@ -15,6 +15,7 @@ import { fetchProfiles } from '../redux/slices/profiles'
 ]*/
 
 const tableColumns = [
+    {heading: 'Номер', value: 'id'},
     {heading: 'ФИО', value: 'fullName'},
     {heading: 'Фото', value: 'imageLink'},
     {heading: 'Факультет', value: 'faculty'},
@@ -27,7 +28,7 @@ const tableColumns = [
 
 export const sample = [
     {
-        //id: 1,
+        id: 1,
         fullName: 'Иванов Иван Иванович',
         profileLink: 'https://scholar.google.ru/citations?view_op=search_authors&hl=ru&mauthors=bstu.by&btnG=',
         imageLink: 'https://scholar.google.com/citations/images/avatar_scholar_128.png',
@@ -40,7 +41,7 @@ export const sample = [
     },
 ]
 
-export function Table() {
+export function ProfilesTable() {
     /*const [dataTable, setDataTable] = useState([])
     console.log(dataTable)
 
@@ -68,7 +69,7 @@ export function Table() {
                     </tr>
                 </thead>
                 <tbody>
-                    {(isProfilesLoading ? sample : profiles.items).map(item => <TableRow item={item}/>)}
+                    {(isProfilesLoading ? sample : profiles.items).map((item, index) => <TableRow item={item} id={index}/>)}
                 </tbody>
             </table>
         </div>
@@ -81,17 +82,18 @@ function TableHeadItem({item}) {
     )
 }
 
-function TableRow({item}) {
+function TableRow(props) {
     return(
         <tr>
-            <td ><a href = {item.profileLink}>{item.fullName}</a></td>
-            <td><img src = {item.imageLink} alt = "" /></td>
-            <td>{item.faculty}</td>
-            <td>{item.department}</td>
-            <td>{item.title}</td>
-            <td>{item.cited}</td>
-            <td>{item.hIndex}</td>
-            <td>{item.i10Index}</td>
+            <td>{props.id + 1}</td>
+            <td ><a href = {props.item.profileLink}>{props.item.fullName}</a></td>
+            <td><img src = {props.item.imageLink} alt = "" /></td>
+            <td>{props.item.faculty}</td>
+            <td>{props.item.department}</td>
+            <td>{props.item.title}</td>
+            <td>{props.item.cited}</td>
+            <td>{props.item.hIndex}</td>
+            <td>{props.item.i10Index}</td>
         </tr>
     )
 }
