@@ -36,7 +36,7 @@ export function FacultiesTable() {
     }, [])
 
     return(
-        <div className={styles.TableWrapper}>
+        <div className={styles.FacultiesTable}>
             <table className={styles.BigTable}>
                 <thead>
                     <tr>

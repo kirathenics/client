@@ -50,6 +50,8 @@
     -moz-box-sizing: border-box; */
 }
 
+
+
 .TableWrapper::-webkit-scrollbar{
     width: 8px;
     /* border-radius: 5px; */
@@ -65,6 +67,12 @@
     width: 8px;
     border-radius: 10px;
     background-color:rgb(124, 124, 124);
+}
+
+.FacultiesTable{
+    margin: 10px 7% 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    height:fit-content;
 }
 
 .BigTable {
