@@ -14,6 +14,10 @@ import React from 'react'
 export function Top3Item (props) {
     const parts = props.item.fullName.split(' ')
 
+    function handleClick() {
+        window.location.href= props.item.profileLink
+    }
+
     return(
         <div key={props.item._id} className={props.styles.item}>
             <div className={props.styles.topSection}>
@@ -25,7 +29,7 @@ export function Top3Item (props) {
                 
             </div>
             <p>Количество цитирований: {props.item.cited}</p>
-            <button><a href = {props.item.profileLink}>Узнать больше</a></button>
+            <button onClick={handleClick}>Узнать больше</button>
         </div>
     )
 }
