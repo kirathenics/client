@@ -41,16 +41,35 @@
 } */
 
 .TableWrapper{
-    margin: 10px 10% 70px;
+    margin: 10px 7% 70px;
     box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    height: 730px;
+    overflow-y: scroll;
 	/* box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box; */
 }
 
+.TableWrapper::-webkit-scrollbar{
+    width: 8px;
+    /* border-radius: 5px; */
+    /* margin-left: 20px; */
+}
+.TableWrapper::-webkit-scrollbar-track{
+    width: 8px;
+    border-radius: 5px;
+    background-color: rgb(186, 186, 201);
+    /* margin-left: 20px; */
+}
+.TableWrapper::-webkit-scrollbar-thumb{
+    width: 8px;
+    border-radius: 10px;
+    background-color:rgb(124, 124, 124);
+}
+
 .BigTable {
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: normal;
     border: none;
     border-collapse: collapse;
@@ -75,7 +94,7 @@
 
 .BigTable td {
     border-right: 1px solid #f8f8f8;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .BigTable thead th {
