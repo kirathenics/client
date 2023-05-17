@@ -4,7 +4,7 @@ import styles from './FilterSort.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProfilesFiltered } from '../redux/slices/profiles'
 
-export function FilSort(props) {
+export function FilSort() {
     // const arrDepartments = [
     //     {name:'Кафедра такая-то', id: 1, flag: false},
     //     {name:'Кафедра такая-то111', id: 2, flag: false},
@@ -87,7 +87,7 @@ export function FilSort(props) {
     const RefF = useRef(null)
     const RefS = useRef(null)
 
-    // props.Sort = sort
+    
 
     const [isPressedF, setIsPressedF]=useState(false);
     const [isPressedS, setIsPressedS]=useState(false);

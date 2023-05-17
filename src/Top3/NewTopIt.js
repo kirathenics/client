@@ -22,6 +22,7 @@ const NewTopIt = () => {
             />
             <button href="#pn" className={styles.but} onClick={handleButtonClick}>Поиск</button>
             <div className={styles.break}></div>
+            <button className={styles.CancelFind}>X</button>
             <p id="pn" className={styles.pp}>{FIO}</p>
         </form>
     )
