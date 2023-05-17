@@ -58,7 +58,7 @@ export function ProfilesTable() {
 
     useEffect(() => {
         dispatch(fetchProfiles())
-    }, [])
+    }, [dispatch])
 
     return(
         <div className={styles.TableWrapper}>
