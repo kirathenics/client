@@ -23,7 +23,17 @@ const profilesSlice = createSlice({
     name: 'profiles',
     initialState,
     reducers: {
-        find: (state, action) => {
+        sortProfiles: (state, action) => {
+            console.log(action.payload.field)
+            console.log(action.payload.seq)
+            //console.log(state.profiles)
+            state.profiles.items = state.profiles.items.sort((a, b) => a[action.payload.field] > b[action.payload.field] ? action.payload.seq : -action.payload.seq)
+            //console.log(state.profiles.items.sort((a, b) => a[action.field] > b[action.field] ? action.seq : -action.seq))
+            //state.profiles.items = []
+
+            /*profiles.sort((a, b) => a[field] > b[field] ? sequence : -sequence)*/
+        },
+        findProfiles: (state, action) => {
             console.log(action.payload)
             console.log(action)
         }
@@ -57,4 +67,4 @@ const profilesSlice = createSlice({
 })
 
 export const profilesReducer = profilesSlice.reducer
-export const { find } = profilesSlice.actions
+export const { sortProfiles, findProfiles } = profilesSlice.actions
