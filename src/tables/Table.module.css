@@ -43,7 +43,8 @@
 .TableWrapper{
     margin: 10px 7% 70px;
     box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
-    height: 730px;
+    max-height: 730px;
+    height: fit-content;
     overflow-y: scroll;
 	/* box-sizing: border-box;
     -webkit-box-sizing: border-box;
