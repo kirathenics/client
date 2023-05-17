@@ -69,11 +69,25 @@ export function ProfilesTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {(isProfilesLoading ? sample : profiles.items).map((item, index) => <TableRow item={item} id={index}/>)}
+                    { !isProfilesLoading && profiles.items.map((item, index) => <TableRow item={item} id={index}/>)}
                 </tbody>
             </table>
         </div>
     )
+    /*return(
+        <div className={styles.TableWrapper}>
+            <table className={styles.BigTable}>
+                <thead>
+                    <tr>
+                        {tableColumns.map(item => <TableHeadItem item={item}/>)}
+                    </tr>
+                </thead>
+                <tbody>
+                    {(isProfilesLoading ? sample : profiles.items).map((item, index) => <TableRow item={item} id={index}/>)}
+                </tbody>
+            </table>
+        </div>
+    )*/
 }
 
 function TableHeadItem({item}) {
