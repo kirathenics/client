@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from './FilterSort.module.css'
 
-export function FilSort(){
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProfiles } from '../redux/slices/profiles'
+
+export function FilSort() {
 
     // const arrDepartments = [
     //     {name:'Кафедра такая-то', id: 1, flag: false},
@@ -139,6 +142,18 @@ export function FilSort(){
         if(RefS.current && RefButS.current && !RefS.current.contains(event.target) && !RefButS.current.contains(event.target)){
             setIsPressedS(false)}
     }
+
+
+    /*const handleApplyButton = () => {
+        const dispatch = useDispatch()
+        const { profiles } = useSelector(state => state.profiles)
+
+        const isProfilesLoading = profiles.status === 'loading'
+
+        useEffect(() => {
+            dispatch(fetchProfiles())
+        }, [])
+    }*/
 
     useEffect(()=>{document.addEventListener('mousedown', handleClickOutsideF); 
     return()=>{document.removeEventListener('mousedown', handleClickOutsideF);};},[RefF])
