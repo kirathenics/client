@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from './FilterSort.module.css'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProfilesFiltered } from '../redux/slices/profiles'
+import { find, fetchProfilesFiltered } from '../redux/slices/profiles'
 
 export function FilSort() {
 
@@ -153,8 +153,14 @@ export function FilSort() {
         if (clickedOnApplyButton) {
             //console.log(JSON.stringify(object))
             dispatch(fetchProfilesFiltered(object))
+            dispatch(find(sort.seq))
+            setClickedOnApplyButton(!clickedOnApplyButton)
         }
     }, [dispatch, clickedOnApplyButton])
+
+    const handleClickApply = () => {
+        setClickedOnApplyButton(true)
+    }
 
     useEffect(()=>{document.addEventListener('mousedown', handleClickOutsideF); 
     return()=>{document.removeEventListener('mousedown', handleClickOutsideF);};},[RefF])
@@ -189,7 +195,7 @@ export function FilSort() {
                     </div>
                     </div>
                     <div className={styles.ApplyDel}>
-                        <button onClick={() => setClickedOnApplyButton(true)} className={styles.Apply}>Применить</button>
+                        <button onClick={handleClickApply} className={styles.Apply}>Применить</button>
                         <button className={styles.Del}>Очистить</button> 
                     </div>
                     

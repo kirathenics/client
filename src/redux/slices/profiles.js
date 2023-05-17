@@ -22,7 +22,12 @@ const initialState = {
 const profilesSlice = createSlice({
     name: 'profiles',
     initialState,
-    reducers: {},
+    reducers: {
+        find: (state, action) => {
+            console.log(action.payload)
+            console.log(action)
+        }
+    },
     extraReducers: {
         [fetchProfiles.pending]: (state) => {
             state.profiles.items = []
@@ -52,3 +57,4 @@ const profilesSlice = createSlice({
 })
 
 export const profilesReducer = profilesSlice.reducer
+export const { find } = profilesSlice.actions
