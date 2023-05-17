@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from './FilterSort.module.css'
 
-export function FilSort(){
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProfilesFiltered } from '../redux/slices/profiles'
+
+export function FilSort() {
 
     // const arrDepartments = [
     //     {name:'Кафедра такая-то', id: 1, flag: false},
@@ -139,6 +142,18 @@ export function FilSort(){
         if(RefS.current && RefButS.current && !RefS.current.contains(event.target) && !RefButS.current.contains(event.target)){
             setIsPressedS(false)}
     }
+    
+    const [clickedOnApplyButton, setClickedOnApplyButton] = useState(false);
+
+    const dispatch = useDispatch()
+    const { profiles } = useSelector(state => state.profiles)
+
+    //const isProfilesLoading = profiles.status === 'loading'
+    useEffect(() => {
+        if (clickedOnApplyButton) {
+            dispatch(fetchProfilesFiltered())
+        }
+    }, [dispatch, clickedOnApplyButton])
 
     useEffect(()=>{document.addEventListener('mousedown', handleClickOutsideF); 
     return()=>{document.removeEventListener('mousedown', handleClickOutsideF);};},[RefF])
@@ -173,7 +188,7 @@ export function FilSort(){
                     </div>
                     </div>
                     <div className={styles.ApplyDel}>
-                        <button className={styles.Apply}>Применить</button>
+                        <button onClick={() => setClickedOnApplyButton(true)} className={styles.Apply}>Применить</button>
                         <button className={styles.Del}>Очистить</button> 
                     </div>
                     
