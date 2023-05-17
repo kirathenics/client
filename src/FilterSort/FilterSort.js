@@ -158,7 +158,6 @@ export function FilSort(props) {
     useEffect(() => {
         if (clickedOnApplyButton) {
             dispatch(fetchProfilesFiltered(object))
-            //dispatch(find(sort))
             setClickedOnApplyButton(!clickedOnApplyButton)
         }
     }, [dispatch, clickedOnApplyButton])
