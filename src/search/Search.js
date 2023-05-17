@@ -1,7 +1,7 @@
-import styles from './NewTopIt.module.css'
+import styles from './Search.module.css'
 import { useState } from 'react'
 
-const NewTopIt = () => {
+export function NewTopIt () {
     const [getv, setGet] = useState('')
     const [FIO, setFIO] = useState('')
 
@@ -29,4 +29,4 @@ const NewTopIt = () => {
     )
 }
 
-export default NewTopIt
+//export default NewTopIt
