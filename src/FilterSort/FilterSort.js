@@ -130,15 +130,12 @@ export function FilSort(props) {
     }
 
     const handleButtonClickS = (e, index)=>{
-        console.log(dataSort)
         const newData = dataSort.map((item)=>{return{...item, flag:false};})
         newData[index].flag = true;
         setDataSort(newData);
         setSort(newData[index])
 
-        console.log(dataSort)
-        console.log(sort)
-        dispatch(sortProfiles(sort))
+        dispatch(sortProfiles(newData[index]))
     }
 
     const handleClickOutsideF = (event) => {
