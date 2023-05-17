@@ -19,6 +19,9 @@ function App() {
     setIsPressed(!isOpen)
   }
 
+    // const [SSort, setSSort] = useState()
+  const Sort = {text:'ФИО возр.', field:'fio', seq:1, flag:true} 
+  
   return (
     <div className={styles.MainDiv}>
       <div className={styles.divb} >
@@ -27,7 +30,7 @@ function App() {
       </div>
 
       {isOpen && (<div className={styles.Graph}>
-
+      {console.log(Sort)}
       </div>)}
 
       { /* <div className={styles.DivForTop3}>
@@ -39,7 +42,7 @@ function App() {
       </div> */ }
       <Top3Profiles styles={styles} />
       <NewTopIt/>
-      <FilSort/>
+      <FilSort Sort ={Sort}/>
       
       <ProfilesTable/>
       <FacultiesTable/>
