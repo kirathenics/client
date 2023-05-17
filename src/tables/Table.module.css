@@ -41,16 +41,82 @@
 } */
 
 .TableWrapper{
-    margin: 10px 10% 70px;
+    margin: 10px 7% 70px;
     box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    height: 730px;
+    overflow-y: scroll;
 	/* box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box; */
 }
+.DivWithSumInfo{
+    margin-top: 35px;
+    height: 45px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    /* margin: 0; */
+    /* margin: 0 2% 0 2%; */
+}
+
+.SumInfo{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 21.5%;
+    background-color: rgb(33,47,92);
+    color: white;
+    text-align: center;
+}
+
+.DivWithSumInfo .SumInfo:first-child{
+    border-radius: 15px 0 0 15px;
+}
+.DivWithSumInfo .SumInfo:nth-child(2){
+    border-width: 0 1px;
+    border: 1px solid white;
+}
+.DivWithSumInfo .SumInfo:nth-child(3){
+    border-right: 1px solid white;
+}
+
+
+.DivWithSumInfo .SumInfo:last-child{
+    border-radius: 0 15px 15px 0;
+}
+
+h3{
+    color:rgb(33,47,92);
+    text-align: center;
+}
+
+.TableWrapper::-webkit-scrollbar{
+    width: 8px;
+    /* border-radius: 5px; */
+    /* margin-left: 20px; */
+}
+.TableWrapper::-webkit-scrollbar-track{
+    width: 8px;
+    border-radius: 5px;
+    background-color: rgb(186, 186, 201);
+    /* margin-left: 20px; */
+}
+.TableWrapper::-webkit-scrollbar-thumb{
+    width: 8px;
+    border-radius: 10px;
+    background-color:rgb(124, 124, 124);
+}
+
+.FacultiesTable{
+    margin: 10px 7% 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    height:fit-content;
+}
 
 .BigTable {
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: normal;
     border: none;
     border-collapse: collapse;
@@ -75,7 +141,7 @@
 
 .BigTable td {
     border-right: 1px solid #f8f8f8;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .BigTable thead th {

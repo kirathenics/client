@@ -4,8 +4,7 @@ import styles from './FilterSort.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { find, fetchProfilesFiltered } from '../redux/slices/profiles'
 
-export function FilSort() {
-
+export function FilSort(props) {
     // const arrDepartments = [
     //     {name:'Кафедра такая-то', id: 1, flag: false},
     //     {name:'Кафедра такая-то111', id: 2, flag: false},
@@ -79,12 +78,16 @@ export function FilSort() {
         {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false,}
     ]
 
+    
+
     const [object, setObject]=useState({arrDepartments:[],arrFaculties:[],arrTitles:[]})
     const [sort, setSort] = useState({text:'ФИО возр.', field:'fio', seq:1, flag:true})
     const RefButF = useRef(null)
     const RefButS = useRef(null)
     const RefF = useRef(null)
     const RefS = useRef(null)
+
+    // props.Sort = sort
 
     const [isPressedF, setIsPressedF]=useState(false);
     const [isPressedS, setIsPressedS]=useState(false);
@@ -146,7 +149,7 @@ export function FilSort() {
     const [clickedOnApplyButton, setClickedOnApplyButton] = useState(false);
 
     const dispatch = useDispatch()
-    const { profiles } = useSelector(state => state.profiles)
+    //const { profiles } = useSelector(state => state.profiles)
 
     //const isProfilesLoading = profiles.status === 'loading'
     useEffect(() => {
@@ -156,10 +159,22 @@ export function FilSort() {
             dispatch(find(sort.seq))
             setClickedOnApplyButton(!clickedOnApplyButton)
         }
+        // setClickedOnApplyButton(!clickedOnApplyButton)
     }, [dispatch, clickedOnApplyButton])
+
 
     const handleClickApply = () => {
         setClickedOnApplyButton(true)
+    }
+
+    const handleClickDel = () => {
+        setObject({arrDepartments:[],arrFaculties:[],arrTitles:[]})
+        console.log(object);
+        setClickedOnApplyButton(true)
+
+        dataDepartments.forEach((obj)=>{obj.flag=false})
+        dataFaculties.forEach((obj)=>{obj.flag=false})
+        dataTitles.forEach((obj)=>{obj.flag=false})
     }
 
     useEffect(()=>{document.addEventListener('mousedown', handleClickOutsideF); 
@@ -172,6 +187,7 @@ export function FilSort() {
     console.log(sort)
     console.log(dataSort)*/
     // console.log(data)
+    
     return(
         <div className={styles.FiltSort}>
 
@@ -190,13 +206,13 @@ export function FilSort() {
                     </div>
 
                     <div className={styles.Spec}>
-                    <div className={styles.Str}>Звание</div>
+                    <div className={styles.Str}>Должность</div>
                     <div className={styles.FilButs}>{dataTitles.map((item, index)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={item.id} onClick={(e, item)=>{handleButtonClick('arrTitles', e, index)}}>{item.name}</button>))}</div>
                     </div>
                     </div>
                     <div className={styles.ApplyDel}>
                         <button onClick={handleClickApply} className={styles.Apply}>Применить</button>
-                        <button className={styles.Del}>Очистить</button> 
+                        <button onClick={handleClickDel} className={styles.Del}>Очистить</button> 
                     </div>
                     
 
@@ -220,5 +236,3 @@ export function FilSort() {
         </div>
     )
 }
-
-// export {object, sort}

@@ -15,7 +15,8 @@ export function Top3Item (props) {
     const parts = props.item.fullName.split(' ')
 
     function handleClick() {
-        window.location.href= props.item.profileLink
+        window.open(props.item.profileLink)
+        // window.location.href = props.item.profileLink
     }
 
     return(
@@ -25,11 +26,12 @@ export function Top3Item (props) {
                 <div className={props.styles.FIO}>
                     <p className={props.styles.F}>{parts[0]}</p>  
                     <p className={props.styles.IO}>{parts[1] + ' ' + parts[2]}</p>  
+                    {/* <p>Количество цитирований: {props.item.cited}</p> */}
                 </div>
-                
+                {/* <button onClick={handleClick}>Узнать больше на Schoolar</button> */}
             </div>
             <p>Количество цитирований: {props.item.cited}</p>
-            <button onClick={handleClick}>Узнать больше</button>
+            {/* <button onClick={handleClick}>Узнать больше</button> */}
         </div>
     )
 }

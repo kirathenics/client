@@ -25,8 +25,10 @@
 .blockIt {
     display: flex;
     justify-content: space-between;
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
     /* flex-wrap:wrap; */
-    /* justify-content: center;*/
+    justify-content: center;
     align-items: center;
 }
 
@@ -37,11 +39,12 @@
 }
 
 .blockIt .item:nth-child(2){
+    margin-right: 0.5%;
+    margin-left: 0.5%;
     background-image: url(../backgroundForTop/silverbstu.jpg);
 }
 
 .blockIt .item:last-child{
-    /* margin-right: 9%; */
     background-image: url(../backgroundForTop/bronzebstu.jpg);
 }
 
@@ -59,10 +62,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30%;
+    width: 32%;
     border: 1px solid rgb(145, 141, 141);
     /* margin-right: 3%; */
-    padding: 10px;
+    padding: 5px;
     border-radius:15px;
     align-items:center;
     /* background-position: center;
@@ -71,9 +74,20 @@
     background-size: 100px;
     background-repeat: no-repeat;
 }
+.item p:first-child{
+    margin-top: 0;
+}
+.item p:nth-child(2){
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+.item p:last-child{
+    margin-top: 8px;
+    margin-bottom: 0;
+}
 
 .topSection{
-    margin-left: 10%;
+    margin-left: 19%;
     display: flex;
     flex-direction: row;
     align-items:center;
@@ -103,17 +117,19 @@
     background-color:rgb(33,47,92);
     border-radius:10px;
     color:white;
-    width: 50%;
+    width: 20%;
+    height: 100%;
     max-width: 160px;
     padding-top: 2px;
     padding-bottom: 2px;
     display:block;
     margin:auto;
+    margin-top: 10px;
     /* margin-left: 15%; */
 }
 .item p {
-    /* margin-left: 2.5%;
-    margin-right: 2.5%; */
+    /* margin-left: 2.5%;*/
+    margin-right: 0; 
     text-align: center;
     /* font-size: 18px; */
     width: 95%;
@@ -139,7 +155,7 @@
 .ProfilePhoto{
     display:block;
     margin:auto;
-    height: 95px;
+    height: 90px;
 }
 
 .divb 
