@@ -60,7 +60,7 @@ export function ProfilesTable() {
         dispatch(fetchProfiles())
     }, [dispatch])
 
-    return(
+    /*return(
         <div className={styles.TableWrapper}>
             <table className={styles.BigTable}>
                 <thead>
@@ -73,8 +73,8 @@ export function ProfilesTable() {
                 </tbody>
             </table>
         </div>
-    )
-    /*return(
+    )*/
+    return(
         <div className={styles.TableWrapper}>
             <table className={styles.BigTable}>
                 <thead>
@@ -87,7 +87,7 @@ export function ProfilesTable() {
                 </tbody>
             </table>
         </div>
-    )*/
+    )
 }
 
 function TableHeadItem({item}) {

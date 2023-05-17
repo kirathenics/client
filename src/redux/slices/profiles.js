@@ -7,7 +7,8 @@ export const fetchProfiles = createAsyncThunk('profiles/fetchProfiles', async ()
 })
 
 export const fetchProfilesFiltered = createAsyncThunk('profiles/fetchProfilesFiltered', async (params) => {
-    const { data } = await axios.get('/profiles/filter', params)
+    //const { data } = await axios.get('/profiles/filter', JSON.stringify(params), {headers: {"Content-Type": "application/json"}})
+    const { data } = await axios.get('/profiles/filter', { params })
     return data
 })
 

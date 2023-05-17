@@ -151,7 +151,8 @@ export function FilSort() {
     //const isProfilesLoading = profiles.status === 'loading'
     useEffect(() => {
         if (clickedOnApplyButton) {
-            dispatch(fetchProfilesFiltered())
+            //console.log(JSON.stringify(object))
+            dispatch(fetchProfilesFiltered(object))
         }
     }, [dispatch, clickedOnApplyButton])
 
@@ -161,9 +162,9 @@ export function FilSort() {
     useEffect(()=>{document.addEventListener('mousedown', handleClickOutsideS); 
     return()=>{document.removeEventListener('mousedown', handleClickOutsideS);};},[])
 
-    console.log(object)
+    /*console.log(object)
     console.log(sort)
-    console.log(dataSort)
+    console.log(dataSort)*/
     // console.log(data)
     return(
         <div className={styles.FiltSort}>
