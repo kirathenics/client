@@ -6,6 +6,12 @@ export const fetchProfiles = createAsyncThunk('profiles/fetchProfiles', async ()
     return data
 })
 
+export const fetchProfilesFiltered = createAsyncThunk('profiles/fetchProfilesFiltered', async (params) => {
+    //const { data } = await axios.get('/profiles/filter', JSON.stringify(params), {headers: {"Content-Type": "application/json"}})
+    const { data } = await axios.get('/profiles/filter', { params })
+    return data
+})
+
 const initialState = {
     profiles: {
         items: [],
@@ -27,6 +33,18 @@ const profilesSlice = createSlice({
             state.profiles.status = 'loaded'
         },
         [fetchProfiles.rejected]: (state) => {
+            state.profiles.items = []
+            state.profiles.status = 'error'
+        },
+        [fetchProfilesFiltered.pending]: (state) => {
+            state.profiles.items = []
+            state.profiles.status = 'loading'
+        },
+        [fetchProfilesFiltered.fulfilled]: (state, action) => {
+            state.profiles.items = action.payload
+            state.profiles.status = 'loaded'
+        },
+        [fetchProfilesFiltered.rejected]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'error'
         },

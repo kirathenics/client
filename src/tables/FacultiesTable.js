@@ -33,7 +33,7 @@ export function FacultiesTable() {
 
     useEffect(() => {
         dispatch(fetchFaculties())
-    }, [])
+    }, [dispatch])
 
     return(
         <>

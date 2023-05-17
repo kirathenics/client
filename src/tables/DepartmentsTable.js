@@ -33,7 +33,7 @@ export function DepartmentsTable() {
 
     useEffect(() => {
         dispatch(fetchDepartments())
-    }, [])
+    }, [dispatch])
 
     return(
         <>
