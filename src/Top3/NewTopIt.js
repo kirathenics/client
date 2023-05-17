@@ -21,7 +21,9 @@ const NewTopIt = () => {
                 value = {getv}    
             />
             <button href="#pn" className={styles.but} onClick={handleButtonClick}>Поиск</button>
+            <button className={styles.CancelFind}>X</button>
             <div className={styles.break}></div>
+            
             <p id="pn" className={styles.pp}>{FIO}</p>
         </form>
     )

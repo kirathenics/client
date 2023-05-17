@@ -10,6 +10,7 @@
 .form input{
     height: 16px;
     display: block;
+    width: 300px;
     padding: 5px 10px;
     outline: none;
     border: 2px solid rgb(33,47,92);
@@ -30,6 +31,12 @@
     width: 90px;
     border-radius: 0 15px 15px 0;
 }
+.but:hover{
+    cursor: pointer;
+    -webkit-box-shadow: 2px 0px 5px 2px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 2px 0px 5px 2px rgba(0, 0, 0, 0.2);
+box-shadow: 2px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
 
 /* .pp{
     opacity: 0;;     
@@ -42,4 +49,29 @@
 .break{
     width: 100%;
     height: 0;
+}
+
+.CancelFind{
+    position: relative;
+    height: 20px;
+    width: 20px;
+    /* top:-31px;
+    margin-left: 200px; */
+    right: 120px;
+    border-radius:50%;
+    background-color:red;
+    color: white;
+    border: 1px solid rgb(82, 3, 3);
+    padding-left: 5px;
+}
+.CancelFind:hover{
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.CancelFind:active{
+    color: red;
+    border-color: red;
+    background-color:white;
 }
