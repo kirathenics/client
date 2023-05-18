@@ -16,6 +16,7 @@ const initialState = {
     profiles: {
         items: [],
         status: 'loading',
+        filtered: 'false',
     },
 }
 
@@ -44,26 +45,32 @@ const profilesSlice = createSlice({
         [fetchProfiles.pending]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'loading'
+            state.profiles.filtered = 'false'
         },
         [fetchProfiles.fulfilled]: (state, action) => {
             state.profiles.items = action.payload
             state.profiles.status = 'loaded'
+            state.profiles.filtered = 'false'
         },
         [fetchProfiles.rejected]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'error'
+            state.profiles.filtered = 'false'
         },
         [fetchProfilesFiltered.pending]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'loading'
+            state.profiles.filtered = 'false'
         },
         [fetchProfilesFiltered.fulfilled]: (state, action) => {
             state.profiles.items = action.payload
             state.profiles.status = 'loaded'
+            state.profiles.filtered = 'true'
         },
         [fetchProfilesFiltered.rejected]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'error'
+            state.profiles.filtered = 'false'
         },
     },
 })

@@ -10,19 +10,29 @@ const NewTopIt = () => {
 
     const dispatch = useDispatch()
     const { profiles } = useSelector(state => state.profiles)
-    const isProfilesLoading = profiles.status === 'loading'
+    const isProfilesLoaded = profiles.status === 'loaded'
+    const isProfilesFiltered = profiles.filtered === 'true'
 
-    const [isCopied, setIsCopied] = useState(false)
+    const [isCopiedAfterLoading, setIsCopiedAfterLoading] = useState(false)
+    const [isCopiedAfterFiltering, setIsCopiedAfterFiltering] = useState(false)
     const [copyProfiles, setCopyProfiles] = useState([])
-    if (!isProfilesLoading && !isCopied) {
-        console.log(isProfilesLoading)
-        console.log(isCopied)
+
+    if (isProfilesLoaded && !isCopiedAfterLoading) {
+        /*console.log('Loaded')
+        console.log(isProfilesLoaded)
+        console.log(isCopied)*/
         setCopyProfiles(profiles.items)
         //copyProfiles = profiles.items.slice()
-        setIsCopied(true)
+        setIsCopiedAfterLoading(true)
     }
-    //const [copyProfiles, setCopyProfiles] = useState(profiles)
-    //const copyProfiles = [...profiles.items]
+    if (isProfilesFiltered && !isCopiedAfterFiltering) {
+        /*console.log('Filtered')
+        console.log(isProfilesFiltered)
+        console.log(isCopied)*/
+        setCopyProfiles(profiles.items)
+        //console.log(copyProfiles)
+        setIsCopiedAfterFiltering(true)
+    }
 
     const handleInputChange = e => {
         setFullName(e.target.value)
@@ -30,21 +40,20 @@ const NewTopIt = () => {
 
     const handleApplyButtonClick = e => {
         e.preventDefault()
-        console.log(`Apply\n${fullName}\ncopyProfiles\n`)
-        console.log(copyProfiles)
+        /*console.log(`Apply\n${fullName}\ncopyProfiles\n`)
+        console.log(copyProfiles)*/
         dispatch(searchProfiles(fullName))
         setFound(`Найдено: ${profiles.items.length}`)
     }
 
     const handleCancelButtonClick = e => {
         e.preventDefault()
-        console.log(copyProfiles)
-        //profiles.items = copyProfiles
+        //console.log(copyProfiles)
         setFullName('')
         dispatch(setProfiles(copyProfiles))
     }
 
-    console.log(profiles)
+    //console.log(profiles)
 
     return(
         <form className={styles.form}>
