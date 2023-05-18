@@ -1,12 +1,13 @@
 import styles from './Search.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { searchProfiles, setProfiles } from '../redux/slices/profiles'
 
-const NewTopIt = () => {
+export function Search () {
     const [found, setFound] = useState('')
     const [fullName, setFullName] = useState('')
+    const [isOpen, setIsOpen] = useState(false)
 
     const dispatch = useDispatch()
     const { profiles } = useSelector(state => state.profiles)
@@ -43,14 +44,22 @@ const NewTopIt = () => {
         /*console.log(`Apply\n${fullName}\ncopyProfiles\n`)
         console.log(copyProfiles)*/
         dispatch(searchProfiles(fullName))
-        setFound(`Найдено: ${profiles.items.length}`)
+        setIsOpen(true)
+        // setFound(`Найдено: ${profiles.items.length}`)
     }
+
+    
+    useEffect(() => {
+        let length = profiles.items.length
+        setFound(`Найдено: ${length}`)
+    }, [profiles.items])
 
     const handleCancelButtonClick = e => {
         e.preventDefault()
         //console.log(copyProfiles)
         setFullName('')
         dispatch(setProfiles(copyProfiles))
+        setIsOpen(false)
     }
 
     //console.log(profiles)
@@ -65,9 +74,9 @@ const NewTopIt = () => {
             <button className={styles.CancelFind} onClick={handleCancelButtonClick}>X</button>
             <div className={styles.break}></div>
             
-            <p id="pn" className={styles.pp}>{found}</p>
+            {isOpen&&(<p id="pn" className={styles.pp}>{found}</p>)}
         </form>
     )
 }
 
-export default NewTopIt
+// export default Search
