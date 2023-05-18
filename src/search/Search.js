@@ -79,4 +79,3 @@ export function Search () {
     )
 }
 
-export default NewTopIt
