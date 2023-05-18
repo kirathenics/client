@@ -5,7 +5,7 @@ import styles from './App.module.css'
 
 //import {Top3Item} from './Top3/Top3-item';
 import { Top3Profiles } from './Top3/Top3Profiles'
-import {NewTopIt} from './search/Search'
+import { Search } from './search/Search'
 import { ProfilesTable } from './tables/ProfilesTable'
 import { FacultiesTable } from './tables/FacultiesTable'
 import { DepartmentsTable } from './tables/DepartmentsTable'
@@ -39,7 +39,7 @@ function App() {
         </div>
       </div> */ }
       <Top3Profiles styles={styles} />
-      <NewTopIt/>
+      <Search/>
       <FilSort/>
       
       <ProfilesTable/>
