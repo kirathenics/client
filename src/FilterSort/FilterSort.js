@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from './FilterSort.module.css'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProfilesFiltered } from '../redux/slices/profiles'
+import { sortProfiles, fetchProfilesFiltered } from '../redux/slices/profiles'
 
-export function FilSort() {
+export function FilSort(props) {
     // const arrDepartments = [
     //     {name:'Кафедра такая-то', id: 1, flag: false},
     //     {name:'Кафедра такая-то111', id: 2, flag: false},
@@ -70,24 +70,24 @@ export function FilSort() {
     ]
 
     const arrSort = [
-        {text:'h-индекс возр.', field:'h', seq:1, flag:false,},
-        {text:'h-индекс убыв.', field:'h', seq:-1, flag:true,},
-        {text:'ФИО возр.', field:'fio', seq:1, flag:false,},
-        {text:'ФИО убыв.', field:'fio', seq:-1, flag:false,},
+        {text:'h-индекс возр.', field:'hIndex', seq:1, flag:false,},
+        {text:'h-индекс убыв.', field:'hIndex', seq:-1, flag:true,},
+        {text:'ФИО возр.', field:'fullName', seq:1, flag:false,},
+        {text:'ФИО убыв.', field:'fullName', seq:-1, flag:false,},
         {text:'Цитирование возр.', field:'cited', seq:1, flag:false,},
         {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false,}
     ]
 
     
-
     const [object, setObject]=useState({arrDepartments:[],arrFaculties:[],arrTitles:[]})
-    const [sort, setSort] = useState({text:'ФИО возр.', field:'fio', seq:1, flag:true})
+    //const [sort, setSort] = useState({text:'ФИО возр.', field:'fullName', seq:1, flag:true})
+    const [sort, setSort] = useState(arrSort[1])
     const RefButF = useRef(null)
     const RefButS = useRef(null)
     const RefF = useRef(null)
     const RefS = useRef(null)
 
-    
+    // props.Sort = sort
 
     const [isPressedF, setIsPressedF]=useState(false);
     const [isPressedS, setIsPressedS]=useState(false);
@@ -129,11 +129,13 @@ export function FilSort() {
         }   
     }
 
-    const handleButtonClickS=(e, index)=>{
+    const handleButtonClickS = (e, index)=>{
         const newData = dataSort.map((item)=>{return{...item, flag:false};})
         newData[index].flag = true;
         setDataSort(newData);
         setSort(newData[index])
+
+        dispatch(sortProfiles(newData[index]))
     }
 
     const handleClickOutsideF = (event) => {
@@ -142,11 +144,12 @@ export function FilSort() {
     }
 
     const handleClickOutsideS = (event) => {
-        if(RefS.current && RefButS.current && !RefS.current.contains(event.target) && !RefButS.current.contains(event.target)){
-            setIsPressedS(false)}
+        if(RefS.current && RefButS.current && !RefS.current.contains(event.target) && !RefButS.current.contains(event.target)) {
+            setIsPressedS(false) }
+        
     }
     
-    const [clickedOnApplyButton, setClickedOnApplyButton] = useState(false);
+    const [clickedOnApplyButton, setClickedOnApplyButton] = useState(false)
 
     const dispatch = useDispatch()
     //const { profiles } = useSelector(state => state.profiles)
@@ -154,13 +157,10 @@ export function FilSort() {
     //const isProfilesLoading = profiles.status === 'loading'
     useEffect(() => {
         if (clickedOnApplyButton) {
-            //console.log(JSON.stringify(object))
             dispatch(fetchProfilesFiltered(object))
             setClickedOnApplyButton(!clickedOnApplyButton)
         }
-        // setClickedOnApplyButton(!clickedOnApplyButton)
     }, [dispatch, clickedOnApplyButton])
-
 
     const handleClickApply = () => {
         setClickedOnApplyButton(true)
@@ -219,7 +219,7 @@ export function FilSort() {
 
                 
                  <button ref={RefButS} onClick={toggleDropdownS} className={isPressedS ? styles.SortP : styles.Sort}>Сортировка</button>
-                    {isPressedS&&(<div ref={RefS} className={styles.DivWithSort}>
+                    {isPressedS && (<div ref={RefS} className={styles.DivWithSort}>
                         {dataSort.map((item, index)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={index} onClick={(e, item)=>{handleButtonClickS(e, index)}}>{item.text}</button>))}
                         {/* <button onClick={()=>handleButtonClickS('fio', 1)}>ФИО возр.</button>
                         <button onClick={()=>handleButtonClickS('fio', -1)}>ФИО убыв.</button>

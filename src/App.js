@@ -18,7 +18,8 @@ function App() {
   function handleButtonClick(){ 
     setIsPressed(!isOpen)
   }
-  
+
+
   return (
     <div className={styles.MainDiv}>
       <div className={styles.divb} >
@@ -27,6 +28,7 @@ function App() {
       </div>
 
       {isOpen && (<div className={styles.Graph}>
+
       </div>)}
 
       { /* <div className={styles.DivForTop3}>

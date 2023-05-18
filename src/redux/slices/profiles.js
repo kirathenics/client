@@ -16,39 +16,64 @@ const initialState = {
     profiles: {
         items: [],
         status: 'loading',
+        filtered: 'false',
     },
 }
 
 const profilesSlice = createSlice({
     name: 'profiles',
     initialState,
-    reducers: {},
+    reducers: {
+        sortProfiles: (state, action) => {
+            state.profiles.items = state.profiles.items.sort((a, b) => a[action.payload.field] > b[action.payload.field] ? action.payload.seq : -action.payload.seq)
+        },
+        searchProfiles: (state, action) => {
+            console.log(action.payload)
+            //console.log(action)
+            state.profiles.items = state.profiles.items.filter(object => object.fullName.toLowerCase().includes(action.payload.toLowerCase()))
+            //state.profiles.items = state.profiles.items.filter(object => object.fullName.toLowerCase().includes(action.payload))
+            /*return data.filter(obj =>
+                Object.values(obj)
+                  .some(value => value.toString().toLowerCase().includes(query.toLowerCase()))
+              );*/
+        },
+        setProfiles: (state, action) => {
+            state.profiles.items = action.payload
+        }
+    },
     extraReducers: {
         [fetchProfiles.pending]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'loading'
+            state.profiles.filtered = 'false'
         },
         [fetchProfiles.fulfilled]: (state, action) => {
             state.profiles.items = action.payload
             state.profiles.status = 'loaded'
+            state.profiles.filtered = 'false'
         },
         [fetchProfiles.rejected]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'error'
+            state.profiles.filtered = 'false'
         },
         [fetchProfilesFiltered.pending]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'loading'
+            state.profiles.filtered = 'false'
         },
         [fetchProfilesFiltered.fulfilled]: (state, action) => {
             state.profiles.items = action.payload
             state.profiles.status = 'loaded'
+            state.profiles.filtered = 'true'
         },
         [fetchProfilesFiltered.rejected]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'error'
+            state.profiles.filtered = 'false'
         },
     },
 })
 
 export const profilesReducer = profilesSlice.reducer
+export const { sortProfiles, searchProfiles, setProfiles } = profilesSlice.actions
