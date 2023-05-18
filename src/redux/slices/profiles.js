@@ -26,9 +26,18 @@ const profilesSlice = createSlice({
         sortProfiles: (state, action) => {
             state.profiles.items = state.profiles.items.sort((a, b) => a[action.payload.field] > b[action.payload.field] ? action.payload.seq : -action.payload.seq)
         },
-        findProfiles: (state, action) => {
+        searchProfiles: (state, action) => {
             console.log(action.payload)
-            console.log(action)
+            //console.log(action)
+            state.profiles.items = state.profiles.items.filter(object => object.fullName.toLowerCase().includes(action.payload.toLowerCase()))
+            //state.profiles.items = state.profiles.items.filter(object => object.fullName.toLowerCase().includes(action.payload))
+            /*return data.filter(obj =>
+                Object.values(obj)
+                  .some(value => value.toString().toLowerCase().includes(query.toLowerCase()))
+              );*/
+        },
+        setProfiles: (state, action) => {
+            state.profiles.items = action.payload
         }
     },
     extraReducers: {
@@ -60,4 +69,4 @@ const profilesSlice = createSlice({
 })
 
 export const profilesReducer = profilesSlice.reducer
-export const { sortProfiles, findProfiles } = profilesSlice.actions
+export const { sortProfiles, searchProfiles, setProfiles } = profilesSlice.actions
