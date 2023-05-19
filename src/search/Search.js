@@ -1,5 +1,5 @@
 import styles from './Search.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { searchProfiles, setProfiles } from '../redux/slices/profiles'
@@ -71,6 +71,15 @@ export function Search () {
         setShowCancel(false)
     }
 
+    const buttonRef = useRef(null);
+      
+    function handleMouseMove(e) {
+        const x = e.nativeEvent.offsetX;
+        const y = e.nativeEvent.offsetY;
+        buttonRef.current.style.setProperty('--mouse-x', x + 'px');
+        buttonRef.current.style.setProperty('--mouse-y', y + 'px');
+    }
+
     //console.log(profiles)
 
     return(
@@ -79,7 +88,7 @@ export function Search () {
                 onInput={handleInputChange}
                 value = {fullName}    
             />
-            <button href="#pn" className={styles.but} onClick={handleApplyButtonClick}>Поиск</button>
+            <button href="#pn" ref={buttonRef} onMouseMove={handleMouseMove} className={styles.but} onClick={handleApplyButtonClick}>Поиск</button>
             {showCancel&&(<button className={styles.CancelFind} onClick={handleCancelButtonClick}>X</button>)}
             
             <div className={styles.break}></div>
