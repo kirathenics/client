@@ -50,6 +50,11 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box; */
 }
+.TableWrapper thead{
+    /* border: 2px solid black; */
+    position: sticky;
+    top:0;
+}
 .DivWithSumInfo{
     margin-top: 35px;
     height: 45px;
@@ -166,7 +171,7 @@ h3{
 
 /* Responsive */
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
     .BigTable {
         display: block;
         width: 100%;
@@ -195,7 +200,7 @@ h3{
     }
     .BigTable td, .BigTable th {
         padding: 20px .625em .625em .625em;
-        height: 60px;
+        height: 100px;
         vertical-align: middle;
         box-sizing: border-box;
         overflow-x: hidden;
