@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchProfiles, setProfiles } from '../redux/slices/profiles'
 
-export function Search () {
+export function Search() {
     const [found, setFound] = useState('')
     const [fullName, setFullName] = useState('')
     const [isOpen, setIsOpen] = useState(false)
