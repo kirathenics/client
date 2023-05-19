@@ -18,6 +18,8 @@ export function Search () {
     const [isCopiedAfterFiltering, setIsCopiedAfterFiltering] = useState(false)
     const [copyProfiles, setCopyProfiles] = useState([])
 
+    const [showCancel, setShowCancel] = useState(false)
+
     if (isProfilesLoaded && !isCopiedAfterLoading) {
         /*console.log('Loaded')
         console.log(isProfilesLoaded)
@@ -37,6 +39,12 @@ export function Search () {
 
     const handleInputChange = e => {
         setFullName(e.target.value)
+        if(e.target.value!==""){
+            setShowCancel(true)
+        }
+        else{
+            setShowCancel(false)
+        }
     } 
 
     const handleApplyButtonClick = e => {
@@ -60,6 +68,7 @@ export function Search () {
         setFullName('')
         dispatch(setProfiles(copyProfiles))
         setIsOpen(false)
+        setShowCancel(false)
     }
 
     //console.log(profiles)
@@ -67,11 +76,12 @@ export function Search () {
     return(
         <form className={styles.form}>
             <input id='inp' placeholder="Кого хотите найти?" 
-                onChange={handleInputChange}
+                onInput={handleInputChange}
                 value = {fullName}    
             />
             <button href="#pn" className={styles.but} onClick={handleApplyButtonClick}>Поиск</button>
-            <button className={styles.CancelFind} onClick={handleCancelButtonClick}>X</button>
+            {showCancel&&(<button className={styles.CancelFind} onClick={handleCancelButtonClick}>X</button>)}
+            
             <div className={styles.break}></div>
             
             {isOpen&&(<p id="pn" className={styles.pp}>{found}</p>)}
