@@ -3,6 +3,7 @@ import { profilesReducer } from './slices/profiles'
 import { top3Reducer } from './slices/top3'
 import { facultiesReducer } from './slices/faculties'
 import { departmentsReducer } from './slices/departments'
+import { titlesReducer } from './slices/titles'
 
 // сделать export default
 export const store = configureStore({
@@ -11,5 +12,6 @@ export const store = configureStore({
         top3: top3Reducer,
         faculties: facultiesReducer,
         departments: departmentsReducer,
+        titles: titlesReducer,
     }
 })
