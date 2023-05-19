@@ -157,6 +157,9 @@ h3{
     font-size: 15px; */
     color: rgb(33,47,92);
 }
+.BigTable td a:visited{
+    color:rgb(129, 19, 129);
+}
 
 .BigTable thead th {
     color: #ffffff;
