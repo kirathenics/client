@@ -138,7 +138,7 @@ function TableRow(props) {
     return(
         <tr>
             <td>{props.id + 1}</td>
-            <td ><a href = {props.item.profileLink}>{props.item.fullName}</a></td>
+            <td ><a href = {props.item.profileLink} target="_blank" rel="noopener noreferrer">{props.item.fullName}</a></td>
             <td><img src = {props.item.imageLink} alt = "" /></td>
             <td>{props.item.faculty}</td>
             <td>{props.item.department}</td>
