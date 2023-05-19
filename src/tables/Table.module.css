@@ -150,6 +150,11 @@ h3{
     font-size: 15px;
     color: rgb(33,47,92);
 }
+.BigTable td a{
+    /* border-right: 1px solid #f8f8f8;
+    font-size: 15px; */
+    color: rgb(33,47,92);
+}
 
 .BigTable thead th {
     color: #ffffff;

@@ -38,8 +38,13 @@
 box-shadow: 2px 0px 5px 2px rgba(0, 0, 0, 0.2);
 }
 .but:active{
-    background-color: rgb(28, 64, 180);
-    color: white;
+    background-color: rgb(131, 174, 223);
+    color: rgb(33,47,92);
+    -webkit-box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
+-moz-box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
+box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
+    /* background-color: rgb(28, 64, 180);
+    color: white; */
 }
 
 /* .pp{
