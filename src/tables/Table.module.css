@@ -98,13 +98,14 @@ h3{
 }
 
 .TableWrapper::-webkit-scrollbar{
-    width: 8px;
+    width: 8px;  
     /* border-radius: 5px; */
     /* margin-left: 20px; */
 }
 .TableWrapper::-webkit-scrollbar-track{
     width: 8px;
     border-radius: 5px;
+    
     background-color: rgb(186, 186, 201);
     /* margin-left: 20px; */
 }
@@ -112,6 +113,7 @@ h3{
     width: 8px;
     border-radius: 10px;
     background-color:rgb(124, 124, 124);
+    background: rgb(33,47,92);
 }
 
 .FacultiesTable{
