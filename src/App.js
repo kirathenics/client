@@ -28,7 +28,7 @@ function App() {
       </div>
 
       {isOpen && (<div className={styles.Graph}>
-
+        
       </div>)}
 
       { /* <div className={styles.DivForTop3}>
