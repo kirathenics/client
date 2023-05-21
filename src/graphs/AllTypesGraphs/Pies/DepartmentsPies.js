@@ -4,7 +4,7 @@ import styles from "./PieDiv.module.css"
 
 export function DepartmentPies(){
     return(
-        <div className={styles.DepartmentPieDiv}>
+        <div className={styles.DepartmentPies}>
 
                 <div className={styles.DepartmentH}>
 
