@@ -10,6 +10,7 @@ import { ProfilesTable } from './tables/ProfilesTable'
 import { FacultiesTable } from './tables/FacultiesTable'
 import { DepartmentsTable } from './tables/DepartmentsTable'
 import { FilSort } from './FilterSort/FilterSort'
+import { Charts } from './graphs/Chart'
 //import styles1 from './Top3-item/Top3-item.module.css'
 
 function App() {
@@ -19,7 +20,6 @@ function App() {
     setIsPressed(!isOpen)
   }
 
-
   return (
     <div className={styles.MainDiv}>
       <div className={styles.divb} >
@@ -28,7 +28,7 @@ function App() {
       </div>
 
       {isOpen && (<div className={styles.Graph}>
-
+        <Charts/>
       </div>)}
 
       { /* <div className={styles.DivForTop3}>
