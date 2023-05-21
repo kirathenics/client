@@ -1,5 +1,5 @@
 import styles from './Search.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { searchProfiles, setProfiles } from '../redux/slices/profiles'
@@ -17,6 +17,8 @@ export function Search() {
     const [isCopiedAfterLoading, setIsCopiedAfterLoading] = useState(false)
     const [isCopiedAfterFiltering, setIsCopiedAfterFiltering] = useState(false)
     const [copyProfiles, setCopyProfiles] = useState([])
+
+    const [showCancel, setShowCancel] = useState(false)
 
     if (isProfilesLoaded && !isCopiedAfterLoading) {
         /*console.log('Loaded')
@@ -37,6 +39,12 @@ export function Search() {
 
     const handleInputChange = e => {
         setFullName(e.target.value)
+        if(e.target.value!==""){
+            setShowCancel(true)
+        }
+        else{
+            setShowCancel(false)
+        }
     } 
 
     const handleApplyButtonClick = e => {
@@ -60,6 +68,16 @@ export function Search() {
         setFullName('')
         dispatch(setProfiles(copyProfiles))
         setIsOpen(false)
+        setShowCancel(false)
+    }
+
+    const buttonRef = useRef(null);
+      
+    function handleMouseMove(e) {
+        const x = e.nativeEvent.offsetX;
+        const y = e.nativeEvent.offsetY;
+        buttonRef.current.style.setProperty('--mouse-x', x + 'px');
+        buttonRef.current.style.setProperty('--mouse-y', y + 'px');
     }
 
     //console.log(profiles)
@@ -67,11 +85,12 @@ export function Search() {
     return(
         <form className={styles.form}>
             <input id='inp' placeholder="Кого хотите найти?" 
-                onChange={handleInputChange}
+                onInput={handleInputChange}
                 value = {fullName}    
             />
-            <button href="#pn" className={styles.but} onClick={handleApplyButtonClick}>Поиск</button>
-            <button className={styles.CancelFind} onClick={handleCancelButtonClick}>X</button>
+            <button href="#pn" ref={buttonRef} onMouseMove={handleMouseMove} className={styles.but} onClick={handleApplyButtonClick}>Поиск</button>
+            {showCancel&&(<button className={styles.CancelFind} onClick={handleCancelButtonClick}>X</button>)}
+            
             <div className={styles.break}></div>
             
             {isOpen&&(<p id="pn" className={styles.pp}>{found}</p>)}
