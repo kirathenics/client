@@ -10,6 +10,7 @@ import { ProfilesTable } from './tables/ProfilesTable'
 import { FacultiesTable } from './tables/FacultiesTable'
 import { DepartmentsTable } from './tables/DepartmentsTable'
 import { FilSort } from './FilterSort/FilterSort'
+import { GraphApp } from './graphs/GraphApp'
 //import styles1 from './Top3-item/Top3-item.module.css'
 
 function App() {
@@ -25,9 +26,9 @@ function App() {
       <button onClick={()=>{handleButtonClick()}} className={!isOpen ? styles.butt : styles.Disable}  id={styles.left}>Таблицы</button>
       <button onClick={()=>{handleButtonClick()}} className={isOpen ? styles.butt : styles.Disable} id={styles.right}>Графики</button>
       </div>
-
-      {isOpen && (<div className={styles.Graph}>
         
+      {isOpen && (<div className={styles.Graph}>
+        <GraphApp/>
       </div>)}
 
       { /* <div className={styles.DivForTop3}>
