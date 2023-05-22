@@ -50,8 +50,21 @@ export function FacultiesPies() {
     }
 
     const options = {
-
-    }
+        title:{
+            display:false,
+        },
+        legend:{
+            // display: false,
+            labels:{
+            display:false,
+            boxWidth:0,
+        },
+        },
+        tooltips:{
+            enabled: false,
+        },
+        
+    };
 
     return(
         <div className={styles.FacultiesPies}>

@@ -1,0 +1,13 @@
+.FacultiesH{
+    /* height: 500px; */
+    width: 30%;
+}
+.FacultiesCited{
+    /* height: 500px; */
+    width:30%;
+}
+.FacultiesPies{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
