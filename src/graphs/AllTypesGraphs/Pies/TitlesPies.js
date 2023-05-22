@@ -47,18 +47,55 @@ export function TitlesPies() {
         }],
     }
 
-    const options = {
+    const optionsH = {
+        plugins:{
+            legend:{
+                display:false,
+                position: 'right',
+                
+                labels:{
+                    boxWidth: 10,
+                    padding: 15,
+                    overflow: 'auto',
+                }
+            }
+        },
+        responsive:true,
+        maintainAspectRatio: false,
+        
+    };
+    const optionsC = {
+        plugins:{
+            legend:{
+                display:false,
+            },
+            
+        },
+        responsive:true,
+        maintainAspectRatio: false,
+        
+    };
 
-    }
+    let sumH = 0;
+    let sumC = 0;
+    titlesPies.items.forEach((obj) => {
+    sumH += obj.hIndex;
+    sumC += obj.cited;
+    });
 
     return(
         <div className={styles.TitlesPies}>
             <div className={styles.TitlesH}>
-            <Pie data = {dataHIndex} options={options}></Pie>
+            <Pie data = {dataHIndex} options={optionsH}></Pie>
             </div>
-
+            <div className={styles.forh4}>
+                <h4>Суммарные значения</h4>
+                <h4>Должностей: {titlesPies.items.length}</h4>
+                <h4>h-индекс: {sumH}</h4>
+                <h4>Цитирование: {sumC}</h4>
+            </div>
             <div className={styles.TitlesCited}>
-                <Pie data = {dataCited} options={options}></Pie>
+                <Pie data = {dataCited} options={optionsC}></Pie>
             </div>
         </div>
     )

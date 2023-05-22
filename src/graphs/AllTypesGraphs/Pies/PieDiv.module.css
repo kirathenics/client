@@ -1,13 +1,83 @@
+h3{
+    margin-bottom: 5px;
+}
 .FacultiesH{
-    /* height: 500px; */
+    height: 300px;
     width: 30%;
 }
 .FacultiesCited{
-    /* height: 500px; */
+    height: 300px;
     width:30%;
 }
 .FacultiesPies{
     display: flex;
     align-items:center;
     justify-content: center;
+    width: 60%;
+    height: 400px;
+    margin-left: 20%;
+    border: 2px solid rgb(33,47,92);
+    border-radius: 20px;
+    background-color: rgb(235,235,235);   
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.forh4{
+    width: 29%;
+}
+h4{
+    color:rgb(33,47,92);
+    text-align: center;
+}
+
+.DepartmentH{
+    height: 300px;
+    width: 30%;
+}
+.DepartmentCited{
+    height: 300px;
+    width:30%;
+}
+.DepartmentPies{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 60%;
+    height: 400px;
+    margin-left: 20%;
+    border: 2px solid rgb(33,47,92);
+    border-radius: 20px;
+    background-color: rgb(235,235,235);   
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.TitlesH{
+    height: 300px;
+    width: 30%;
+}
+.TitlesCited{
+    height: 300px;
+    width:30%;
+}
+.TitlesPies{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 60%;
+    height: 400px;
+    margin-left: 20%;
+    border: 2px solid rgb(33,47,92);
+    border-radius: 20px;
+    background-color: rgb(235,235,235);   
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.FacultyPieDiv{
+    margin-bottom: 30px;
+}
+.DepartmentPieDiv{
+    margin-bottom: 30px;
+}
+.TitlesPieDiv{
+    margin-bottom: 30px;
 }

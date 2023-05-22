@@ -47,31 +47,64 @@ export function FacultiesPies() {
         }],
     }
 
-    const options = {
-        title:{
-            display:false,
+    const optionsH = {
+        plugins:{
+            title: {
+                display: true,
+                text: 'h-индекс',
+                position: 'bottom',
+            },
+
+            legend:{
+                display:false,
+                position: 'right',
+                
+                labels:{
+                    boxWidth: 10,
+                    padding: 15,
+                    overflow: 'auto',
+                }
+            },
         },
-        legend:{
-            // display: false,
-            labels:{
-            display:false,
-            boxWidth:0,
+        responsive:true,
+        maintainAspectRatio: false,       
+    };
+    const optionsC = {
+        plugins:{
+            legend:{
+                display:false,
+            },
+            
         },
-        },
-        tooltips:{
-            enabled: false,
-        },
+        responsive:true,
+        maintainAspectRatio: false,
         
     };
 
+    let sumH = 0;
+    let sumC = 0;
+    facultiesPies.items.forEach((obj) => {
+    sumH += obj.hIndex;
+    sumC += obj.cited;
+    });
+
     return(
         <div className={styles.FacultiesPies}>
+        
             <div className={styles.FacultiesH}>
-                <Pie data = {dataHIndex} options={options}></Pie>
+            
+                <Pie data = {dataHIndex} options={optionsH}></Pie>
+                
             </div>
 
+            <div className={styles.forh4}>
+                <h4>Суммарные значения</h4>
+                <h4>Факультетов: {facultiesPies.items.length}</h4>
+                <h4>h-индекс: {sumH}</h4>
+                <h4>Цитирование: {sumC}</h4>
+            </div>
             <div className={styles.FacultiesCited}>
-                <Pie data = {dataCited} options={options}></Pie>
+                <Pie data = {dataCited} options={optionsC} ></Pie>
             </div>
         </div>
     )
