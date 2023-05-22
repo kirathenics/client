@@ -3,7 +3,7 @@ import styles from "./PieDiv.module.css"
 import { FacultiesColors } from "../../Colors";
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchTitlesCharts } from '../../../redux/slices/titles'
+import { fetchTitlesPies } from '../../../redux/slices/titles'
 
 import {
     Chart as ChartJS,
@@ -21,27 +21,27 @@ ChartJS.register(
 
 export function TitlesPies() {
     const dispatch = useDispatch()
-    const { titlesCharts } = useSelector(state => state.titles)
+    const { titlesPies } = useSelector(state => state.titles)
 
     useEffect(() => {
-        dispatch(fetchTitlesCharts())
+        dispatch(fetchTitlesPies())
     }, [dispatch])
 
     const dataHIndex = {
-        labels: titlesCharts.items.map(item => item.name),
+        labels: titlesPies.items.map(item => item.name),
         datasets: [{
             label: 'h-индекс',
-            data: titlesCharts.items.map(item => item.hIndex),
+            data: titlesPies.items.map(item => item.hIndex),
             backgroundColor: FacultiesColors,
             borderColor: FacultiesColors,
         }],
     }
 
     const dataCited = {
-        labels: titlesCharts.items.map(item => item.name),
+        labels: titlesPies.items.map(item => item.name),
         datasets: [{
             label: 'Цитирование',
-            data: titlesCharts.items.map(item => item.cited),
+            data: titlesPies.items.map(item => item.cited),
             backgroundColor: FacultiesColors,
             borderColor: FacultiesColors,
         }],

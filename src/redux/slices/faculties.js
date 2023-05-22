@@ -6,8 +6,8 @@ export const fetchFaculties = createAsyncThunk('faculties/fetchFaculties', async
     return data
 })
 
-export const fetchFacultiesCharts = createAsyncThunk('faculties/fetchFacultiesCharts', async () => {
-    const { data } = await axios.get('/faculties/charts')
+export const fetchFacultiesPies = createAsyncThunk('faculties/fetchFacultiesPies', async () => {
+    const { data } = await axios.get('/faculties/pies')
     return data
 })
 
@@ -21,7 +21,7 @@ const initialState = {
         items: [],
         status: 'loading',
     },
-    facultiesCharts: {
+    facultiesPies: {
         items: [],
         status: 'loading',
     },
@@ -49,17 +49,17 @@ const facultiesSlice = createSlice({
             state.faculties.status = 'error'
         },
 
-        [fetchFacultiesCharts.pending]: (state) => {
-            state.facultiesCharts.items = []
-            state.facultiesCharts.status = 'loading'
+        [fetchFacultiesPies.pending]: (state) => {
+            state.facultiesPies.items = []
+            state.facultiesPies.status = 'loading'
         },
-        [fetchFacultiesCharts.fulfilled]: (state, action) => {
-            state.facultiesCharts.items = action.payload
-            state.facultiesCharts.status = 'loaded'
+        [fetchFacultiesPies.fulfilled]: (state, action) => {
+            state.facultiesPies.items = action.payload
+            state.facultiesPies.status = 'loaded'
         },
-        [fetchFacultiesCharts.rejected]: (state) => {
-            state.facultiesCharts.items = []
-            state.facultiesCharts.status = 'error'
+        [fetchFacultiesPies.rejected]: (state) => {
+            state.facultiesPies.items = []
+            state.facultiesPies.status = 'error'
         },
 
         [fetchFacultiesGraphs.pending]: (state) => {

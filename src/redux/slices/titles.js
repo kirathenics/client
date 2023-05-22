@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../axios'
 
-export const fetchTitlesCharts = createAsyncThunk('titles/fetchTitlesCharts', async () => {
-    const { data } = await axios.get('/titles/charts')
+export const fetchTitlesPies = createAsyncThunk('titles/fetchTitlesPies', async () => {
+    const { data } = await axios.get('/titles/pies')
     return data
 })
 
@@ -12,7 +12,7 @@ export const fetchTitlesGraphs = createAsyncThunk('titles/fetchTitlesGraphs', as
 })
 
 const initialState = {
-    titlesCharts: {
+    titlesPies: {
         items: [],
         status: 'loading',
     },
@@ -27,17 +27,17 @@ const titlesSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
-        [fetchTitlesCharts.pending]: (state) => {
-            state.titlesCharts.items = []
-            state.titlesCharts.status = 'loading'
+        [fetchTitlesPies.pending]: (state) => {
+            state.titlesPies.items = []
+            state.titlesPies.status = 'loading'
         },
-        [fetchTitlesCharts.fulfilled]: (state, action) => {
-            state.titlesCharts.items = action.payload
-            state.titlesCharts.status = 'loaded'
+        [fetchTitlesPies.fulfilled]: (state, action) => {
+            state.titlesPies.items = action.payload
+            state.titlesPies.status = 'loaded'
         },
-        [fetchTitlesCharts.rejected]: (state) => {
-            state.titlesCharts.items = []
-            state.titlesCharts.status = 'error'
+        [fetchTitlesPies.rejected]: (state) => {
+            state.titlesPies.items = []
+            state.titlesPies.status = 'error'
         },
 
         [fetchTitlesGraphs.pending]: (state) => {

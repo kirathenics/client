@@ -3,7 +3,7 @@ import styles from "./PieDiv.module.css"
 import { FacultiesColors } from "../../Colors";
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchFacultiesCharts } from '../../../redux/slices/faculties'
+import { fetchFacultiesPies } from '../../../redux/slices/faculties'
 
 import {
     Chart as ChartJS,
@@ -21,29 +21,27 @@ ChartJS.register(
 
 export function FacultiesPies() {
     const dispatch = useDispatch()
-    const { facultiesCharts } = useSelector(state => state.faculties)
-
-    const isFacultiesChartsLoaded = facultiesCharts.status === 'loaded'
+    const { facultiesPies } = useSelector(state => state.faculties)
 
     useEffect(() => {
-        dispatch(fetchFacultiesCharts())
+        dispatch(fetchFacultiesPies())
     }, [dispatch])
 
     const dataHIndex = {
-        labels: facultiesCharts.items.map(item => item.name),
+        labels: facultiesPies.items.map(item => item.name),
         datasets: [{
             label: 'h-индекс',
-            data: facultiesCharts.items.map(item => item.hIndex),
+            data: facultiesPies.items.map(item => item.hIndex),
             backgroundColor: FacultiesColors,
             borderColor: FacultiesColors,
         }],
     }
 
     const dataCited = {
-        labels: facultiesCharts.items.map(item => item.name),
+        labels: facultiesPies.items.map(item => item.name),
         datasets: [{
             label: 'Цитирование',
-            data: facultiesCharts.items.map(item => item.cited),
+            data: facultiesPies.items.map(item => item.cited),
             backgroundColor: FacultiesColors,
             borderColor: FacultiesColors,
         }],
