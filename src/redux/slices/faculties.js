@@ -11,8 +11,8 @@ export const fetchFacultiesPies = createAsyncThunk('faculties/fetchFacultiesPies
     return data
 })
 
-export const fetchFacultiesGraphs = createAsyncThunk('faculties/fetchFacultiesGraphs', async () => {
-    const { data } = await axios.get('/faculties/graphs')
+export const fetchFacultiesLines = createAsyncThunk('faculties/fetchFacultiesLines', async () => {
+    const { data } = await axios.get('/faculties/lines')
     return data
 })
 
@@ -25,7 +25,7 @@ const initialState = {
         items: [],
         status: 'loading',
     },
-    facultiesGraphs: {
+    facultiesLines: {
         items: [],
         status: 'loading',
     },
@@ -62,17 +62,17 @@ const facultiesSlice = createSlice({
             state.facultiesPies.status = 'error'
         },
 
-        [fetchFacultiesGraphs.pending]: (state) => {
-            state.facultiesGraphs.items = []
-            state.facultiesGraphs.status = 'loading'
+        [fetchFacultiesLines.pending]: (state) => {
+            state.facultiesLines.items = []
+            state.facultiesLines.status = 'loading'
         },
-        [fetchFacultiesGraphs.fulfilled]: (state, action) => {
-            state.facultiesGraphs.items = action.payload
-            state.facultiesGraphs.status = 'loaded'
+        [fetchFacultiesLines.fulfilled]: (state, action) => {
+            state.facultiesLines.items = action.payload
+            state.facultiesLines.status = 'loaded'
         },
-        [fetchFacultiesGraphs.rejected]: (state) => {
-            state.facultiesGraphs.items = []
-            state.facultiesGraphs.status = 'error'
+        [fetchFacultiesLines.rejected]: (state) => {
+            state.facultiesLines.items = []
+            state.facultiesLines.status = 'error'
         },
     },
 })

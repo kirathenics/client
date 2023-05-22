@@ -9,14 +9,14 @@ import {
     Chart as ChartJS,
     ArcElement,
     Tooltip,
-    Legend
+    Legend,
 } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
 
 ChartJS.register(
     ArcElement,
     Tooltip,
-    Legend
+    Legend,
 )
 
 export function TitlesPies() {

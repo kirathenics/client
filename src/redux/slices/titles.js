@@ -6,8 +6,8 @@ export const fetchTitlesPies = createAsyncThunk('titles/fetchTitlesPies', async 
     return data
 })
 
-export const fetchTitlesGraphs = createAsyncThunk('titles/fetchTitlesGraphs', async () => {
-    const { data } = await axios.get('/titles/graphs')
+export const fetchTitlesLines = createAsyncThunk('titles/fetchTitlesLines', async () => {
+    const { data } = await axios.get('/titles/lines')
     return data
 })
 
@@ -16,7 +16,7 @@ const initialState = {
         items: [],
         status: 'loading',
     },
-    titlesGraphs: {
+    titlesLines: {
         items: [],
         status: 'loading',
     },
@@ -40,17 +40,17 @@ const titlesSlice = createSlice({
             state.titlesPies.status = 'error'
         },
 
-        [fetchTitlesGraphs.pending]: (state) => {
-            state.titlesGraphs.items = []
-            state.titlesGraphs.status = 'loading'
+        [fetchTitlesLines.pending]: (state) => {
+            state.titlesLines.items = []
+            state.titlesLines.status = 'loading'
         },
-        [fetchTitlesGraphs.fulfilled]: (state, action) => {
-            state.titlesGraphs.items = action.payload
-            state.titlesGraphs.status = 'loaded'
+        [fetchTitlesLines.fulfilled]: (state, action) => {
+            state.titlesLines.items = action.payload
+            state.titlesLines.status = 'loaded'
         },
-        [fetchTitlesGraphs.rejected]: (state) => {
-            state.titlesGraphs.items = []
-            state.titlesGraphs.status = 'error'
+        [fetchTitlesLines.rejected]: (state) => {
+            state.titlesLines.items = []
+            state.titlesLines.status = 'error'
         },
     },
 })
