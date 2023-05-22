@@ -47,9 +47,11 @@ export function DepartmentLines() {
     let index = -1;
     const datasets = departmentsLines.items.map(item => {
         index++
+        let arrCited = Array(labels.length - item.citationArray.length)
+        arrCited = arrCited.concat(item.citationArray.map(obj => obj.cited))
         return Object({
             label: item.name,
-            data: item.citationArray.map(obj => obj.cited),
+            data: arrCited,
             backgroundColor: FacultiesColors[index % FacultiesColors.length],
             borderColor: FacultiesColors[index % FacultiesColors.length],
         })

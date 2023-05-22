@@ -6,7 +6,7 @@ import { LineDiv } from "./AllTypesGraphs/Lines/LineDiv";
 export function GraphApp() {
     return(
     <div className={styles.Main}>
-        {/* <PieDiv/> */}
+        <PieDiv/>
         <LineDiv/>
     </div>
     )
