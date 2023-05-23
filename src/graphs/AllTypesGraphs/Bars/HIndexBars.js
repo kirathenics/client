@@ -44,7 +44,7 @@ export function HIndexBars() {
     const data = {
         labels: dataset.map(item => item.hIndex),
         datasets: [{
-            label: 'h-индекс',
+            label: 'Количество сотрудников',
             data: dataset.map(item => item.count),
             backgroundColor: FacultiesColors,
             borderColor: FacultiesColors,
