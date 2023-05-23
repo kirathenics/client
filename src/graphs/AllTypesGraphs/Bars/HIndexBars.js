@@ -84,6 +84,7 @@ export function HIndexBars() {
 
     return (
         <div className={styles.hIndexBars}>
+            <div className={styles.ForMedian}><p>Медиана = {medianHIndex}</p></div>
             <div className={styles.hIndexData}>
                 <Bar data = {data} options={options} height={500}></Bar>
             </div>

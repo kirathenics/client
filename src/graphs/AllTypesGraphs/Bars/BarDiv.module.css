@@ -10,3 +10,19 @@
 .hIndexData{
     padding: 20px;
 }
+.ForMedian{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    height: 70px;
+    width: 150px;
+    /* background-color: rgb(235,235,235); */
+}
+.ForMedian p{
+    text-align: center;
+    color: rgb(33,47,92);
+}
+.hIndexBars{
+    position: relative;
+}
