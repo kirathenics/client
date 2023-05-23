@@ -6,6 +6,7 @@ import { TitlesLines } from "./TitlesLines";
 
 export function LineDiv(){
     return(
+        
         <div className={styles.LineDivs}>
             <div className={styles.FacultyLineDiv}>
                 <FacultiesLines/>

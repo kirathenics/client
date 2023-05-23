@@ -52,13 +52,35 @@ export function HIndexBars() {
     }
     
     const options = {
-
+        plugins:{
+            legend:{
+                display:false,
+            },
+        },
+        responsive:true,
+        maintainAspectRatio: false,
+        scales: {
+            y:{
+                title:{
+                    display:true,
+                    text:"Кол-во сотрудников",
+                    color: "rgb(33,47,92)",
+                }
+            },
+            x:{
+                title:{
+                    display:true,
+                    text:"h-индекс",
+                    color: "rgb(33,47,92)",
+                }
+            },
+          },
     }
 
     return (
         <div className={styles.hIndexBars}>
             <div className={styles.hIndexData}>
-                <Bar data = {data} options={options}></Bar>
+                <Bar data = {data} options={options} height={500}></Bar>
             </div>
         </div>
     )

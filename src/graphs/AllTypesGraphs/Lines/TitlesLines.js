@@ -63,16 +63,36 @@ export function TitlesLines() {
     }
 
     const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y:{
+                title:{
+                    display:true,
+                    text:"h-индекс",
+                    color: "rgb(33,47,92)",
+                }
+            },
+            x:{
+                title:{
+                    display:true,
+                    text:"Год",
+                    color: "rgb(33,47,92)",
+                }
+            },
+          },
         plugins: {
-            responsive: true,
-            maintainAspectRatio: false,
+            legend:{
+                display:false,
+            },
         }   
     }
 
     return(
         <div className={styles.TitlesLines}>
+        <h3>ПО ДОЛЖНОСТЯМ</h3>
             <div className={styles.TitlesData}>
-            <Line data = {data} options={options}></Line>
+            <Line data = {data} options={options} height={500}></Line>
             </div>
         </div>
     )

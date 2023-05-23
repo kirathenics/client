@@ -97,6 +97,8 @@ export function TitlesPies() {
 
     return(
         <div className={styles.TitlesPies}>
+        <h3>ПО ДОЛЖНОСТЯМ</h3>
+            <div className={styles.bottom}>
             <div className={styles.TitlesH}>
             <Pie data = {dataHIndex} options={optionsH}></Pie>
             </div>
@@ -108,6 +110,7 @@ export function TitlesPies() {
             </div>
             <div className={styles.TitlesCited}>
                 <Pie data = {dataCited} options={optionsC}></Pie>
+            </div>
             </div>
         </div>
     )

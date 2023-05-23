@@ -97,6 +97,9 @@ export function DepartmentPies() {
 
     return(
         <div className={styles.DepartmentPies}>
+        <h3 className={styles.Pieh3}>ПО КАФЕДРАМ</h3>
+            <div className={styles.bottom}>
+            
             <div className={styles.DepartmentH}>
                 <Pie data = {dataHIndex} options={optionsH}></Pie>
             </div>
@@ -108,6 +111,7 @@ export function DepartmentPies() {
             </div>
             <div className={styles.DepartmentCited}>
                 <Pie data = {dataCited} options={optionsC}></Pie>
+            </div>
             </div>
         </div>
     )

@@ -50,6 +50,7 @@ export function FacultiesPies() {
     }
 
     const optionsH = {
+        
         plugins:{
             title: {
                 display: true,
@@ -99,22 +100,25 @@ export function FacultiesPies() {
 
     return(
         <div className={styles.FacultiesPies}>
-        
-            <div className={styles.FacultiesH}>
+            <h3 className={styles.Pieh3}>ПО ФАКУЛЬТЕТАМ</h3>
+            <div className={styles.bottom}>
+                <div className={styles.FacultiesH}>
             
-                <Pie data = {dataHIndex} options={optionsH}></Pie>
-                
-            </div>
+                    <Pie data = {dataHIndex} options={optionsH}></Pie>
+            
+                </div>
 
-            <div className={styles.forh4}>
-                <h4>Суммарные значения</h4>
-                <h4>Факультетов: {facultiesPies.items.length}</h4>
-                <h4>h-индекс: {sumH}</h4>
-                <h4>Цитирование: {sumC}</h4>
+                <div className={styles.forh4}>
+                    <h4>Суммарные значения</h4>
+                    <h4>Факультетов: {facultiesPies.items.length}</h4>
+                    <h4>h-индекс: {sumH}</h4>
+                    <h4>Цитирование: {sumC}</h4>
+                </div>
+                <div className={styles.FacultiesCited}>
+                    <Pie data = {dataCited} options={optionsC} ></Pie>
+                </div>
             </div>
-            <div className={styles.FacultiesCited}>
-                <Pie data = {dataCited} options={optionsC} ></Pie>
-            </div>
+            
         </div>
     )
 }
