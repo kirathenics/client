@@ -11,8 +11,8 @@ export const fetchDepartmentsPies = createAsyncThunk('departments/fetchDepartmen
     return data
 })
 
-export const fetchDepartmentsGraphs = createAsyncThunk('departments/fetchDepartmentsGraphs', async () => {
-    const { data } = await axios.get('/departments/graphs')
+export const fetchDepartmentsLines = createAsyncThunk('departments/fetchDepartmentsLines', async () => {
+    const { data } = await axios.get('/departments/lines')
     return data
 })
 
@@ -25,7 +25,7 @@ const initialState = {
         items: [],
         status: 'loading',
     },
-    departmentsGraphs: {
+    departmentsLines: {
         items: [],
         status: 'loading',
     },
@@ -62,17 +62,17 @@ const departmentsSlice = createSlice({
             state.departmentsPies.status = 'error'
         },
 
-        [fetchDepartmentsGraphs.pending]: (state) => {
-            state.departmentsGraphs.items = []
-            state.departmentsGraphs.status = 'loading'
+        [fetchDepartmentsLines.pending]: (state) => {
+            state.departmentsLines.items = []
+            state.departmentsLines.status = 'loading'
         },
-        [fetchDepartmentsGraphs.fulfilled]: (state, action) => {
-            state.departmentsGraphs.items = action.payload
-            state.departmentsGraphs.status = 'loaded'
+        [fetchDepartmentsLines.fulfilled]: (state, action) => {
+            state.departmentsLines.items = action.payload
+            state.departmentsLines.status = 'loaded'
         },
-        [fetchDepartmentsGraphs.rejected]: (state) => {
-            state.departmentsGraphs.items = []
-            state.departmentsGraphs.status = 'error'
+        [fetchDepartmentsLines.rejected]: (state) => {
+            state.departmentsLines.items = []
+            state.departmentsLines.status = 'error'
         },
     },
 })
