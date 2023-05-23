@@ -63,7 +63,7 @@ export function HIndexBars() {
             y:{
                 title:{
                     display:true,
-                    text:"Кол-во сотрудников",
+                    text:"Количествово сотрудников",
                     color: "rgb(33,47,92)",
                 }
             },
