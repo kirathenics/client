@@ -77,7 +77,7 @@ export function DepartmentPies() {
             },
             title: {
                 display: true,
-                text: 'h-индекс',
+                text: 'Цитирование',
                 position: 'bottom',
                 color: 'rgb(33,47,92)',
             },
