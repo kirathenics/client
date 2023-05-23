@@ -11,11 +11,20 @@ export const fetchProfilesFiltered = createAsyncThunk('profiles/fetchProfilesFil
     return data
 })
 
+export const fetchProfilesHIndex = createAsyncThunk('profiles/fetchProfilesHIndex', async (params) => {
+    const { data } = await axios.get('/profiles/hIndex', { params })
+    return data
+})
+
 const initialState = {
     profiles: {
         items: [],
         status: 'loading',
         filtered: 'false',
+    },
+    profilesHIndex: {
+        items: [],
+        status: 'loading',
     },
 }
 
@@ -64,6 +73,19 @@ const profilesSlice = createSlice({
             state.profiles.items = []
             state.profiles.status = 'error'
             state.profiles.filtered = 'false'
+        },
+
+        [fetchProfilesHIndex.pending]: (state) => {
+            state.profilesHIndex.items = []
+            state.profilesHIndex.status = 'loading'
+        },
+        [fetchProfilesHIndex.fulfilled]: (state, action) => {
+            state.profilesHIndex.items = action.payload
+            state.profilesHIndex.status = 'loaded'
+        },
+        [fetchProfilesHIndex.rejected]: (state) => {
+            state.profilesHIndex.items = []
+            state.profilesHIndex.status = 'error'
         },
     },
 })
