@@ -86,7 +86,7 @@ export function ProfilesTable() {
 
     },[profiles])
 
-    console.log(countOfPersons)
+    // console.log(countOfPersons)
     
     /*return(
         <div className={styles.TableWrapper}>

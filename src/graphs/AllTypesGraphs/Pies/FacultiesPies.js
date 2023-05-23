@@ -9,14 +9,16 @@ import {
     Chart as ChartJS,
     ArcElement,
     Tooltip,
-    Legend
+    Legend,
+    Title
 } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
 
 ChartJS.register(
     ArcElement,
     Tooltip,
-    Legend
+    Legend,
+    Title
 )
 
 export function FacultiesPies() {
@@ -53,6 +55,7 @@ export function FacultiesPies() {
                 display: true,
                 text: 'h-индекс',
                 position: 'bottom',
+                color: 'rgb(33,47,92)',
             },
 
             legend:{
@@ -73,6 +76,12 @@ export function FacultiesPies() {
         plugins:{
             legend:{
                 display:false,
+            },
+            title: {
+                display: true,
+                text: 'Цитирование',
+                position: 'bottom',
+                color: 'rgb(33,47,92)',
             },
             
         },

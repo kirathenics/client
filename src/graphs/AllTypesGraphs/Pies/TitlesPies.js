@@ -58,7 +58,13 @@ export function TitlesPies() {
                     padding: 15,
                     overflow: 'auto',
                 }
-            }
+            },
+            title: {
+                display: true,
+                text: 'h-индекс',
+                position: 'bottom',
+                color: 'rgb(33,47,92)',
+            },
         },
         responsive:true,
         maintainAspectRatio: false,
@@ -68,6 +74,12 @@ export function TitlesPies() {
         plugins:{
             legend:{
                 display:false,
+            },
+            title: {
+                display: true,
+                text: 'h-индекс',
+                position: 'bottom',
+                color: 'rgb(33,47,92)',
             },
             
         },
