@@ -64,11 +64,12 @@ export function Search() {
 
     const handleCancelButtonClick = e => {
         e.preventDefault()
+        dispatch(setProfiles(copyProfiles))
         //console.log(copyProfiles)
         setFullName('')
-        dispatch(setProfiles(copyProfiles))
-        setIsOpen(false)
         setShowCancel(false)
+        setIsOpen(false)
+        
     }
 
     const buttonRef = useRef(null);

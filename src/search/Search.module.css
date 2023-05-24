@@ -1,10 +1,13 @@
 .form{
-    margin: 10px;
+    position: relative;
+    margin:0 auto;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 40px;
+    width: fit-content;
+    /* margin-left: 36%; */
 }
 
 .form input{
@@ -59,7 +62,13 @@
     height: 200px;
   }
 
-
+.pp{
+    position: absolute;
+    top: 20px;
+    width: 200px;
+    text-align: center;
+    color: rgb(33,47,92);
+}
 /* .but:hover{
     cursor: pointer;
     -webkit-box-shadow: 2px 0px 5px 2px rgba(0, 0, 0, 0.2);
@@ -90,12 +99,12 @@ box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49); */
 }
 
 .CancelFind{
-    position: relative;
+    position: absolute;
     height: 20px;
     width: 20px;
     /* top:-31px;
     margin-left: 200px; */
-    right: 120px;
+    right: 98px;
     border-radius:50%;
     background-color:rgb(201, 58, 19);
     color: white;

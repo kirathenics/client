@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
 
+.FiltSort{
+    margin-top: 20px;
+}
+
 .FilDiv{
     position: relative;
     display: flex;
