@@ -33,13 +33,18 @@ export function HIndexBars() {
         dispatch(fetchProfilesHIndex())
     }, [dispatch])
     
-    let dataset = []
+    let dataset = [], averageHIndex = 0.0
     profilesHIndex.items.forEach(item => {
+        averageHIndex +=item.hIndex
         const found = dataset.find(obj => obj.hIndex === item.hIndex)
         found ? found.count++ : dataset.push({ hIndex: item.hIndex, count: 1 })
     })
     dataset = dataset.sort((a, b) => a.hIndex - b.hIndex)
-    console.log(dataset)
+    averageHIndex = (averageHIndex / profilesHIndex.items.length).toFixed(2)
+
+    let arrHIndex = [...profilesHIndex.items]
+    arrHIndex = arrHIndex.sort((a, b) => a.hIndex - b.hIndex)
+    const medianHIndex = (arrHIndex.length % 2 ) ? arrHIndex[Math.floor(arrHIndex.length / 2)]?.hIndex : (arrHIndex[arrHIndex.length / 2]?.hIndex + arrHIndex[arrHIndex.length / 2 - 1]?.hIndex) / 2
 
     const data = {
         labels: dataset.map(item => item.hIndex),
