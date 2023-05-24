@@ -225,5 +225,12 @@
     cursor:pointer;
 }
 
-
+.H4Footer{
+    background-color: rgb(33,47,92);
+    color: white;
+    padding: 20px;
+    width: 98%;
+    left: 0;
+    text-align: center;
+}
 
