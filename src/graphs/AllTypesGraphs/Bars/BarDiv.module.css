@@ -12,7 +12,7 @@
 }
 .ForMedian{
     position: absolute;
-    top: 20px;
+    top: 45%;
     right: 20px;
     z-index: 10000;
     height: 70px;
@@ -22,6 +22,7 @@
 .ForMedian p{
     text-align: center;
     color: rgb(33,47,92);
+    font-weight: bold;
 }
 .hIndexBars{
     position: relative;
