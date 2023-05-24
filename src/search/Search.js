@@ -56,20 +56,38 @@ export function Search() {
         // setFound(`Найдено: ${profiles.items.length}`)
     }
 
-    
+    useEffect(()=>{
+        if(!isOpen){
+            dispatch(setProfiles(copyProfiles))
+        }
+    },[isOpen])
+
     useEffect(() => {
         let length = profiles.items.length
         setFound(`Найдено: ${length}`)
     }, [profiles.items])
 
+    const RefC = useRef(null)
+
+    const handleClickC= () => {
+        setIsOpen(false)
+    }
+
+    useEffect(()=>{document.addEventListener('mousedown', handleClickC); 
+    return()=>{document.removeEventListener('mousedown', handleClickC);};},[RefC])
+
+    useEffect(()=>{document.addEventListener('mousedown', handleClickC); 
+    return()=>{document.removeEventListener('mousedown', handleClickC);};},[])
+
+
+
     const handleCancelButtonClick = e => {
         e.preventDefault()
-        dispatch(setProfiles(copyProfiles))
+        // dispatch(setProfiles(copyProfiles))
         //console.log(copyProfiles)
         setFullName('')
         setShowCancel(false)
-        setIsOpen(false)
-        
+        // setIsOpen(false)
     }
 
     const buttonRef = useRef(null);
@@ -90,7 +108,7 @@ export function Search() {
                 value = {fullName}    
             />
             <button href="#pn" ref={buttonRef} onMouseMove={handleMouseMove} className={styles.but} onClick={handleApplyButtonClick}>Поиск</button>
-            {showCancel&&(<button className={styles.CancelFind} onClick={handleCancelButtonClick}>X</button>)}
+            {showCancel&&(<button ref={RefC} className={styles.CancelFind} onClick={handleCancelButtonClick}>X</button>)}
             
             <div className={styles.break}></div>
             
