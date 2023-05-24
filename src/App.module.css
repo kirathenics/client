@@ -32,6 +32,8 @@
     /* flex-wrap:wrap; */
     justify-content: center;
     align-items: center;
+    width: 86%;
+    margin-left: 7%;
 }
 
 .blockIt .item:first-child{
