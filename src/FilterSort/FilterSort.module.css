@@ -50,18 +50,6 @@
 box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
 }
 
-/*.Filter:hover~.DivWithFil{
-    display: flex;
-}
-
-.DivWithFil:hover~.Filter{
-    border-radius:20px 20px 0 0;
-}
-
-.DivWithFil:hover{
-    display:flex;
-} */
-
 .DivWithFil
 {
     display: flex;
@@ -101,7 +89,6 @@ box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
 .Cafed{
     margin-top: 5px;
     margin-left: 1%;
-    
     /* height: 95%; */
     width: 32%;
     margin-right: 0.9%;
@@ -111,8 +98,6 @@ box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
 
 .FilButs::-webkit-scrollbar{
     width: 6px;
-    /* border-radius: 5px; */
-    /* margin-left: 20px; */
 }
 .FilButs::-webkit-scrollbar-track{
     width: 6px;
@@ -143,16 +128,6 @@ box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
     border-width: 1px 0 1px 0;
 }
 
-/* .FilButs button{
-    width: 100%;
-    text-align: left;
-    min-height: 30px;
-    border: 1px solid rgb(163, 163, 163);
-    border-width: 0 0 1px 0;
-    background-color: rgb(235,235,235);
-    color:rgb(23, 36, 77);
-    font-weight: bold;
-} */
 
 .Choose{
     /* background-color:rgb(44, 63, 124); */
@@ -224,48 +199,8 @@ box-shadow: inset 0px 0 6px 0 rgba(34, 60, 80, 0.5);
     color: rgb(33,47,92);
 }
 
-/* .Apply:before, .Apply:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  box-sizing: border-box;
-}
-.Apply:before {
-  bottom: 0;
-  left: 0;
-  border-left: 1px solid white;
-  border-top: 1px solid white;
-  transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
-}
-.Apply:after {
-  top: 0;
-  right: 0;
-  border-right: 1px solid white;
-  border-bottom: 1px solid white;
-  transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
-}
-.Apply:hover:before, .Apply:hover:after {
-  height: 100%;
-  width: 100%;
-  opacity: 1;
-}
-.Apply:hover:before {
-  transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;
-}
-.Apply:hover:after {
-  transition: 0s ease opacity .4s, .2s ease height .4s, .2s ease width .6s;
-}
-.Apply:hover {
-  background: rgba(255, 255, 255, .2);
-} */
-
 .Apply:hover{
     border-width:2px;
-    /* color: rgb(33,47,92); */
-    /* background-color:rgb(47, 83, 201); */
-    /* font-weight: 500; */
 }
 .Apply:active{
     color: white;
@@ -307,9 +242,6 @@ box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
 .SortP{
     height: 44px;
     width: 120px;
-    /* padding: 16px 32px; */
-    /* border-radius: 20px; */
-    /* margin-left: 26%;*/
     border:1px solid rgb(33,47,92);
     border-radius:20px 20px 0 0;
     /* background-color:rgb(44, 63, 124); */
