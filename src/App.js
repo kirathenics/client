@@ -31,17 +31,6 @@ function App() {
         <GraphApp/>
       </div>
 
-      {/* {isOpen && (<div className={styles.Graph}>
-        <GraphApp/>
-      </div>)} */}
-
-      { /* <div className={styles.DivForTop3}>
-        <h3 className={styles.Top3Header}>ТОП 3 СОТРУДНИКА ПО ЦИТИРОВАНИЮ</h3>
-        <div className={styles.blockIt}>
-        {top3it.length ? (top3it.map(top => <Top3Item styles={styles} key={top.id} top={top} /> ) ) 
-        : <p>Отсутствуют данные по цитированию</p> }           
-        </div>
-      </div> */ }
       <Top3Profiles styles={styles} />
       <Search/>
       <FilSort/>

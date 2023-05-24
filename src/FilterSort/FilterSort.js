@@ -5,22 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { sortProfiles, fetchProfilesFiltered } from '../redux/slices/profiles'
 
 export function FilSort(props) {
-    // const arrDepartments = [
-    //     {name:'Кафедра такая-то', id: 1, flag: false},
-    //     {name:'Кафедра такая-то111', id: 2, flag: false},
-    //     {name:'аааааа3аааааааа ааааааа', id: 3, flag: false},
-    //     {name:'авмфва', id: 4},
-    //     {name:'мфаввввв', id: 5},
-    //     {name:'фмавссысчысыф', id: 6},
-    //     {name:'ыфвфывывыфв', id: 7},
-    //     {name:'фывсвывыфсыфвсыв', id: 8},
-    //     {name:'свысвыфыфсв ыфсвыфвысывфсыв', id: 9},
-    //     {name:'ысвывсы сысвсывсывсывсвысвы', id: 10},
-    //     {name:'епкркртепаав', id: 11},
-    //     {name:'1324к5675454322', id: 12},
-    //     {name:'ыаыам', id: 13},
-    //     {name:'00000000000000000000000 000000000 00000000', id: 14}
-    // ]
 
     const arrDepartments = [
         {name:'Академический резерв кафедр', id: 1, flag: false},
@@ -221,12 +205,6 @@ export function FilSort(props) {
                  <button ref={RefButS} onClick={toggleDropdownS} className={isPressedS ? styles.SortP : styles.Sort}>Сортировка</button>
                     {isPressedS && (<div ref={RefS} className={styles.DivWithSort}>
                         {dataSort.map((item, index)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={index} onClick={(e, item)=>{handleButtonClickS(e, index)}}>{item.text}</button>))}
-                        {/* <button onClick={()=>handleButtonClickS('fio', 1)}>ФИО возр.</button>
-                        <button onClick={()=>handleButtonClickS('fio', -1)}>ФИО убыв.</button>
-                        <button onClick={()=>handleButtonClickS('cited', 1)}>Цитирование возр</button>
-                        <button onClick={()=>handleButtonClickS('cited', -1)}>Цитирование убыв.</button>
-                        <button onClick={()=>handleButtonClickS('h', 1)}>Индекс-h возр.</button>
-                        <button onClick={()=>handleButtonClickS('h', -1)}>Индекс-hё убыв.</button> */}
                     </div>)}
 
                 
