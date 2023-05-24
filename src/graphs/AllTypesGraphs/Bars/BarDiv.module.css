@@ -16,11 +16,11 @@
     right: 20px;
     z-index: 10000;
     height: 70px;
-    width: 150px;
+    width: 200px;
     /* background-color: rgb(235,235,235); */
 }
 .ForMedian p{
-    text-align: center;
+    text-align: right;
     color: rgb(33,47,92);
     font-weight: bold;
 }
