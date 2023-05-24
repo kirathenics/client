@@ -1,7 +1,9 @@
 .MainDiv{
     width: 100;
 }
-
+.NotOpenGraph{
+    display: none;
+}
 .Graph{
     position: absolute;
     width: 100%;

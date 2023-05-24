@@ -50,7 +50,9 @@ export function FacultiesPies() {
     }
 
     const optionsH = {
-        
+        animation: {
+            duration: false,
+},
         plugins:{
             title: {
                 display: true,
@@ -74,6 +76,9 @@ export function FacultiesPies() {
         maintainAspectRatio: false,       
     };
     const optionsC = {
+        animation: {
+            duration: false,
+},
         plugins:{
             legend:{
                 display:false,

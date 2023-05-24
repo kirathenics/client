@@ -26,10 +26,14 @@ function App() {
       <button onClick={()=>{handleButtonClick()}} className={!isOpen ? styles.butt : styles.Disable}  id={styles.left}>Таблицы</button>
       <button onClick={()=>{handleButtonClick()}} className={isOpen ? styles.butt : styles.Disable} id={styles.right}>Графики</button>
       </div>
-        
-      {isOpen && (<div className={styles.Graph}>
+      
+      <div className={isOpen ? styles.Graph : styles.NotOpenGraph}>
         <GraphApp/>
-      </div>)}
+      </div>
+
+      {/* {isOpen && (<div className={styles.Graph}>
+        <GraphApp/>
+      </div>)} */}
 
       { /* <div className={styles.DivForTop3}>
         <h3 className={styles.Top3Header}>ТОП 3 СОТРУДНИКА ПО ЦИТИРОВАНИЮ</h3>

@@ -48,6 +48,9 @@ export function TitlesPies() {
     }
 
     const optionsH = {
+        animation: {
+            duration: false,
+},
         plugins:{
             legend:{
                 display:false,
@@ -71,6 +74,9 @@ export function TitlesPies() {
         
     };
     const optionsC = {
+        animation: {
+            duration: false,
+},
         plugins:{
             legend:{
                 display:false,
