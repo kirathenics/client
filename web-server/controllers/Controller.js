@@ -33,6 +33,24 @@ export const getProfiles = async (request, response) => {
     }
 }
 
+export const get20Profiles = async (request, response) => {
+    try {
+        const profiles = await ProfileSchema.find().select('-citationArray').sort({'hIndex': -1 }).limit(20)
+
+        if (!profiles) return response.status(400).json({
+            message: 'Данные не найдены'
+        })
+
+        response.status(200).json(profiles)
+    } catch (error) {
+        console.log(error)
+        response.status(500).send({
+            message: 'Не удалось считать данные'
+        })
+    }
+}
+
+
 export const getProfilesFiltered = async (request, response) => {
     try {
         const arrDepartments = await (request.query.arrDepartments ? request.query.arrDepartments : [])

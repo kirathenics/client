@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './Table.module.css'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProfiles } from '../redux/slices/profiles'
+import { fetchProfiles, fetch20Profiles } from '../redux/slices/profiles'
 
 /*const columns = [
     {heading: 'id', value: 'id'},
@@ -54,6 +54,10 @@ export function ProfilesTable() {
     const { profiles } = useSelector(state => state.profiles)
 
     const isProfilesLoading = profiles.status === 'loading'
+
+    useEffect(() => {
+        dispatch(fetch20Profiles())
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(fetchProfiles())

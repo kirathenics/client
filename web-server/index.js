@@ -15,6 +15,7 @@ app.use(cors())
 
 app.get('/top3', Controller.getTop3)
 app.get('/profiles', Controller.getProfiles)
+app.get('/profiles/20', Controller.get20Profiles)
 app.get('/profiles/filter', Controller.getProfilesFiltered)
 app.get('/profiles/hIndex', Controller.getProfilesHIndex)
 app.get('/faculties', Controller.getFaculties)
