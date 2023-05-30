@@ -152,6 +152,9 @@ h3{
         display: block;
         width: 100%;
     }
+    .FacultiesTable{
+        margin: 10px 2% 70px;
+    }
     .DivWithSumInfo .SumInfo:nth-child(1){
         border-radius:15px 0 0 0;
         border-right: 1px solid white;
