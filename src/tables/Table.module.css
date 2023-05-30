@@ -136,6 +136,9 @@ h3{
         margin: 10px 2% 70px;
         max-height: 1000px;
     }
+    .TableWrapper::-webkit-scrollbar{
+        display: none;
+    }
     .DivWithSumInfo{
         width: 98%;
         height: fit-content;
