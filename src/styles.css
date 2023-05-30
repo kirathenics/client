@@ -1,4 +1,14 @@
-
+@media (max-width: 767px) {
+    body{
+        margin: 0px;
+        background-color:red;
+    }
+    
+}
+body{
+    margin: 0px;
+    background-color:red;
+}
 #but_cont
 {
     display: flex;

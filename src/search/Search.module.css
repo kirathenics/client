@@ -13,7 +13,7 @@
 .form input{
     height: 16px;
     display: block;
-    width: 300px;
+    width: 200px;
     padding: 5px 10px;
     outline: none;
     border: 2px solid rgb(33,47,92);
@@ -21,6 +21,10 @@
     /* margin-bottom: 5px; */
     margin-right: 2px;
     border-radius: 15px 0 0 15px;
+}
+
+@media (max-width: 767px) {
+    
 }
 
 .form input:hover{

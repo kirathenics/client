@@ -30,9 +30,33 @@
     /* flex-wrap:wrap; */
     justify-content: center;
     align-items: center;
-    width: 86%;
-    margin-left: 7%;
+    width: 94%;
+    margin-left: 3%;
     
+}
+
+@media (max-width: 767px) {
+    .blockIt{
+        flex-direction: column;
+    }
+    .blockIt .item{
+        background-size:80px;
+        width: 100%;
+    }
+    .blockIt .item .ProfilePhoto{
+        height: 80px;
+    }
+    .blockIt .item .F{
+        font-size: 19px;
+    }
+    .blockIt .item .IO{
+        font-size: 17px;
+    }
+    .blockIt .item:nth-child(2){
+        margin-top: 4px;
+        margin-bottom: 4px;
+        
+    }
 }
 
 .blockIt .item:first-child{
@@ -192,9 +216,9 @@
 .H4Footer{
     background-color: rgb(33,47,92);
     color: white;
-    padding: 20px;
-    width: 98%;
-    left: 0;
+    padding: 5px 0px;
+    width: 100%;
+    /* left: 0; */
     text-align: center;
 }
 

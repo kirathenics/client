@@ -131,10 +131,40 @@ h3{
 
 /* Responsive */
 
-@media (max-width: 900px) {
+@media (max-width: 767px) {
+    .TableWrapper{
+        margin: 10px 2% 70px;
+        max-height: 1000px;
+    }
+    .DivWithSumInfo{
+        width: 98%;
+        height: fit-content;
+        margin-left: 1%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+    .SumInfo{
+        width: 49%;
+        height: 30px;
+    }
     .BigTable {
         display: block;
         width: 100%;
+    }
+    .DivWithSumInfo .SumInfo:nth-child(1){
+        border-radius:15px 0 0 0;
+        border-right: 1px solid white;
+    }
+    .DivWithSumInfo .SumInfo:nth-child(2){
+        border-radius:0 15px 0 0;
+        border-width: 1px 0;
+    }
+    .DivWithSumInfo .SumInfo:nth-child(3){
+        border-radius:0 0 0 15px;
+    }
+    .DivWithSumInfo .SumInfo:nth-child(4){
+        border-radius:0 0 15px 0;
     }
     .table-wrapper:before{
         content: "Scroll horizontally >";
@@ -159,12 +189,15 @@ h3{
         overflow-x: auto;
     }
     .BigTable td, .BigTable th {
-        padding: 20px .625em .625em .625em;
+        padding: 10px .625em .625em .625em;
         height: 100px;
+        align-content:center;
+        align-items:center;
+        justify-content: center;
         vertical-align: middle;
         box-sizing: border-box;
         overflow-x: hidden;
-        overflow-y: auto;
+        overflow-y:hidden;
         width: 120px;
         font-size: 13px;
         text-overflow: ellipsis;
@@ -172,6 +205,7 @@ h3{
     .BigTable thead th {
         text-align: left;
         border-bottom: 1px solid #f7f7f9;
+        width: 97px;
     }
     .BigTable tbody tr {
         display: table-cell;
