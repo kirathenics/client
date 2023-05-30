@@ -27,3 +27,22 @@
 .hIndexBars{
     position: relative;
 }
+
+@media (max-width: 660px) {
+    .BarDivs{
+        height: fit-content;
+        width: 98%;
+        margin-left: 0.5%;
+    }
+    .hIndexData{
+        padding: 1px;
+        padding-top: 10px;
+    }
+    .ForMedian{
+        top: 1%
+    }
+    .ForMedian p{
+        font-weight: 100;
+        font-size: small;
+    }
+}

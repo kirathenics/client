@@ -96,3 +96,55 @@ h4{
 .TitlesPieDiv{
     margin-bottom: 60px;
 }
+
+@media (max-width: 660px) {
+    .bottom{
+        flex-direction: column;
+    }
+    .forh4{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content:center;
+        align-items:center;
+        height: 100px;
+        width: 100%;
+        border: 2px solid rgb(33,47,92);
+    }
+    .forh4 h4{
+        margin: 0;
+    }
+    .FacultiesH{
+        height: 300px;
+        width: 80%;
+    }
+    .FacultiesCited{
+        height: 300px;
+        width:80%;
+    }
+    .FacultiesPies{
+        height: fit-content;
+    }
+    .DepartmentH{
+        width: 80%;
+        height: 300px;
+    }
+    .DepartmentCited{
+        width:80%;
+        height: 300px;
+    }
+    .DepartmentPies{
+        height: fit-content;
+    }
+    .TitlesH{
+        height: 300px;
+        width: 80%;
+    }
+    .TitlesCited{
+        height: 300px;
+        width:80%;
+    }
+    .TitlesPies{
+        height: fit-content;
+    }
+}
