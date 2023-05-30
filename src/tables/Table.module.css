@@ -149,7 +149,8 @@ h3{
     }
     .SumInfo{
         width: 49%;
-        height: 30px;
+        height: 40px;
+        padding: 1px;
     }
     .BigTable {
         display: block;
