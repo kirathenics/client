@@ -100,7 +100,7 @@ const profilesSlice = createSlice({
         },
         [fetch20Profiles.fulfilled]: (state, action) => {
             state.profiles.items = action.payload
-            state.profiles.status = 'loaded'
+            state.profiles.status = 'loading'
             state.profiles.filtered = 'false'
         },
         [fetch20Profiles.rejected]: (state) => {
