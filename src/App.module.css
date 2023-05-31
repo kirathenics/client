@@ -35,7 +35,69 @@
     
 }
 
+
+@media (max-width: 1200px) {
+    .blockIt{
+        width: 98%;
+        margin-left: 1%;
+    }
+    .blockIt .item{
+        background-size:80px;
+    }
+    .blockIt .item .ProfilePhoto{
+        height: 80px;
+    }
+    .blockIt .item .F{
+        font-size: 19px;
+    }
+    .blockIt .item .IO{
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 970px) {
+    .blockIt{
+        width: 98%;
+        margin-left: 1%;
+    }
+    .blockIt .item{
+        background-size:70px;
+    }
+    .blockIt .item .ProfilePhoto{
+        height: 70px;
+    }
+    .blockIt .item .F{
+        font-size: 18px;
+    }
+    .blockIt .item .IO{
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 767px) {
+    .blockIt{
+        flex-direction: column;
+    }
+    .blockIt .item{
+        background-size:80px;
+        width: 70%;
+    }
+    .blockIt .item .ProfilePhoto{
+        height: 80px;
+    }
+    .blockIt .item .F{
+        font-size: 19px;
+    }
+    .blockIt .item .IO{
+        font-size: 17px;
+    }
+    .blockIt .item:nth-child(2){
+        margin-top: 4px;
+        margin-bottom: 4px;   
+    }
+}
+
+@media (max-width: 470px) {
     .blockIt{
         flex-direction: column;
     }
@@ -54,8 +116,7 @@
     }
     .blockIt .item:nth-child(2){
         margin-top: 4px;
-        margin-bottom: 4px;
-        
+        margin-bottom: 4px;   
     }
 }
 
@@ -113,7 +174,7 @@
 }
 
 .FIO{
-    width: 70%;
+    width: 62%;
 }
 .F{
     font-size: 22px;

@@ -152,7 +152,6 @@ export function FilSort(props) {
 
     const handleClickDel = () => {
         setObject({arrDepartments:[],arrFaculties:[],arrTitles:[]})
-        console.log(object);
         setClickedOnApplyButton(true)
 
         dataDepartments.forEach((obj)=>{obj.flag=false})
