@@ -42,7 +42,7 @@ export function TitlesLines() {
             }
         })
         return prev
-    }, [])
+    }, []).sort()
 
     let index = -1;
     const datasets = titlesLines.items.map(item => {
@@ -56,6 +56,7 @@ export function TitlesLines() {
             borderColor: FacultiesColors[index % FacultiesColors.length],
         })
     }).sort()
+    console.log(datasets)
 
     const data = {
         labels: labels,
