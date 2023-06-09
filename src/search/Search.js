@@ -71,9 +71,9 @@ export function Search() {
     const button = RefC.current;
     useEffect(() => {
         if (button) {
-          button.addEventListener('mousedown', handleClickC);
+          button.addEventListener('click', handleClickC);
           return () => {
-            button.removeEventListener('mousedown', handleClickC);
+            button.removeEventListener('click', handleClickC);
           };
         }
       }, [button]);
