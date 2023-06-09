@@ -20,20 +20,15 @@ export function Search() {
 
     const [showCancel, setShowCancel] = useState(false)
 
+    //const buttonC = document.getElementById("CancelButton");
+    
+
     if (isProfilesLoaded && !isCopiedAfterLoading) {
-        /*console.log('Loaded')
-        console.log(isProfilesLoaded)
-        console.log(isCopied)*/
         setCopyProfiles(profiles.items)
-        //copyProfiles = profiles.items.slice()
         setIsCopiedAfterLoading(true)
     }
     if (isProfilesFiltered && !isCopiedAfterFiltering) {
-        /*console.log('Filtered')
-        console.log(isProfilesFiltered)
-        console.log(isCopied)*/
         setCopyProfiles(profiles.items)
-        //console.log(copyProfiles)
         setIsCopiedAfterFiltering(true)
     }
 
@@ -49,11 +44,8 @@ export function Search() {
 
     const handleApplyButtonClick = e => {
         e.preventDefault()
-        /*console.log(`Apply\n${fullName}\ncopyProfiles\n`)
-        console.log(copyProfiles)*/
         dispatch(searchProfiles(fullName))
         setIsOpen(true)
-        // setFound(`Найдено: ${profiles.items.length}`)
     }
 
     useEffect(()=>{
@@ -69,25 +61,32 @@ export function Search() {
 
     const RefC = useRef(null)
 
-    const handleClickC= () => {
+    const handleClickC = () => {
         setIsOpen(false)
     }
+    
+    // useEffect(()=>{if(buttonC){buttonC.addEventListener('click', handleClickC); 
+    // return()=>{buttonC.removeEventListener('click', handleClickC);};}},[buttonC])
+    
+    const button = RefC.current;
+    useEffect(() => {
+        if (button) {
+          button.addEventListener('mousedown', handleClickC);
+          return () => {
+            button.removeEventListener('mousedown', handleClickC);
+          };
+        }
+      }, [button]);
+    // useEffect(()=>{document.addEventListener('mousedown', handleClickC); 
+    // return()=>{document.removeEventListener('mousedown', handleClickC);};},[RefC])
 
-    useEffect(()=>{document.addEventListener('mousedown', handleClickC); 
-    return()=>{document.removeEventListener('mousedown', handleClickC);};},[RefC])
-
-    useEffect(()=>{document.addEventListener('mousedown', handleClickC); 
-    return()=>{document.removeEventListener('mousedown', handleClickC);};},[])
-
-
+    // useEffect(()=>{document.addEventListener('mousedown', handleClickC); 
+    // return()=>{document.removeEventListener('mousedown', handleClickC);};},[])
 
     const handleCancelButtonClick = e => {
         e.preventDefault()
-        // dispatch(setProfiles(copyProfiles))
-        //console.log(copyProfiles)
         setFullName('')
         setShowCancel(false)
-        // setIsOpen(false)
     }
 
     const buttonRef = useRef(null);
@@ -98,8 +97,6 @@ export function Search() {
         buttonRef.current.style.setProperty('--mouse-x', x + 'px');
         buttonRef.current.style.setProperty('--mouse-y', y + 'px');
     }
-
-    //console.log(profiles)
 
     return(
         <form className={styles.form}>
