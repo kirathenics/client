@@ -91,14 +91,13 @@ export function HIndexBars() {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
       }, [window.innerWidth]);
-      console.log(windowSize)
+
 
       const [heightOfGraph, setHeighOfGraph] = useState(0)
       useEffect(()=>{
         if(windowSize < 600){setHeighOfGraph(700)}
         else{setHeighOfGraph(500)}
       }, [windowSize])
-      console.log(heightOfGraph)
     return (
         <div className={styles.hIndexBars}>
             <div className={styles.ForMedian}><p>Среднее значение = {averageHIndex}</p><p>Медиана = {medianHIndex}</p></div>

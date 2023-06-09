@@ -27,7 +27,7 @@ ChartJS.register(
     Legend,
 )
 
-export function DepartmentLines() {
+export function DepartmentLines(props) {
     const dispatch = useDispatch()
     const { departmentsLines } = useSelector(state => state.departments)
 

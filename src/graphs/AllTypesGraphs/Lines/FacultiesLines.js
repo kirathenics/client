@@ -27,7 +27,7 @@ ChartJS.register(
     Legend,
 )
 
-export function FacultiesLines() {
+export function FacultiesLines(props) {
     const dispatch = useDispatch()
     const { facultiesLines } = useSelector(state => state.faculties)
 
@@ -87,7 +87,7 @@ export function FacultiesLines() {
             },
         }   
     }
-
+    console.log(props.winSize)
     return(
         <div className={styles.FacultiesLines}>
         <h3>ПО ФАКУЛЬТЕТАМ</h3>
