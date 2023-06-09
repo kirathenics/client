@@ -35,8 +35,14 @@
     }
     .FacultiesData{
         padding: 2px;
+        width: 800px;
+        /* overflow-x: scroll; */
     }
     .TitlesData{
         padding: 2px;
+    }
+    .FL{
+        /* height: 300px; */
+        overflow-x: scroll;
     }
 }

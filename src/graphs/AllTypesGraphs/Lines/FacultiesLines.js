@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./LineDiv.module.css"
 import { FacultiesColors } from "../../Colors";
 
@@ -57,13 +57,13 @@ export function FacultiesLines(props) {
         })
     })
 
-    if (true)
-    {
-        labels = labels.slice(-23)
-        datasets.forEach(faculty => {
-            faculty.data = faculty.data.slice(-23)
-        })
-    }
+    // if (true)
+    // {
+    //     labels = labels.slice(-23)
+    //     datasets.forEach(faculty => {
+    //         faculty.data = faculty.data.slice(-23)
+    //     })
+    // }
 
     const data = {
         labels: labels,
@@ -95,13 +95,30 @@ export function FacultiesLines(props) {
             },
         }   
     }
-    console.log(props.winSize)
+
+    // console.log(props.winSize)
+    const[widthOfGraph, setWidthOfGraph] = useState(0)
+    const [heightOfGraph, setHeighOfGraph] = useState(0)
+    useEffect(()=>{
+       if(props.winSize < 600){
+        setWidthOfGraph(800)
+        setHeighOfGraph(100)
+    }
+    else{
+        setWidthOfGraph(1200)
+        setHeighOfGraph(500)
+    } 
+    },[props.winSize])
+    
     return(
         <div className={styles.FacultiesLines}>
         <h3>ПО ФАКУЛЬТЕТАМ</h3>
+        <div className={styles.FL}>
             <div className={styles.FacultiesData}>
-                <Line data = {data} options={options} height={500}></Line>
+                <Line data = {data} options={options} width={600} height={200}></Line>
             </div>
+        </div>
+            
         </div>
     )
 }
