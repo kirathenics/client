@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useState , useEffect } from "react";
 import styles from "./BarDiv.module.css"
 import { FacultiesColors } from "../../Colors";
 
@@ -82,11 +82,27 @@ export function HIndexBars() {
           },
     }
 
+
+    const [windowSize, setWindowSize] = useState(0);
+      useEffect(() => {
+        function handleResize() {
+          setWindowSize(window.innerWidth);
+        }
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, [window.innerWidth]);
+
+
+      const [heightOfGraph, setHeighOfGraph] = useState(0)
+      useEffect(()=>{
+        if(windowSize < 600){setHeighOfGraph(700)}
+        else{setHeighOfGraph(500)}
+      }, [windowSize])
     return (
         <div className={styles.hIndexBars}>
             <div className={styles.ForMedian}><p>Среднее значение = {averageHIndex}</p><p>Медиана = {medianHIndex}</p></div>
             <div className={styles.hIndexData}>
-                <Bar data = {data} options={options} height={500}></Bar>
+                <Bar data = {data} options={options} height={heightOfGraph}></Bar>
             </div>
         </div>
     )

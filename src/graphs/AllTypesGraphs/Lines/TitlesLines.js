@@ -27,7 +27,7 @@ ChartJS.register(
     Legend,
 )
 
-export function TitlesLines() {
+export function TitlesLines(props) {
     const dispatch = useDispatch()
     const { titlesLines } = useSelector(state => state.titles)
 

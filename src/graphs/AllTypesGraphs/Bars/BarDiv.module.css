@@ -9,6 +9,7 @@
 }
 .hIndexData{
     padding: 20px;
+    height: 400px;
 }
 .ForMedian{
     position: absolute;
@@ -39,7 +40,7 @@
         padding-top: 10px;
     }
     .ForMedian{
-        top: 1%
+        top: 2%
     }
     .ForMedian p{
         font-weight: 100;
