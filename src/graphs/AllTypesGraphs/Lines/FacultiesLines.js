@@ -35,7 +35,7 @@ export function FacultiesLines() {
         dispatch(fetchFacultiesLines())
     }, [dispatch])
 
-    const labels = facultiesLines.items.reduce((prev, curr) => {
+    let labels = facultiesLines.items.reduce((prev, curr) => {
         curr.citationArray.forEach(item => {
             if (!prev.includes(item.year)) {
                 prev.push(item.year)
@@ -45,7 +45,7 @@ export function FacultiesLines() {
     }, []).sort()
 
     let index = -1;
-    const datasets = facultiesLines.items.map(item => {
+    let datasets = facultiesLines.items.map(item => {
         index++
         let arrCited = Array(labels.length - item.citationArray.length)
         arrCited = arrCited.concat(item.citationArray.map(obj => obj.cited))
@@ -56,6 +56,14 @@ export function FacultiesLines() {
             borderColor: FacultiesColors[index % FacultiesColors.length],
         })
     })
+
+    if (true)
+    {
+        labels = labels.slice(-23)
+        datasets.forEach(faculty => {
+            faculty.data = faculty.data.slice(-23)
+        })
+    }
 
     const data = {
         labels: labels,
