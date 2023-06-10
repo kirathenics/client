@@ -56,7 +56,7 @@ export function Search() {
         if(!isOpen){
             dispatch(setProfiles(copyProfiles))
         }
-    }, [isOpen])
+    }, [dispatch, isOpen, copyProfiles])
 
     useEffect(() => {
         let length = profiles.searched
