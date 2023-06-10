@@ -4,6 +4,10 @@ import { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchProfiles, setProfiles } from '../redux/slices/profiles'
 
+// import { VscSearch } from "react-icons/vsc";
+import { ImSearch } from "react-icons/im";
+import { FiDelete } from "react-icons/fi";
+
 export function Search() {
     const [found, setFound] = useState('')
     const [fullName, setFullName] = useState('')
@@ -104,8 +108,8 @@ export function Search() {
                 onInput={handleInputChange}
                 value = {fullName}    
             />
-            <button href="#pn" ref={buttonRef} onMouseMove={handleMouseMove} className={styles.but} onClick={handleApplyButtonClick}>Поиск</button>
-            {showCancel&&(<button ref={RefC} className={styles.CancelFind} onClick={handleCancelButtonClick}>X</button>)}
+            <button href="#pn" ref={buttonRef} onMouseMove={handleMouseMove} className={styles.but} onClick={handleApplyButtonClick}>Поиск<ImSearch className={styles.SearchI}/></button>
+            {showCancel&&(<button ref={RefC} className={styles.CancelFind} onClick={handleCancelButtonClick}><FiDelete className={styles.DelI}/></button>)}
             
             <div className={styles.break}></div>
             

@@ -14,7 +14,7 @@
 
 .Filter{
     height: 35px;
-    
+    padding-left: 10px;
     width: 120px;
     /* padding: 16px 32px; */
     border-radius: 20px;
@@ -41,6 +41,14 @@
     border-width: 2px 2px 0 2px;
     z-index: 2000;
     font-weight: bold;
+}
+
+.FilI{
+    position: relative;
+    top: 9px;
+    right: 0;
+    transform: translateY(-50%);
+    margin-left: 5px;
 }
 
 .Filter:hover{
@@ -287,6 +295,7 @@ box-shadow: inset 0px 0 6px 0 rgba(34, 60, 80, 0.5);
     position: relative;
     height: 35px;
     width: 120px;
+    padding-left: 8px;
     /* padding: 16px 32px; */
     border-radius: 20px;
     border-color:rgb(33,47,92);
@@ -313,13 +322,31 @@ box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
     font-weight: bold;
 }
 
-
+.SortI{
+    position: relative;
+    top: 9px;
+    right: 0;
+    transform: translateY(-50%);
+    margin-left: 5px;
+}
 
 .DivWithSort button{
+    position: relative;
+    display: flex;
+    align-items:center;
     margin-left: 1%;
     width: 98%;
 }
 
 .DivWithSort button:first-child{
     border-top:1px solid rgb(163, 163, 163);
+}
+
+.SortButI{
+    position: absolute;
+    
+    right: 7px;
+    
+    margin-left: auto;
+    font-size: 18px;
 }
