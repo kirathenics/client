@@ -16,6 +16,7 @@ import {
     Legend,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+import zoomPlugin from 'chartjs-plugin-zoom'
 
 ChartJS.register(
     CategoryScale,
@@ -57,6 +58,7 @@ export function FacultiesLines(props) {
         })
     })
 
+
     // if (true)
     // {
     //     labels = labels.slice(-23)
@@ -93,6 +95,21 @@ export function FacultiesLines(props) {
             legend:{
                 display:false,
             },
+            zoom: {
+                pan: {
+                  enabled: true,
+                  mode: 'x',
+                },
+                zoom: {
+                  wheel: {
+                    enabled: true,
+                  },
+                  pinch: {
+                    enabled: true
+                  },
+                  mode: 'x',
+                }
+            }
         }   
     }
 
@@ -115,7 +132,7 @@ export function FacultiesLines(props) {
         <h3>ПО ФАКУЛЬТЕТАМ</h3>
         <div className={styles.FL}>
             <div className={styles.FacultiesData}>
-                <Line data = {data} options={options} width={600} height={200}></Line>
+                <Line data = {data} options={options} width={600} height={200} plugins={[zoomPlugin]}></Line>
             </div>
         </div>
             
