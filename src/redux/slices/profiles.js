@@ -24,8 +24,10 @@ export const fetchProfilesHIndex = createAsyncThunk('profiles/fetchProfilesHInde
 const initialState = {
     profiles: {
         items: [],
+        changedItems: [],
         status: 'loading',
-        filtered: 'false',
+        filtered: false,
+        searched: 0,
     },
     profilesHIndex: {
         items: [],
@@ -37,47 +39,73 @@ const profilesSlice = createSlice({
     name: 'profiles',
     initialState,
     reducers: {
-        sortProfiles: (state, action) => {
-            state.profiles.items = state.profiles.items.sort((a, b) => a[action.payload.field] > b[action.payload.field] ? action.payload.seq : -action.payload.seq)
-        },
         searchProfiles: (state, action) => {
-            state.profiles.items = state.profiles.items.filter(object => object.fullName.toLowerCase().includes(action.payload.toLowerCase()))
+            if (action.payload !== "") {
+                state.profiles.searchParams = action.payload
+                if (!state.profiles.filtered) {
+                    state.profiles.items = state.profiles.items.filter(object => object.fullName.toLowerCase().includes(action.payload.toLowerCase()))
+                    state.profiles.searched = state.profiles.items.length
+                }
+                else {
+                    state.profiles.changedItems = state.profiles.changedItems.filter(object => object.fullName.toLowerCase().includes(action.payload.toLowerCase()))
+                    state.profiles.searched = state.profiles.changedItems.length
+                }
+            }
+            else {
+                state.profiles.searched = 0
+            }
+        },
+        sortProfiles: (state, action) => {
+            if (state.profiles.changedItems.length === 0) {
+                state.profiles.items = state.profiles.items.sort((a, b) => a[action.payload.field] > b[action.payload.field] ? action.payload.seq : -action.payload.seq)
+            }
+            else {
+                state.profiles.changedItems = state.profiles.changedItems.sort((a, b) => a[action.payload.field] > b[action.payload.field] ? action.payload.seq : -action.payload.seq)
+            }  
+        },
+        filterProfiles: (state, action) => {
+            if (action.payload.arrDepartments.length !== 0 ||
+                action.payload.arrFaculties.length !== 0 ||
+                action.payload.arrTitles.length !== 0) 
+            {
+                state.profiles.filtered = true
+                state.profiles.filterParams = action.payload
+                state.profiles.changedItems = state.profiles.items.filter(item => {
+                    return action.payload.arrDepartments.some(department => item.department === department) ||
+                            action.payload.arrFaculties.some(faculty => item.faculty === faculty) ||
+                            action.payload.arrTitles.some(title => item.title === title)
+                })
+            }
+            else {
+                state.profiles.changedItems = []
+                state.profiles.filtered = false
+            }
         },
         setProfiles: (state, action) => {
-            state.profiles.items = action.payload
+            if (!state.profiles.filtered) {
+                state.profiles.items = action.payload
+            }
+            else {
+                state.profiles.changedItems = action.payload
+            }
+            state.profiles.searched = 0
         }
     },
     extraReducers: {
         [fetchProfiles.pending]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'loading'
-            state.profiles.filtered = 'false'
+            state.profiles.filtered = false
         },
         [fetchProfiles.fulfilled]: (state, action) => {
             state.profiles.items = action.payload
             state.profiles.status = 'loaded'
-            state.profiles.filtered = 'false'
+            state.profiles.filtered = false
         },
         [fetchProfiles.rejected]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'error'
-            state.profiles.filtered = 'false'
-        },
-
-        [fetchProfilesFiltered.pending]: (state) => {
-            state.profiles.items = []
-            state.profiles.status = 'loading'
-            state.profiles.filtered = 'false'
-        },
-        [fetchProfilesFiltered.fulfilled]: (state, action) => {
-            state.profiles.items = action.payload
-            state.profiles.status = 'loaded'
-            state.profiles.filtered = 'true'
-        },
-        [fetchProfilesFiltered.rejected]: (state) => {
-            state.profiles.items = []
-            state.profiles.status = 'error'
-            state.profiles.filtered = 'false'
+            state.profiles.filtered = false
         },
 
         [fetchProfilesHIndex.pending]: (state) => {
@@ -96,20 +124,20 @@ const profilesSlice = createSlice({
         [fetch20Profiles.pending]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'loading'
-            state.profiles.filtered = 'false'
+            state.profiles.filtered = false
         },
         [fetch20Profiles.fulfilled]: (state, action) => {
             state.profiles.items = action.payload
             state.profiles.status = 'loading'
-            state.profiles.filtered = 'false'
+            state.profiles.filtered = false
         },
         [fetch20Profiles.rejected]: (state) => {
             state.profiles.items = []
             state.profiles.status = 'error'
-            state.profiles.filtered = 'false'
+            state.profiles.filtered = false
         },
     },
 })
 
 export const profilesReducer = profilesSlice.reducer
-export const { sortProfiles, searchProfiles, setProfiles } = profilesSlice.actions
+export const { searchProfiles, sortProfiles, filterProfiles, setProfiles } = profilesSlice.actions

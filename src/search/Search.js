@@ -12,7 +12,7 @@ export function Search() {
     const dispatch = useDispatch()
     const { profiles } = useSelector(state => state.profiles)
     const isProfilesLoaded = profiles.status === 'loaded'
-    const isProfilesFiltered = profiles.filtered === 'true'
+    const isProfilesFiltered = profiles.filtered === true
 
     const [isCopiedAfterLoading, setIsCopiedAfterLoading] = useState(false)
     const [isCopiedAfterFiltering, setIsCopiedAfterFiltering] = useState(false)
@@ -28,7 +28,7 @@ export function Search() {
         setIsCopiedAfterLoading(true)
     }
     if (isProfilesFiltered && !isCopiedAfterFiltering) {
-        setCopyProfiles(profiles.items)
+        setCopyProfiles(profiles.changedItems)
         setIsCopiedAfterFiltering(true)
     }
 
@@ -52,10 +52,10 @@ export function Search() {
         if(!isOpen){
             dispatch(setProfiles(copyProfiles))
         }
-    },[isOpen])
+    }, [isOpen])
 
     useEffect(() => {
-        let length = profiles.items.length
+        let length = profiles.searched
         setFound(`Найдено: ${length}`)
     }, [profiles.items])
 
@@ -76,7 +76,7 @@ export function Search() {
             button.removeEventListener('click', handleClickC);
           };
         }
-      }, [button]);
+    }, [button]);
     // useEffect(()=>{document.addEventListener('mousedown', handleClickC); 
     // return()=>{document.removeEventListener('mousedown', handleClickC);};},[RefC])
 

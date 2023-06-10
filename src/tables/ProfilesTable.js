@@ -62,7 +62,10 @@ export function ProfilesTable() {
     useEffect(() => {
         dispatch(fetchProfiles())
     }, [dispatch])
-
+    /*const [isProfilesChanged, setIsProfilesChanged]=useState(false)
+    useEffect(() => {
+        setIsProfilesChanged(false)
+    }, [profiles.changedItems.length])*/
 
     const [countOfPersons, setCountOfPersons]=useState(0)
     const [sumOfCited, setSumOfCited] = useState(0)
@@ -109,7 +112,7 @@ export function ProfilesTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {(isProfilesLoading ? sample : profiles.items).map((item, index) => <TableRow item={item} id={index}/>)}
+                    {((isProfilesLoading ? sample : (profiles.filtered ? profiles.changedItems : profiles.items)).map((item, index) => <TableRow item={item} id={index}/>))}
                 </tbody>
             </table>
         </div>
