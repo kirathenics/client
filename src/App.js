@@ -13,7 +13,8 @@ import { FilSort } from './FilterSort/FilterSort'
 import { GraphApp } from './graphs/GraphApp'
 //import styles1 from './Top3-item/Top3-item.module.css'
 
-import { FaChartLine } from "react-icons/fa";
+import { VscTable } from "react-icons/vsc";
+import { AiOutlineLineChart } from "react-icons/ai";
 
 function App() {
   const [isOpen, setIsPressed] = useState(false)
@@ -25,8 +26,8 @@ function App() {
   return (
     <div className={styles.MainDiv}>
       <div className={styles.divb} >
-      <button onClick={()=>{handleButtonClick()}} className={!isOpen ? styles.butt : styles.Disable}  id={styles.left}>Таблицы</button>
-      <button onClick={()=>{handleButtonClick()}} className={isOpen ? styles.butt : styles.Disable} id={styles.right}>Графики <FaChartLine className={styles.ChartIcon}/></button>
+      <button onClick={()=>{handleButtonClick()}} className={!isOpen ? styles.butt : styles.Disable}  id={styles.left}><VscTable className={styles.Icon}/> Таблицы</button>
+      <button onClick={()=>{handleButtonClick()}} className={isOpen ? styles.butt : styles.Disable} id={styles.right}>Графики <AiOutlineLineChart className={styles.Icon}/></button>
       </div>
       
       <div className={isOpen ? styles.Graph : styles.NotOpenGraph}>
