@@ -54,6 +54,7 @@ const arrTitles = [
     {name:'Доцент', id: 2, flag: false},
     {name:'Специалист', id: 3, flag: false},
 ]
+
 const arrSort = [
     {text:'h-индекс возр.', field:'hIndex', seq:1, flag:false, icon:<BsSortDownAlt className={styles.SortButI}/>},
     {text:'h-индекс убыв.', field:'hIndex', seq:-1, flag:true, icon:<BsSortDown className={styles.SortButI}/>},
@@ -62,7 +63,6 @@ const arrSort = [
     {text:'Цитирование возр.', field:'cited', seq:1, flag:false, icon:<BsSortDownAlt className={styles.SortButI}/>},
     {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false, icon:<BsSortDownAlt className={styles.SortButI}/>}
 ]
-
 
 export function FilSort(props) {
     const [object, setObject]=useState({arrDepartments:[],arrFaculties:[],arrTitles:[]})
@@ -197,7 +197,7 @@ export function FilSort(props) {
                 
                  <button ref={RefButS} onClick={toggleDropdownS} className={isPressedS ? styles.SortP : styles.Sort}>Сортировка<BiSort className={styles.SortI}/></button>
                     {isPressedS && (<div ref={RefS} className={styles.DivWithSort}>
-                        {dataSort.map((item, index)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={index} onClick={(e, item)=>{handleButtonClickSearch(e, index)}}>{item.text}</button>))}
+                        {dataSort.map((item, index)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={index} onClick={(e, item)=>{handleButtonClickSearch(e, index)}}>{item.text}{item.icon}</button>))}
                     </div>)}
 
                 

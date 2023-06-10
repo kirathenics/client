@@ -61,7 +61,7 @@ export function Search() {
     useEffect(() => {
         let length = profiles.searched
         setFound(`Найдено: ${length}`)
-    }, [profiles.items])
+    }, [profiles.searched])
 
     const RefC = useRef(null)
 

@@ -41,18 +41,18 @@ const profilesSlice = createSlice({
     reducers: {
         searchProfiles: (state, action) => {
             if (action.payload !== "") {
-                state.profiles.searchParams = action.payload
                 if (!state.profiles.filtered) {
                     state.profiles.items = state.profiles.items.filter(object => object.fullName.toLowerCase().includes(action.payload.toLowerCase()))
-                    state.profiles.searched = state.profiles.items.length
                 }
                 else {
                     state.profiles.changedItems = state.profiles.changedItems.filter(object => object.fullName.toLowerCase().includes(action.payload.toLowerCase()))
-                    state.profiles.searched = state.profiles.changedItems.length
                 }
             }
+            if (!state.profiles.filtered) {
+                state.profiles.searched = state.profiles.items.length
+            }
             else {
-                state.profiles.searched = 0
+                state.profiles.searched = state.profiles.changedItems.length
             }
         },
         sortProfiles: (state, action) => {
@@ -66,10 +66,8 @@ const profilesSlice = createSlice({
         filterProfiles: (state, action) => {
             if (action.payload.arrDepartments.length !== 0 ||
                 action.payload.arrFaculties.length !== 0 ||
-                action.payload.arrTitles.length !== 0) 
-            {
+                action.payload.arrTitles.length !== 0) {
                 state.profiles.filtered = true
-                state.profiles.filterParams = action.payload
                 state.profiles.changedItems = state.profiles.items.filter(item => {
                     return action.payload.arrDepartments.some(department => item.department === department) ||
                             action.payload.arrFaculties.some(faculty => item.faculty === faculty) ||
