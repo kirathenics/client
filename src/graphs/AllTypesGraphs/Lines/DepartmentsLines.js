@@ -92,9 +92,12 @@ export function DepartmentLines(props) {
     return(
         <div className={styles.DepartmentLines}>
         <h3>ПО КАФЕДРАМ</h3>
-            <div className={styles.DepartmentData}>
-                <Line data = {data} options={options} height={500}></Line>
-            </div>
+        <div className={styles.DL}>
+           <div className={styles.DepartmentData}>
+                <Line data = {data} options={options} width={600} height={100}></Line>
+            </div> 
+        </div>
+            
         </div>
     )
 }
