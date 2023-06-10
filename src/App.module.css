@@ -285,3 +285,9 @@
     text-align: center;
 }
 
+.ChartIcon{
+    position: relative;
+    top: 35%;
+    right: 0;
+    transform: translateY(-50%);
+}
