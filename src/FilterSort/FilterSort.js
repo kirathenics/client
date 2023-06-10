@@ -146,7 +146,7 @@ export function FilSort(props) {
 
     const handleClickApply = () => {
         setClickedOnApplyButton(true)
-        dispatch(filterProfiles(object))
+        // dispatch(filterProfiles(object))
     }
 
     const handleClickDel = () => {
