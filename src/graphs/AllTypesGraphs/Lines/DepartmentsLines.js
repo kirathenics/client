@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./LineDiv.module.css"
 import { FacultiesColors } from "../../Colors";
-
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchDepartmentsLines } from '../../../redux/slices/departments'
 
@@ -16,6 +15,7 @@ import {
     Legend,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+
 
 ChartJS.register(
     CategoryScale,
