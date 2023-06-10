@@ -142,7 +142,7 @@ export function FilSort(props) {
             dispatch(filterProfiles(object))
             setClickedOnApplyButton(!clickedOnApplyButton)
         }
-    }, [dispatch, clickedOnApplyButton, object])
+    }, [clickedOnApplyButton])
 
     const handleClickApply = () => {
         setClickedOnApplyButton(true)
@@ -151,7 +151,7 @@ export function FilSort(props) {
 
     const handleClickDel = () => {
         setClickedOnApplyButton(true)
-        
+
         setObject({arrDepartments:[],arrFaculties:[],arrTitles:[]})
         dataDepartments.forEach((obj)=>{obj.flag=false})
         dataFaculties.forEach((obj)=>{obj.flag=false})
