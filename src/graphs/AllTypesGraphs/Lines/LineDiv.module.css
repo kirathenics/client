@@ -32,6 +32,7 @@
     }
     .DepartmentData{
         padding: 2px;
+        width: 800px;
     }
     .FacultiesData{
         padding: 2px;
@@ -40,9 +41,18 @@
     }
     .TitlesData{
         padding: 2px;
+        width: 800px;
     }
     .FL{
+        height: 400px;
+        overflow-x: scroll;
+    }
+    .DL{
         /* height: 300px; */
+        overflow-x: scroll;
+    }
+    .TL{
+        height: 400px;
         overflow-x: scroll;
     }
 }

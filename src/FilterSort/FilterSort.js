@@ -4,6 +4,10 @@ import styles from './FilterSort.module.css'
 import { useDispatch } from 'react-redux'
 import { sortProfiles, filterProfiles } from '../redux/slices/profiles'
 
+import { FiFilter } from "react-icons/fi";
+import { BiSort } from "react-icons/bi";
+import { BsSortAlphaDownAlt, BsSortAlphaDown, BsSortDownAlt, BsSortDown } from "react-icons/bs";
+
 const arrDepartments = [
     {name:'Академический резерв кафедр', id: 1, flag: false},
     {name:'Кафедра автоматизации технологических процессов и производств', id: 2, flag: false},
@@ -50,15 +54,15 @@ const arrTitles = [
     {name:'Доцент', id: 2, flag: false},
     {name:'Специалист', id: 3, flag: false},
 ]
-
 const arrSort = [
-    {text:'h-индекс возр.', field:'hIndex', seq:1, flag:false,},
-    {text:'h-индекс убыв.', field:'hIndex', seq:-1, flag:true,},
-    {text:'ФИО возр.', field:'fullName', seq:1, flag:false,},
-    {text:'ФИО убыв.', field:'fullName', seq:-1, flag:false,},
-    {text:'Цитирование возр.', field:'cited', seq:1, flag:false,},
-    {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false,}
+    {text:'h-индекс возр.', field:'hIndex', seq:1, flag:false, icon:<BsSortDownAlt className={styles.SortButI}/>},
+    {text:'h-индекс убыв.', field:'hIndex', seq:-1, flag:true, icon:<BsSortDown className={styles.SortButI}/>},
+    {text:'ФИО возр.', field:'fullName', seq:1, flag:false, icon: <BsSortAlphaDown className={styles.SortButI}/>},
+    {text:'ФИО убыв.', field:'fullName', seq:-1, flag:false, icon: <BsSortAlphaDownAlt className={styles.SortButI}/>},
+    {text:'Цитирование возр.', field:'cited', seq:1, flag:false, icon:<BsSortDownAlt className={styles.SortButI}/>},
+    {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false, icon:<BsSortDownAlt className={styles.SortButI}/>}
 ]
+
 
 export function FilSort(props) {
     const [object, setObject]=useState({arrDepartments:[],arrFaculties:[],arrTitles:[]})
@@ -164,7 +168,7 @@ export function FilSort(props) {
         <div className={styles.FiltSort}>
 
             <div className={styles.FilDiv}>
-                <button ref={RefButF} onClick={toggleDropdownF} className={isPressedF ? styles.FilterP : styles.Filter}>Фильтр</button>
+                <button ref={RefButF} onClick={toggleDropdownF} className={isPressedF ? styles.FilterP : styles.Filter}>Фильтр<FiFilter className={styles.FilI}/></button>
                 {isPressedF&&(<div ref={RefF} className={styles.DivWithFil}>
                     <div className={styles.AllFilters}>
                     <div className={styles.Cafed}>
@@ -191,7 +195,7 @@ export function FilSort(props) {
                 </div>)}
 
                 
-                 <button ref={RefButS} onClick={toggleDropdownS} className={isPressedS ? styles.SortP : styles.Sort}>Сортировка</button>
+                 <button ref={RefButS} onClick={toggleDropdownS} className={isPressedS ? styles.SortP : styles.Sort}>Сортировка<BiSort className={styles.SortI}/></button>
                     {isPressedS && (<div ref={RefS} className={styles.DivWithSort}>
                         {dataSort.map((item, index)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={index} onClick={(e, item)=>{handleButtonClickSearch(e, index)}}>{item.text}</button>))}
                     </div>)}

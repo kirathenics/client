@@ -116,7 +116,7 @@ export function FacultiesLines(props) {
         <h3>ПО ФАКУЛЬТЕТАМ</h3>
         <div className={styles.FL}>
             <div className={styles.FacultiesData}>
-                <Line data = {data} options={options} width={600} height={200}></Line>
+                <Line data = {data} options={options} width={600} height={100}></Line>
             </div>
         </div>
             

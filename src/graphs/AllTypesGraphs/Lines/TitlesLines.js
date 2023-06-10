@@ -92,9 +92,12 @@ export function TitlesLines(props) {
     return(
         <div className={styles.TitlesLines}>
         <h3>ПО ДОЛЖНОСТЯМ</h3>
+        <div className={styles.TL}>
             <div className={styles.TitlesData}>
-            <Line data = {data} options={options} height={500}></Line>
+            <Line data = {data} options={options} width={600} height={100}></Line>
             </div>
+        </div>
+            
         </div>
     )
 }
