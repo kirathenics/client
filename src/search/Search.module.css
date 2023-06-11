@@ -70,11 +70,13 @@
 
 .pp{
     position: absolute;
-    top: 20px;
+    top: 15px;
     width: 200px;
     text-align: center;
     color: rgb(33,47,92);
     margin-top: 20px;
+    color:gray;
+    font-size: 15px;
 }
 
 .break{
