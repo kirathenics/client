@@ -200,25 +200,25 @@ export function DepartmentLines(props) {
     return(
         <div className={styles.DepartmentLines}>
             
-        <button ref={RefButF} onClick={toggleDropdownF} className={isPressedF ? styles.FilterP : styles.Filter}>Фильтр<FiFilter className={styles.FilI}/></button>
-        {isPressedF&&(<div ref={RefF} className={styles.DivWithFil}>
-            <div className={styles.AllFilters}>
-            <div className={styles.Cafed}>
-            <div className={styles.Str}>Кафедра</div>
-            <div className={styles.FilButs}>{dataDepartments.map((item, index)=>(<button className={item.flag ? styles.Choose : styles.NotChoose} key={item.id} onClick={(e, item)=>{handleButtonClick('arrDepartments', e, index)}}>{item.name}</button>))}</div>
+        <button ref={RefButF} onClick={toggleDropdownF} className={isPressedF ? filterStyles.FilterPG : filterStyles.FilterG}>Фильтр<FiFilter className={filterStyles.FilI}/></button>
+        {isPressedF&&(<div ref={RefF} className={filterStyles.DivWithFilG}>
+            <div className={filterStyles.AllFilters}>
+            <div className={filterStyles.CafedG}>
+            <div className={filterStyles.Str}>Кафедра</div>
+            <div className={filterStyles.FilButs}>{dataDepartments.map((item, index)=>(<button className={item.flag ? filterStyles.Choose : filterStyles.NotChoose} key={item.id} onClick={(e, item)=>{handleButtonClick('arrDepartments', e, index)}}>{item.name}</button>))}</div>
             </div>
 
             </div>
-            <div className={styles.ApplyDel}>
-                <button onClick={handleClickApply} className={styles.Apply}>Применить</button>
-                <button onClick={handleClickDel} className={styles.Del}>Очистить</button> 
+            <div className={filterStyles.ApplyDel}>
+                <button onClick={handleClickApply} className={filterStyles.Apply}>Применить</button>
+                <button onClick={handleClickDel} className={filterStyles.Del}>Очистить</button> 
             </div>
                     
         </div>)}
 
         <h3>ПО КАФЕДРАМ</h3>
-        <div className={styles.DL}>
-           <div className={styles.DepartmentData}>
+        <div className={filterStyles.DL}>
+           <div className={filterStyles.DepartmentData}>
                 <Line data = {data} options={options} width={600} height={100}></Line>
             </div> 
         </div>

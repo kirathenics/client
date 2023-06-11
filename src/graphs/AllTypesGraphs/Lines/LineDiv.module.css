@@ -19,10 +19,14 @@
 }
 
 .FacultyLineDiv{
-    border-bottom: 1px solid rgb(33,47,92);
+    border-bottom: 2px solid rgb(33,47,92);
 }
 .DepartmentLineDiv{
-    border-bottom: 1px solid rgb(33,47,92);
+    border-bottom: 2px solid rgb(33,47,92);
+}
+
+.DepartmentLines{
+    position: relative;
 }
 
 @media (max-width: 660px) {
