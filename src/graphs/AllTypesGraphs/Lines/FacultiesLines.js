@@ -58,14 +58,6 @@ export function FacultiesLines(props) {
     })
 
 
-    // if (true)
-    // {
-    //     labels = labels.slice(-23)
-    //     datasets.forEach(faculty => {
-    //         faculty.data = faculty.data.slice(-23)
-    //     })
-    // }
-
     const data = {
         labels: labels,
         datasets: datasets,
@@ -113,6 +105,7 @@ export function FacultiesLines(props) {
     
     return(
         <div className={styles.FacultiesLines}>
+            
         <h3>ПО ФАКУЛЬТЕТАМ</h3>
         <div className={styles.FL}>
             <div className={styles.FacultiesData}>
