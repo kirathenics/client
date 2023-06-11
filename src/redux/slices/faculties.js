@@ -27,14 +27,29 @@ const initialState = {
     },
     facultiesLines: {
         items: [],
+        changedItems: [],
         status: 'loading',
+        filtered: false,
     },
 }
 
 const facultiesSlice = createSlice({
     name: 'faculties',
     initialState,
-    reducers: {},
+    reducers: {
+        filterFacultiesLines: (state, action) => {
+            if (action.payload.arrFaculties.length !== 0) {
+                state.facultiesLines.filtered = true
+                state.facultiesLines.changedItems = state.facultiesLines.items.filter(item => {
+                    return action.payload.arrFaculties.some(faculty => item.name === faculty)
+                })
+            }
+            else {
+                state.facultiesLines.changedItems = []
+                state.facultiesLines.filtered = false
+            }
+        },
+    },
     extraReducers: {
         [fetchFaculties.pending]: (state) => {
             state.faculties.items = []
@@ -78,3 +93,4 @@ const facultiesSlice = createSlice({
 })
 
 export const facultiesReducer = facultiesSlice.reducer
+export const { filterFacultiesLines } = facultiesSlice.actions
