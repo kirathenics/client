@@ -36,14 +36,18 @@ export function Top3Profiles() {
             {(isTop3Loading ? sample : top3.items).map(item => <Top3Item styles={styles} key={item.id} item={item} />)}     
             </div> */}
 
-            {/* {!isTop3Loading&&(<div className={styles.NewTop3}>
+            {!isTop3Loading&&(<div className={styles.NewTop3}>
                 <div className={styles.ForColumns}>
-                    <div className={styles.Columns}><img src={top3.items[1].imageLink} alt="dd" /><div className={styles.T2}>{isTop3Loading ? <Top3Item styles={styles} item={sample[0]}/> : <Top3Item styles={styles} item={top3.items[1]} img={require("./backgroundForTop/silverbstu1.png")}/>}</div></div>
-                    <div className={styles.Columns}><img src={top3.items[0].imageLink} alt="dd" /><div className={styles.T1}>{isTop3Loading ? <Top3Item styles={styles} item={sample[0]}/> : <Top3Item styles={styles} item={top3.items[0]} img={require("./backgroundForTop/goldbstu1.png")}/>}</div></div>
-                    <div className={styles.Columns}><img src={top3.items[2].imageLink} alt="dd" /><div className={styles.T3}>{isTop3Loading ? <Top3Item styles={styles} item={sample[0]}/> : <Top3Item styles={styles} item={top3.items[2]} img={require("./backgroundForTop/bronzebstu1.png")}/>}</div></div>
+                    <div className={styles.Columns}><img src={require("./backgroundForTop/silverbstu1.png")} alt="dd" /><div className={styles.T2}>{isTop3Loading ? <Top3Item styles={styles} item={sample[0]}/> : <Top3Item styles={styles} item={top3.items[1]} img={require("./backgroundForTop/silverbstu1.png")}/>}</div></div>
+                    <div className={styles.Columns}><img src={require("./backgroundForTop/goldbstu1.png")} alt="dd" /><div className={styles.invisibleGold}></div><div className={styles.T1}>{isTop3Loading ? <Top3Item styles={styles} item={sample[0]}/> : <Top3Item styles={styles} item={top3.items[0]} img={require("./backgroundForTop/goldbstu1.png")}/>}</div></div>
+                    <div className={styles.Columns}>
+                        <img src={require("./backgroundForTop/bronzebstu1.png")} alt="dd" />
+                        
+                        <div className={styles.T3}>{isTop3Loading ? <Top3Item styles={styles} item={sample[0]}/> : <Top3Item styles={styles} item={top3.items[2]} img={require("./backgroundForTop/bronzebstu1.png")}/>}</div>
+                    </div>
                 </div>
                 <div className={styles.bottomLine}></div>
-            </div>)}  */}
+            </div>)} 
 
         </div>
     )

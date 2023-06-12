@@ -24,7 +24,7 @@ export function Top3Item (props) {
     return(
         <div key={props.item._id} className={props.styles.item}>
             <div className={props.styles.topSection}>
-                <img className={props.styles.ProfilePhoto} src={props.img} alt="вв" />
+                <img className={props.styles.ProfilePhoto} src={props.item.imageLink} alt="вв" />
                 <div className={props.styles.FIO}>
                     <p className={props.styles.F}>{parts[0]}</p>  
                     <p className={props.styles.IO}>{parts[1] + ' ' + parts[2]}</p>  
