@@ -18,14 +18,29 @@ const initialState = {
     },
     titlesLines: {
         items: [],
+        changedItems: [],
         status: 'loading',
+        filtered: false,
     },
 }
 
 const titlesSlice = createSlice({
     name: 'titles',
     initialState,
-    reducers: {},
+    reducers: {
+        filterTitlesLines: (state, action) => {
+            if (action.payload.filterArr.length !== 0) {
+                state.titlesLines.filtered = true
+                state.titlesLines.changedItems = state.titlesLines.items.filter(item => {
+                    return action.payload.filterArr.some(title => item.name === title)
+                })
+            }
+            else {
+                state.titlesLines.changedItems = []
+                state.titlesLines.filtered = false
+            }
+        },
+    },
     extraReducers: {
         [fetchTitlesPies.pending]: (state) => {
             state.titlesPies.items = []
@@ -56,3 +71,4 @@ const titlesSlice = createSlice({
 })
 
 export const titlesReducer = titlesSlice.reducer
+export const { filterTitlesLines } = titlesSlice.actions

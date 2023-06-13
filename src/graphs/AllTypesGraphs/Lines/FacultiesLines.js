@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styles from "./LineDiv.module.css"
-import { FacultiesColors } from "../../Colors";
-
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchFacultiesLines } from '../../../redux/slices/faculties'
+import { fetchFacultiesLines, filterFacultiesLines } from '../../../redux/slices/faculties'
+
+import styles from "./LineDiv.module.css"
+import { arrFaculties } from "../../../FacDepTitlesNames";
+import { FacultiesColors } from "../../Colors";
+import { GraphFilter } from "../../GraphFilter";
 
 import {
     Chart as ChartJS,
@@ -35,7 +37,8 @@ export function FacultiesLines(props) {
         dispatch(fetchFacultiesLines())
     }, [dispatch])
 
-    let labels = facultiesLines.items.reduce((prev, curr) => {
+    // let labels = facultiesLines.items.reduce((prev, curr) => {
+    let labels = (facultiesLines.filtered ? facultiesLines.changedItems : facultiesLines.items).reduce((prev, curr) => {
         curr.citationArray.forEach(item => {
             if (!prev.includes(item.year)) {
                 prev.push(item.year)
@@ -45,7 +48,8 @@ export function FacultiesLines(props) {
     }, []).sort()
 
     let index = -1;
-    let datasets = facultiesLines.items.map(item => {
+    // let datasets = facultiesLines.items.map(item => {
+    let datasets = (facultiesLines.filtered ? facultiesLines.changedItems : facultiesLines.items).map(item => {
         index++
         let arrCited = Array(labels.length - item.citationArray.length)
         arrCited = arrCited.concat(item.citationArray.map(obj => obj.cited))
@@ -105,6 +109,8 @@ export function FacultiesLines(props) {
     
     return(
         <div className={styles.FacultiesLines}>
+
+        {/* <GraphFilter filter={filterFacultiesLines} array={arrFaculties}></GraphFilter> */}
             
         <h3>ПО ФАКУЛЬТЕТАМ</h3>
         <div className={styles.FL}>

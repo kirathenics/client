@@ -38,10 +38,10 @@ const departmentsSlice = createSlice({
     initialState,
     reducers: {
         filterDepartmentsLines: (state, action) => {
-            if (action.payload.arrDepartments.length !== 0) {
+            if (action.payload.filterArr.length !== 0) {
                 state.departmentsLines.filtered = true
                 state.departmentsLines.changedItems = state.departmentsLines.items.filter(item => {
-                    return action.payload.arrDepartments.some(department => item.name === department)
+                    return action.payload.filterArr.some(department => item.name === department)
                 })
             }
             else {
