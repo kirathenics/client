@@ -64,23 +64,23 @@ export function GraphFilter(props) {
     useEffect(()=>{document.addEventListener('mousedown', handleClickOutsideF); 
     return()=>{document.removeEventListener('mousedown', handleClickOutsideF);};},[RefF])
 
-    const sid=props.cid
+    
     
     return(
         <>
          
-        {props.cid&&(<button ref={RefButF} onClick={toggleDropdownF} className={isPressedF ? styles.FilterPG : styles.FilterG} id={props.cid}>Фильтр<FiFilter className={styles.FilI}/></button>)}
-        {isPressedF&&(<div ref={RefF} className={filterStyles.DivWithFilG}>
-            <div className={filterStyles.AllFilters}>
+        <button ref={RefButF} onClick={toggleDropdownF} className={isPressedF ? styles.FilterPG : styles.FilterG} id={props.cid}>Фильтр<FiFilter className={styles.FilI}/></button>
+        {isPressedF&&(<div ref={RefF} className={styles.DivWithFilG} id={props.cid}>
+            <div className={styles.AllFilters} id={props.cid}>
             <div className={filterStyles.CafedG}>
             {/* <div className={filterStyles.Str}>Кафедра</div> */}
             <div className={filterStyles.FilButs}>{dataDepartments.map((item, index)=>(<button className={item.flag ? filterStyles.Choose : filterStyles.NotChoose} key={item.id} onClick={(e, item)=>{handleButtonClick('filterArr', e, index)}}>{item.name}</button>))}</div>
             </div>
 
             </div>
-            <div className={filterStyles.ApplyDel}>
-                <button onClick={handleClickApply} className={filterStyles.Apply}>Применить</button>
-                <button onClick={handleClickDel} className={filterStyles.Del}>Очистить</button> 
+            <div className={styles.ApplyDel} id={props.cid}>
+                <button onClick={handleClickApply} className={styles.Apply} id={props.cid}>Применить</button>
+                <button onClick={handleClickDel} className={styles.Del} id={props.cid}>Очистить</button> 
             </div>
                     
         </div>)}

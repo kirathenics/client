@@ -27,9 +27,18 @@ h2{
     border-top:0;
 }
 
-#frst{
+#frst.FilterG{
     border-radius: 15px 0 20px 0;
 }
+#frst.FilterPG{
+    border-radius: 15px 0 0 0;
+}
+
+#trd.DivWithFilG{
+    width: 20%;
+    height: 170px;
+}
+
 
 .FilterPG{
     position: absolute;
@@ -73,4 +82,72 @@ h2{
     right: 0;
     transform: translateY(-50%);
     margin-left: 5px;
+}
+
+.AllFilters{
+    display: flex;
+    height: 85%;
+    width: 100%;
+}
+#trd.AllFilters{
+    display: flex;
+    height: 80%;
+    width: 100%;
+}
+.ApplyDel{
+    display: flex;
+    width: 100%;
+    align-items:center;
+    margin-top: 1.5%; 
+    position: relative;
+    justify-content: center;
+}
+#trd.ApplyDel{
+    display: flex;
+    width: 98%;
+    align-items:center;
+    margin-left: 0.9%;
+    margin-top: 1%; 
+
+    position: relative;
+    justify-content: center;
+}
+
+.ApplyDel button{
+    width: 120px;
+    height: 25px;
+    border-radius: 12px;
+    /* color: white; */
+    background-color:rgb(235,235,235);
+    /* background-color:rgb(33,47,92); */
+}
+
+.Apply{
+    /* position: relative; */
+    border: 1.5px solid rgb(33,47,92);
+    /* border: 1.5px solid rgb(153, 204, 90); */
+    margin-right: 10%;
+    color: rgb(33,47,92);
+}
+
+.Apply:hover{
+    border-width:2px;
+}
+.Apply:active{
+    color: white;
+    background-color:rgb(35, 50, 100);
+}
+
+.Del{
+    border: 1.5px solid rgb(211, 59, 59);
+    color: rgb(211, 59, 59);
+}
+.Del:hover{
+    border-width:2px;
+    /* color: rgb(33,47,92); */
+    /* background-color:rgb(47, 83, 201); */
+}
+.Del:active{
+    background-color: rgb(211, 59, 59);
+    color: white;
 }

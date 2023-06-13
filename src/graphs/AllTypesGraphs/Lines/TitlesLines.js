@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTitlesLines, filterTitlesLines } from '../../../redux/slices/titles'
 
+import Gstyles from "../../GraphApp.module.css"
 import styles from "./LineDiv.module.css"
 import { arrTitles } from "../../../FacDepTitlesNames";
 import { FacultiesColors } from "../../Colors";
@@ -96,7 +97,7 @@ export function TitlesLines(props) {
     return(
         <div className={styles.TitlesLines}>
 
-        <GraphFilter filter={filterTitlesLines} array={arrTitles} cid="trd"/>
+        <GraphFilter filter={filterTitlesLines} array={arrTitles} cid={Gstyles.trd}/>
 
         <h3>ПО ДОЛЖНОСТЯМ</h3>
         <div className={styles.TL}>
