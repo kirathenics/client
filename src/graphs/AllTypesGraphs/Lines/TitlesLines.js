@@ -96,7 +96,7 @@ export function TitlesLines(props) {
     return(
         <div className={styles.TitlesLines}>
 
-        <GraphFilter filter={filterTitlesLines} array={arrTitles}/>
+        <GraphFilter filter={filterTitlesLines} array={arrTitles} cid="trd"/>
 
         <h3>ПО ДОЛЖНОСТЯМ</h3>
         <div className={styles.TL}>

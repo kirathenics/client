@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import filterStyles from "../FilterSort/FilterSort.module.css"
 //import { arrDepartments } from "../FacDepTitlesNames"
 import { FiFilter } from "react-icons/fi";
+import styles from "./GraphApp.module.css"
 
 export function GraphFilter(props) {
     const [object, setObject]=useState({filterArr:[],arrFaculties:[],arrTitles:[]})
@@ -63,11 +64,12 @@ export function GraphFilter(props) {
     useEffect(()=>{document.addEventListener('mousedown', handleClickOutsideF); 
     return()=>{document.removeEventListener('mousedown', handleClickOutsideF);};},[RefF])
 
+    const sid=props.cid
     
     return(
         <>
-            
-        <button ref={RefButF} onClick={toggleDropdownF} className={isPressedF ? filterStyles.FilterPG : filterStyles.FilterG}>Фильтр<FiFilter className={filterStyles.FilI}/></button>
+         
+        {props.cid&&(<button ref={RefButF} onClick={toggleDropdownF} className={isPressedF ? styles.FilterPG : styles.FilterG} id={props.cid}>Фильтр<FiFilter className={styles.FilI}/></button>)}
         {isPressedF&&(<div ref={RefF} className={filterStyles.DivWithFilG}>
             <div className={filterStyles.AllFilters}>
             <div className={filterStyles.CafedG}>

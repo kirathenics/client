@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchFacultiesLines, filterFacultiesLines } from '../../../redux/slices/faculties'
 
 import styles from "./LineDiv.module.css"
+import Gstyles from "../../GraphApp.module.css"
 import { arrFaculties } from "../../../FacDepTitlesNames";
 import { FacultiesColors } from "../../Colors";
 import { GraphFilter } from "../../GraphFilter";
@@ -110,7 +111,7 @@ export function FacultiesLines(props) {
     return(
         <div className={styles.FacultiesLines}>
 
-        {/* <GraphFilter filter={filterFacultiesLines} array={arrFaculties}></GraphFilter> */}
+        <GraphFilter filter={filterFacultiesLines} array={arrFaculties} cid={Gstyles.frst}></GraphFilter>
             
         <h3>ПО ФАКУЛЬТЕТАМ</h3>
         <div className={styles.FL}>

@@ -33,13 +33,14 @@
     border-radius: 0 0 20px 0;
     border-color:rgb(33,47,92);
     /* margin-left: 26%;*/
-    top: -18px;
+    top: 0;
     left: 0; 
     background-color:rgb(33,47,92);
     color:white;
     border-left:0;
     border-top:0;
 }
+
 
 .FilterP{
     height: 44px;
@@ -60,7 +61,7 @@
 }
 .FilterPG{
     position: absolute;
-    top:-19px;
+    top: 0;
     left: 0;
     height: 44px;
     width: 120px;
@@ -113,7 +114,7 @@ box-shadow: 3px 3px 9px -1px rgba(0, 0, 0, 0.49);
     display: flex;
     flex-direction: column;
     z-index: 99999;
-    top: 23px;
+    top: 42px;
     left: 0;
     position: absolute;
     width: 40%;

@@ -184,7 +184,7 @@ export function DepartmentLines(props) {
             </div>
                     
         </div>)} */}
-        <GraphFilter filter={filterDepartmentsLines} array={arrDepartments}/>
+        <GraphFilter filter={filterDepartmentsLines} array={arrDepartments} cid="scnd"/>
 
         <h3>ПО КАФЕДРАМ</h3>
         <div className={styles.DL}>

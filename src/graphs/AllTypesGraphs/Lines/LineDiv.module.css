@@ -25,8 +25,31 @@
     border-bottom: 2px solid rgb(33,47,92);
 }
 
+
+.FacultiesLines{
+    position: relative;
+    padding-top: 20px;
+    
+}
+.FacultiesLines h3{
+    margin-top: 0;
+}
+
 .DepartmentLines{
     position: relative;
+    padding-top: 20px;
+}
+.DepartmentLines h3{
+    margin-top: 0;
+    
+}
+
+.TitlesLines{
+    position: relative;
+    padding-top: 20px;
+}
+.TitlesLines h3{
+    margin-top: 0;
 }
 
 @media (max-width: 660px) {
