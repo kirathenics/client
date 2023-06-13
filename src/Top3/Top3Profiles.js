@@ -31,7 +31,7 @@ export function Top3Profiles() {
 
     return(
         <div className={styles.DivForTop3}>
-            {/* <h3 className={styles.Top3Header}>ТОП 3 СОТРУДНИКА ПО ЦИТИРОВАНИЮ</h3> */}
+            <h3 className={styles.Top3Header}>ТОП 3 СОТРУДНИКА ПО ЦИТИРОВАНИЮ</h3>
             {/* <div className={styles.blockIt}>
             {(isTop3Loading ? sample : top3.items).map(item => <Top3Item styles={styles} key={item.id} item={item} />)}     
             </div> */}
