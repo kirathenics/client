@@ -114,6 +114,7 @@ box-shadow: 9px 0px 7px -4px rgba(32, 40, 47, 0.2);
 .DelI{
     position: relative;
     font-size: 22px;
+    background-color: white;
     /* margin-top: px; */
 }
 
