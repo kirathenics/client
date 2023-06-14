@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchProfiles, fetch20Profiles, sortProfiles } from '../redux/slices/profiles'
 
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { FaSort, FaSortUp, FaSortDown } from "react-icons/fa";
 
 /*const columns = [
     {heading: 'id', value: 'id'},
@@ -16,16 +17,18 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 ]*/
 
 const tableColumns = [
-    {heading: 'Номер', value: 'id', sortAvailable: false },
-    {heading: 'ФИО', value: 'fullName', sortAvailable: true },
-    {heading: 'Фото', value: 'imageLink', sortAvailable: false},
-    {heading: 'Факультет', value: 'faculty', sortAvailable: false},
-    {heading: 'Кафедра', value: 'department', sortAvailable: false},
-    {heading: 'Должность', value: 'title', sortAvailable: false},
-    {heading: 'Цитирование', value: 'cited', sortAvailable: true},  
-    {heading: 'h-индекс', value: 'hIndex', sortAvailable: true},
-    {heading: 'i10-индекс', value: 'i10Index', sortAvailable: false},
+    {heading: 'Номер', value: 'id', sortAvailable: false, pressed:0, id:0},
+    {heading: 'ФИО', value: 'fullName', sortAvailable: true, pressed:0, id:1},
+    {heading: 'Фото', value: 'imageLink', sortAvailable: false, pressed:0, id:2},
+    {heading: 'Факультет', value: 'faculty', sortAvailable: false, pressed:0, id:3},
+    {heading: 'Кафедра', value: 'department', sortAvailable: false, pressed:0, id:4},
+    {heading: 'Должность', value: 'title', sortAvailable: false, pressed:0, id:5},
+    {heading: 'Цитирование', value: 'cited', sortAvailable: true, pressed:0, id:6},  
+    {heading: 'h-индекс', value: 'hIndex', sortAvailable: true, pressed:0, id:7},
+    {heading: 'i10-индекс', value: 'i10Index', sortAvailable: false, pressed:0, id:8},
 ]
+
+
 
 export const sample = [
     {
@@ -43,6 +46,7 @@ export const sample = [
 ]
 
 export function ProfilesTable() {
+    
     /*const [dataTable, setDataTable] = useState([])
     console.log(dataTable)
 
@@ -110,7 +114,7 @@ export function ProfilesTable() {
             <table className={styles.BigTable}>
                 <thead>
                     <tr>
-                        {tableColumns.map(item => <TableHeadItem item={item}/>)}
+                        {tableColumns.map((item,index) => <TableHeadItem key={item.id} hkey ={index} item={item}/>)}
                     </tr>
                 </thead>
                 <tbody>
@@ -123,15 +127,46 @@ export function ProfilesTable() {
     )
 }
 
-function TableHeadItem({item}) {
+function TableHeadItem(props) {
     const [sortObject, setSortObject]=useState({field: '', seq: -1})
     const dispatch = useDispatch()
+
+    const [icon, setIcon] = useState(<FaSort/>)
 
     function handleSort(column) {
         let newSeq = sortObject.seq
         if (column === sortObject.field) {
             newSeq = -sortObject.seq
         }
+        
+        
+        if(tableColumns[props.hkey].pressed === 0){
+            tableColumns.forEach((obj)=>{
+                obj.pressed=0
+            })
+            tableColumns[props.hkey].pressed = 1
+            // setIcon(<FaSortDown/>)
+
+            console.log(tableColumns[props.hkey].pressed)
+        }
+        else if(tableColumns[props.hkey].pressed === 1){
+            tableColumns.forEach((obj)=>{
+                obj.pressed=0
+            })
+            tableColumns[props.hkey].pressed = 2
+            // setIcon(<FaSortUp/>)
+            console.log(tableColumns[props.hkey].pressed)
+        }
+        else if(tableColumns[props.hkey].pressed === 2){
+            tableColumns.forEach((obj)=>{
+                obj.pressed=0
+            })
+            tableColumns[props.hkey].pressed = 1
+            // setIcon(<FaSortDown/>)
+            console.log(tableColumns[props.hkey].pressed)
+        }
+        
+
         setSortObject({...sortObject, field: column, seq: newSeq})
         dispatch(sortProfiles(Object({
             field: column,
@@ -139,8 +174,21 @@ function TableHeadItem({item}) {
         })))
     }
 
+    useEffect(()=>{
+        if(props.item.pressed===0){setIcon(<FaSort/>)}
+        else if(props.item.pressed===1){setIcon(<FaSortDown/>)}
+        else if(props.item.pressed===2){setIcon(<FaSortUp/>)}
+        
+    },[props.item.pressed])
+    
+    function ic(av){
+        if(av){
+            return icon
+        }
+    }
+    
     return(
-        <th onClick={() => { if(item.sortAvailable) handleSort(item.value)}}>{item.heading}</th>
+        <th onClick={() => { if(props.item.sortAvailable) handleSort(props.item.value)}}>{props.item.heading}{ic(props.item.sortAvailable)}</th>
     )
 }
 
