@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './Table.module.css'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProfiles, fetch20Profiles } from '../redux/slices/profiles'
+import { fetchProfiles, fetch20Profiles, sortProfiles } from '../redux/slices/profiles'
 
 /*const columns = [
     {heading: 'id', value: 'id'},
@@ -14,15 +14,15 @@ import { fetchProfiles, fetch20Profiles } from '../redux/slices/profiles'
 ]*/
 
 const tableColumns = [
-    {heading: 'Номер', value: 'id'},
-    {heading: 'ФИО', value: 'fullName'},
-    {heading: 'Фото', value: 'imageLink'},
-    {heading: 'Факультет', value: 'faculty'},
-    {heading: 'Кафедра', value: 'department'},
-    {heading: 'Должность', value: 'title'},
-    {heading: 'Цитирование', value: 'cited'},  
-    {heading: 'h-индекс', value: 'hIndex'},
-    {heading: 'i10-индекс', value: 'i10Index'},
+    {heading: 'Номер', value: 'id', sortAvailable: false },
+    {heading: 'ФИО', value: 'fullName', sortAvailable: true },
+    {heading: 'Фото', value: 'imageLink', sortAvailable: false},
+    {heading: 'Факультет', value: 'faculty', sortAvailable: false},
+    {heading: 'Кафедра', value: 'department', sortAvailable: false},
+    {heading: 'Должность', value: 'title', sortAvailable: false},
+    {heading: 'Цитирование', value: 'cited', sortAvailable: true},  
+    {heading: 'h-индекс', value: 'hIndex', sortAvailable: true},
+    {heading: 'i10-индекс', value: 'i10Index', sortAvailable: false},
 ]
 
 export const sample = [
@@ -122,8 +122,23 @@ export function ProfilesTable() {
 }
 
 function TableHeadItem({item}) {
+    const [sortObject, setSortObject]=useState({field: '', seq: -1})
+    const dispatch = useDispatch()
+
+    function handleSort(column) {
+        let newSeq = sortObject.seq
+        if (column === sortObject.field) {
+            newSeq = -sortObject.seq
+        }
+        setSortObject({...sortObject, field: column, seq: newSeq})
+        dispatch(sortProfiles(Object({
+            field: column,
+            seq: newSeq,
+        })))
+    }
+
     return(
-        <th>{item.heading}</th>
+        <th onClick={() => { if(item.sortAvailable) handleSort(item.value)}}>{item.heading}</th>
     )
 }
 
