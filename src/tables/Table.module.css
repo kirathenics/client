@@ -19,6 +19,7 @@
 }
 
 .SumInfo{
+    position: relative;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -27,6 +28,12 @@
     background-color: rgb(33,47,92);
     color: white;
     text-align: center;
+}
+
+.IconInSum{
+    /* position: absolute; */
+    /* right: 5%; */
+    transform: translateX(-50%);
 }
 
 .DivWithSumInfo .SumInfo:first-child{
@@ -129,20 +136,15 @@ h3{
     height: 80px;
 }
 
+
+
 /* Responsive */
 
-@media (max-width: 767px) {
-    .TableWrapper{
-        margin: 10px 2% 70px;
-        max-height: 1000px;
-    }
-    .TableWrapper::-webkit-scrollbar{
-        display: none;
-    }
+@media(max-width:1300px){
     .DivWithSumInfo{
-        width: 98%;
+        width: 87%;
         height: fit-content;
-        margin-left: 1%;
+        margin-left: 6.5%;
         display: flex;
         flex-wrap: wrap;
         align-content: flex-start;
@@ -173,6 +175,25 @@ h3{
     .DivWithSumInfo .SumInfo:nth-child(4){
         border-radius:0 0 15px 0;
     }
+}
+
+@media (max-width: 767px) {
+    .DivWithSumInfo{
+        width: 98%;
+        height: fit-content;
+        margin-left: 1%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+    .TableWrapper{
+        margin: 10px 2% 70px;
+        max-height: 1000px;
+    }
+    .TableWrapper::-webkit-scrollbar{
+        display: none;
+    }
+    
     .table-wrapper:before{
         content: "Scroll horizontally >";
         display: block;
@@ -233,5 +254,15 @@ h3{
     .BigTable tbody td {
         display: block;
         text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .SumInfo{
+        font-size: 15px;
+    }
+    .IconInSum{
+        display: none;
+        /* transform: none; */
     }
 }

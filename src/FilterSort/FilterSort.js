@@ -61,7 +61,7 @@ const arrSort = [
     {text:'ФИО возр.', field:'fullName', seq:1, flag:false, icon: <BsSortAlphaDown className={styles.SortButI}/>},
     {text:'ФИО убыв.', field:'fullName', seq:-1, flag:false, icon: <BsSortAlphaDownAlt className={styles.SortButI}/>},
     {text:'Цитирование возр.', field:'cited', seq:1, flag:false, icon:<BsSortDownAlt className={styles.SortButI}/>},
-    {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false, icon:<BsSortDownAlt className={styles.SortButI}/>}
+    {text:'Цитирование убыв.', field:'cited', seq:-1, flag:false, icon:<BsSortDown className={styles.SortButI}/>}
 ]
 
 export function FilSort(props) {

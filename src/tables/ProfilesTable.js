@@ -5,6 +5,8 @@ import styles from './Table.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProfiles, fetch20Profiles } from '../redux/slices/profiles'
 
+import { AiOutlineInfoCircle } from "react-icons/ai";
+
 /*const columns = [
     {heading: 'id', value: 'id'},
     {heading: 'ФИО', value: 'FIO'},
@@ -99,9 +101,9 @@ export function ProfilesTable() {
         <>
             <div className={styles.DivWithSumInfo}>
                 <div className={styles.SumInfo}>Сотрудников: {countOfPersons}</div>
-                <div title='Индекс цитирования Google Scholar – это статистический инструмент для определения рейтинга ученых.' className={styles.SumInfo}>Суммарное цитирование: {sumOfCited}</div>
-                <div title='h-индекс равняется количеству h статей, процитированных как минимум h раз.' className={styles.SumInfo}>Суммарный h-индекс: {sumOfH}</div>
-                <div title='Индекс i-10 указывает на количество академических публикаций, написанных автором, которые цитировались по крайней мере в 10 источниках.' className={styles.SumInfo}>Суммарный i10-индекс: {sumOfI10}</div>
+                <div title='Индекс цитирования Google Scholar – это статистический инструмент для определения рейтинга ученых.' className={styles.SumInfo}><AiOutlineInfoCircle title='Индекс цитирования Google Scholar – это статистический инструмент для определения рейтинга ученых.' className={styles.IconInSum}/>Суммарное цитирование: {sumOfCited}</div>
+                <div title='h-индекс равняется количеству h статей, процитированных как минимум h раз.' className={styles.SumInfo}><AiOutlineInfoCircle title='h-индекс равняется количеству h статей, процитированных как минимум h раз.' className={styles.IconInSum}/>Суммарный h-индекс: {sumOfH}</div>
+                <div title='Индекс i-10 указывает на количество академических публикаций, написанных автором, которые цитировались по крайней мере в 10 источниках.' className={styles.SumInfo}><AiOutlineInfoCircle title='Индекс i-10 указывает на количество академических публикаций, написанных автором, которые цитировались по крайней мере в 10 источниках.' className={styles.IconInSum}/>Суммарный i10-индекс: {sumOfI10}</div>
             </div>
             <h3>Таблица по сотрудникам</h3>
             <div className={styles.TableWrapper}>
