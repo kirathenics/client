@@ -11,6 +11,7 @@ const tableColumns = [
     {heading: 'Количество сотрудников', value: 'amount'},
     {heading: 'Цитирование', value: 'cited'},  
     {heading: 'h-индекс', value: 'hIndex'},
+    {heading: 'Цитирование / h', value: 'hIndex'},
     {heading: 'h-индекс на сотрудника', value: 'hIndexPerWorker'},
     {heading: 'i10-индекс', value: 'i10Index'},
 ]
@@ -70,6 +71,7 @@ function TableRow(props) {
             <td>{props.item.amount}</td>
             <td>{props.item.cited}</td>
             <td>{props.item.hIndex}</td>
+            <td>{Math.round((props.item.cited/props.item.hIndex) * 1000) / 1000}</td>
             <td>{Math.round((props.item.hIndex/props.item.amount) * 1000) / 1000}</td>
             <td>{props.item.i10Index}</td>
         </tr>
