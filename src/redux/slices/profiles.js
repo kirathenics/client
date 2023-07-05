@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../axios'
+import { arrDepartments, arrFaculties, arrTitles } from "../../FacDepTitlesNames"
 
 export const fetchProfiles = createAsyncThunk('profiles/fetchProfiles', async () => {
     const { data } = await axios.get('/profiles')
@@ -28,6 +29,7 @@ const initialState = {
         status: 'loading',
         filtered: false,
         searched: 0,
+        citationSum: 0,
     },
     profilesHIndex: {
         items: [],
@@ -64,14 +66,24 @@ const profilesSlice = createSlice({
             }  
         },
         filterProfiles: (state, action) => {
-            if (action.payload.arrDepartments.length !== 0 ||
-                action.payload.arrFaculties.length !== 0 ||
-                action.payload.arrTitles.length !== 0) {
+            if (action.payload.arrDepartments.length === 0 &&
+                action.payload.arrFaculties.length === 0 &&
+                action.payload.arrTitles.length === 0) {
+
+                if (action.payload.arrDepartments.length === 0) action.payload.arrDepartments = arrDepartments.map(object => {
+                    return object.name
+                })
+                if (action.payload.arrFaculties.length === 0) action.payload.arrFaculties = arrFaculties.map(object => {
+                    return object.name
+                })
+                if (action.payload.arrTitles.length === 0) action.payload.arrTitles = arrTitles.map(object => {
+                    return object.name
+                })
                 state.profiles.filtered = true
                 state.profiles.changedItems = state.profiles.items.filter(item => {
-                    return action.payload.arrDepartments.some(department => item.department === department) ||
-                            action.payload.arrFaculties.some(faculty => item.faculty === faculty) ||
-                            action.payload.arrTitles.some(title => item.title === title)
+                    return action.payload.arrDepartments.some(department => item.department === department) &&
+                            action.payload.arrFaculties.some(faculty => item.faculty === faculty) &&
+                            action.payload.arrTitles.some(title => item.title === title)  
                 })
             }
             else {
@@ -99,6 +111,7 @@ const profilesSlice = createSlice({
             state.profiles.items = action.payload
             state.profiles.status = 'loaded'
             state.profiles.filtered = false
+            for (let index = 0; index < state.profiles.items.length; index++) state.profiles.citationSum += state.profiles.items[index].cited
         },
         [fetchProfiles.rejected]: (state) => {
             state.profiles.items = []
