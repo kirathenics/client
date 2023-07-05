@@ -1,0 +1,173 @@
+.ForSwitch{
+    position: relative;
+    /* display: flex;
+    flex-direction: row;
+    align-items:center;
+    align-content:center;
+    justify-content: center; */
+    width: 86%;
+    margin-left: 7%;
+    height: 150px;
+    /* border: 1px solid black; */
+    margin-top: 15px;
+}
+
+.ForSwitch h3{
+    margin-top: 10px;
+    
+}
+
+
+
+.SwitchItem1{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 62%;
+    transform: translateY(-50%);
+    height: 100px;
+    width: 33%;
+   border: 1px solid rgb(172, 172, 172);  
+   transition: box-shadow 0.3s ease;
+   cursor:pointer;
+   background-color:white;
+   z-index: 1;
+}
+.SwitchItem1:hover{
+    -webkit-box-shadow: 0px 6px 7px -3px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 6px 7px -3px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 6px 7px -3px rgba(34, 60, 80, 0.6);
+    
+}
+.SwitchItem2{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 33%;
+   border: 1px solid rgb(172, 172, 172);
+   transition: box-shadow 0.3s ease;
+   cursor:pointer;
+   background-color:white;
+   z-index: 1;
+}
+.SwitchItem2:hover{
+    -webkit-box-shadow: 0px 6px 7px -3px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 6px 7px -3px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 6px 7px -3px rgba(34, 60, 80, 0.6);
+    
+}
+.SwitchItem3{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 62%;
+    right: 0;
+    transform: translateY(-50%);
+    height: 100px;
+    width: 33%;
+   border: 1px solid rgb(172, 172, 172);
+   transition: box-shadow 0.3s ease;
+   cursor:pointer;
+   background-color:white;
+   z-index: 1;
+}
+.SwitchItem3:hover{
+    -webkit-box-shadow: 0px 6px 7px -3px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 6px 7px -3px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 6px 7px -3px rgba(34, 60, 80, 0.6);
+    
+}
+
+#Pressed{
+    height: 120px;
+    width: 36%;
+    z-index: 2;
+    transition: height 0.3s ease;
+}
+.SwitchItem1#Pressed{
+    /* height: 120px;
+    width: 36%;
+    z-index: 2; */
+    left: -2%;
+}
+.SwitchItem3#Pressed{
+    /* height: 120px;
+    width: 36%;
+    z-index: 2; */
+    right: -2%;
+}
+
+.SwitchItem1 img{
+    height: 93%;
+    width: auto;
+}
+.SwitchItem2 img{
+    height: 100%;
+    width: auto;
+}
+.SwitchItem3 img{
+    height: 100%;
+    width: auto;
+}
+
+@media (max-width: 1365px) {
+    .SwitchItem1{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        height: 80px; 
+    }
+    .SwitchItem2{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        height: 80px; 
+    }
+    .SwitchItem3{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        height: 80px; 
+    }
+    #Pressed{
+        height: 95px;
+        width: 36%;
+        z-index: 2;
+        transition: height 0.3s ease;
+    }
+}
+
+@media (max-width: 1105px) {
+    .ForSwitch{
+        height: 120px;
+    }
+    .SwitchItem1{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        height: 60px;        
+    }
+    .SwitchItem2{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        height: 60px;  
+    }
+    .SwitchItem3{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        height: 60px;  
+    }
+    #Pressed{
+        height: 70px;
+        width: 36%;
+        z-index: 2;
+        transition: height 0.3s ease;
+    }
+}

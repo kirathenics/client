@@ -12,9 +12,10 @@ import { DepartmentsTable } from './tables/DepartmentsTable'
 import { FilSort } from './FilterSort/FilterSort'
 import { GraphApp } from './graphs/GraphApp'
 //import styles1 from './Top3-item/Top3-item.module.css'
-
+import { TablesSwitch } from './TablesSwitch/TablesSwitch'
 import { VscTable } from "react-icons/vsc";
 import { AiOutlineLineChart } from "react-icons/ai";
+
 
 function App() {
   const [isOpen, setIsPressed] = useState(false)
@@ -37,7 +38,7 @@ function App() {
       <Top3Profiles styles={styles} />
       <Search/>
       <FilSort/>
-      
+      <TablesSwitch/>
       <ProfilesTable/>
       <FacultiesTable/>
       <DepartmentsTable/>
