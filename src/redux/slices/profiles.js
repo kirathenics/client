@@ -66,9 +66,9 @@ const profilesSlice = createSlice({
             }  
         },
         filterProfiles: (state, action) => {
-            if (action.payload.arrDepartments.length === 0 &&
-                action.payload.arrFaculties.length === 0 &&
-                action.payload.arrTitles.length === 0) {
+            if (action.payload.arrDepartments.length !== 0 ||
+                action.payload.arrFaculties.length !== 0 ||
+                action.payload.arrTitles.length !== 0) {
 
                 if (action.payload.arrDepartments.length === 0) action.payload.arrDepartments = arrDepartments.map(object => {
                     return object.name
