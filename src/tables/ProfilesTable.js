@@ -76,26 +76,29 @@ export function ProfilesTable() {
     const [countOfPersons, setCountOfPersons]=useState(0)
     const [sumOfCited, setSumOfCited] = useState(0)
     const [sumOfH, setSumOfH] = useState(0)
-    const [sumOfI10, setSumOfI10] = useState(0)
+    const [percentC, setPercentC] = useState(0)
 
     useEffect(()=>{
         const newCount = profiles.items.length;
         setCountOfPersons(newCount);
 
+        console.log(profiles.citationSum)
         let newSumCited = 0;
         profiles.items.forEach((obj) => {
         newSumCited += obj.cited;});
         setSumOfCited(newSumCited);
-
+        
         let newSumH = 0;
         profiles.items.forEach((obj) => {
         newSumH += obj.hIndex;});
         setSumOfH(newSumH);
 
-        let newSumI10 = 0;
-        profiles.items.forEach((obj) => {
-        newSumI10 += obj.i10Index;});
-        setSumOfI10(newSumI10);
+        // let newSumI10 = 0;
+        // profiles.items.forEach((obj) => {
+        // newSumI10 += obj.i10Index;});
+        // setSumOfI10(newSumI10);
+        
+        setPercentC(Math.round((newSumCited/profiles.citationSum * 100) * 100) / 100)
 
     },[profiles])
 
@@ -107,7 +110,7 @@ export function ProfilesTable() {
                 <div className={styles.SumInfo}>Сотрудников: {countOfPersons}</div>
                 <div title='Индекс цитирования Google Scholar – это статистический инструмент для определения рейтинга ученых.' className={styles.SumInfo}><AiOutlineInfoCircle title='Индекс цитирования Google Scholar – это статистический инструмент для определения рейтинга ученых.' className={styles.IconInSum}/>Суммарное цитирование: {sumOfCited}</div>
                 <div title='h-индекс равняется количеству h статей, процитированных как минимум h раз.' className={styles.SumInfo}><AiOutlineInfoCircle title='h-индекс равняется количеству h статей, процитированных как минимум h раз.' className={styles.IconInSum}/>Суммарный h-индекс: {sumOfH}</div>
-                <div title='Индекс i-10 указывает на количество академических публикаций, написанных автором, которые цитировались по крайней мере в 10 источниках.' className={styles.SumInfo}><AiOutlineInfoCircle title='Индекс i-10 указывает на количество академических публикаций, написанных автором, которые цитировались по крайней мере в 10 источниках.' className={styles.IconInSum}/>Суммарный i10-индекс: {sumOfI10}</div>
+                <div title='Индекс i-10 указывает на количество академических публикаций, написанных автором, которые цитировались по крайней мере в 10 источниках.' className={styles.SumInfo}><AiOutlineInfoCircle title='Индекс i-10 указывает на количество академических публикаций, написанных автором, которые цитировались по крайней мере в 10 источниках.' className={styles.IconInSum}/>Суммарный i10-индекс: {percentC}%</div>
             </div>
             <h3>Таблица по сотрудникам</h3>
             <div className={styles.TableWrapper}>
