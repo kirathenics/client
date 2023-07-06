@@ -79,17 +79,20 @@ export function ProfilesTable() {
     const [percentC, setPercentC] = useState(0)
 
     useEffect(()=>{
-        const newCount = profiles.items.length;
+        // const newCount = profiles.items.length;
+        const newCount = (profiles.filtered ? profiles.changedItems : profiles.items).length;
         setCountOfPersons(newCount);
 
         console.log(profiles.citationSum)
         let newSumCited = 0;
-        profiles.items.forEach((obj) => {
+        (profiles.filtered ? profiles.changedItems : profiles.items).forEach((obj) => {
+        // profiles.items.forEach((obj) => {
         newSumCited += obj.cited;});
         setSumOfCited(newSumCited);
         
         let newSumH = 0;
-        profiles.items.forEach((obj) => {
+        (profiles.filtered ? profiles.changedItems : profiles.items).forEach((obj) => {
+        // profiles.items.forEach((obj) => {
         newSumH += obj.hIndex;});
         setSumOfH(newSumH);
 
